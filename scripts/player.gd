@@ -9,6 +9,7 @@ enum State {
 
 @export_category("Stats")
 @export var speed: int = 400
+@export var attack_speed: float = 0.6
 
 var state: State = State.IDLE
 var move_direction: Vector2 = Vector2.ZERO
@@ -19,8 +20,13 @@ var move_direction: Vector2 = Vector2.ZERO
 func _ready() -> void:
 	animation_tree.active = true
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		attack()
+
 func _physics_process(delta: float) -> void:
-	movement_loop(delta)
+	if not state == State.ATTACK:
+		movement_loop(delta)
 
 func movement_loop(delta: float) -> void:
 	move_direction = Input.get_vector("left", "right", "up", "down")
@@ -29,9 +35,9 @@ func movement_loop(delta: float) -> void:
 	move_and_slide()
 	
 	if state == State.IDLE or state == State.RUN:
-		if Input.is_action_just_pressed("left"):
+		if Input.is_action_pressed("left"):
 			$Sprite2D.flip_h = true
-		elif Input.is_action_just_pressed("right"):
+		elif Input.is_action_pressed("right"):
 			$Sprite2D.flip_h = false
 	
 	if move_direction != Vector2.ZERO and state == State.IDLE:
@@ -49,3 +55,21 @@ func update_animation() -> void:
 			animation_playback.travel("run")
 		State.ATTACK:
 			animation_playback.travel("attack")
+
+func attack() -> void:
+	if state == State.ATTACK:
+		return
+		
+	state = State.ATTACK
+	
+	var mouse_pos: Vector2 = get_global_mouse_position()
+	var attack_dir: Vector2 = (mouse_pos - global_position).normalized()
+	animation_tree.set("parameters/attack/BlendSpace2D/blend_position", attack_dir)
+	if attack_dir.x < 0:
+		$Sprite2D.flip_h = true
+	else:
+		$Sprite2D.flip_h = false
+	update_animation()
+	
+	await get_tree().create_timer(attack_speed).timeout
+	state = State.IDLE
