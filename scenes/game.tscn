@@ -1,13 +1,10 @@
 [gd_scene format=3 uid="uid://bi0icrdvirch3"]
 
-[ext_resource type="Texture2D" uid="uid://cy03e6sjlsm7u" path="res://resources/sprites/map.png" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://dfgosyysdlnih" path="res://scenes/testmap.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://d13trbrdclm8t" path="res://scenes/player.tscn" id="2_yqjtg"]
 
 [node name="Game" type="Node2D" unique_id=131479963]
 
-[node name="Map" type="Node2D" parent="." unique_id=278042632]
+[node name="Testmap" parent="." unique_id=1198871411 instance=ExtResource("1_yqjtg")]
 
-[node name="bg" type="Sprite2D" parent="Map" unique_id=1435365550]
-texture = ExtResource("1_uwrxv")
-
-[node name="Player" parent="Map/bg" unique_id=1824872444 instance=ExtResource("2_yqjtg")]
+[node name="Player" parent="." unique_id=1824872444 instance=ExtResource("2_yqjtg")]

@@ -65,10 +65,7 @@ func attack() -> void:
 	var mouse_pos: Vector2 = get_global_mouse_position()
 	var attack_dir: Vector2 = (mouse_pos - global_position).normalized()
 	animation_tree.set("parameters/attack/BlendSpace2D/blend_position", attack_dir)
-	if attack_dir.x < 0:
-		$Sprite2D.flip_h = true
-	else:
-		$Sprite2D.flip_h = false
+	$Sprite2D.flip_h = attack_dir.x < 0 and abs(attack_dir.x) >= abs(attack_dir.y)
 	update_animation()
 	
 	await get_tree().create_timer(attack_speed).timeout
