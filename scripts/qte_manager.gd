@@ -9,6 +9,7 @@ func update_prompt_list():
 	if not letter_prompt_dict.is_empty():
 		for prompt in letter_prompt_dict:
 			letter_prompt_dict[prompt].show()
+
 	letter_prompt_dict.clear()
 	var letter_pick_list: Array = letters.duplicate_deep()
 	for i in qte_ui.key_icon_list:
@@ -17,7 +18,7 @@ func update_prompt_list():
 		letter_prompt_dict[letter_prompt] = i
 		letter_pick_list.erase(letter_prompt.to_lower())
 	
-	print(letter_prompt_dict)
+	#print(letter_prompt_dict)
 
 func _ready() -> void:
 	update_prompt_list()
@@ -30,6 +31,6 @@ func _input(event: InputEvent) -> void:
 
 func _physics_process(_delta: float) -> void:
 	if success_count >= 3:
-		print("success")
+		#print("success")
 		success_count = 0
 		update_prompt_list()
