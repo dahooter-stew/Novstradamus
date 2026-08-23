@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://blvco30iodci7"]
 
-[ext_resource type="Texture2D" uid="uid://d0tk4uomjdwgd" path="res://resources/sprites/Blank_White_Normal.png" id="1_kq0m0"]
-[ext_resource type="Script" uid="uid://1a07aca8gxsu" path="res://qte_ui.gd" id="1_ktl5t"]
+[ext_resource type="Script" uid="uid://1a07aca8gxsu" path="res://scripts/qte_ui.gd" id="1_qk5hg"]
+[ext_resource type="Texture2D" uid="uid://d0tk4uomjdwgd" path="res://resources/sprites/Blank_White_Normal.png" id="2_67yp2"]
 
 [node name="QTE UI" type="Control" unique_id=665858185]
 layout_mode = 3
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ktl5t")
+script = ExtResource("1_qk5hg")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1005263386]
 layout_mode = 1
@@ -40,7 +40,7 @@ theme_override_constants/separation = 50
 texture_filter = 2
 layout_mode = 2
 size_flags_vertical = 4
-texture = ExtResource("1_kq0m0")
+texture = ExtResource("2_67yp2")
 stretch_mode = 5
 
 [node name="KeyIconLabel" type="Label" parent="HBoxContainer/KeyIcon1" unique_id=563888745]
@@ -64,7 +64,7 @@ vertical_alignment = 1
 texture_filter = 2
 layout_mode = 2
 size_flags_vertical = 4
-texture = ExtResource("1_kq0m0")
+texture = ExtResource("2_67yp2")
 stretch_mode = 5
 
 [node name="KeyIconLabel" type="Label" parent="HBoxContainer/KeyIcon2" unique_id=40829570]
@@ -88,7 +88,7 @@ vertical_alignment = 1
 texture_filter = 2
 layout_mode = 2
 size_flags_vertical = 4
-texture = ExtResource("1_kq0m0")
+texture = ExtResource("2_67yp2")
 stretch_mode = 5
 
 [node name="KeyIconLabel" type="Label" parent="HBoxContainer/KeyIcon3" unique_id=2102360784]

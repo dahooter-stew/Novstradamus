@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dw0cb75vxpkiq"]
+
+[ext_resource type="PackedScene" uid="uid://blvco30iodci7" path="res://scenes/qte_ui.tscn" id="1_0xvy3"]
+[ext_resource type="Script" uid="uid://pl3busl30wu4" path="res://scripts/qte_manager.gd" id="1_yxu2m"]
+
+[node name="QTE Manager" type="Node2D" unique_id=162154269]
+script = ExtResource("1_yxu2m")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1925401500]
+
+[node name="QTE UI" parent="CanvasLayer" unique_id=665858185 instance=ExtResource("1_0xvy3")]
