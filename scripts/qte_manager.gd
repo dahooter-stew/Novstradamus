@@ -5,6 +5,7 @@ extends Node2D
 @onready var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 @onready var letter_prompt_dict: Dictionary
 @onready var success_count: int = 0
+@onready var is_active: bool = false
 
 signal qte_succeeded
 signal qte_failed
@@ -24,11 +25,23 @@ func update_prompt_list():
 	
 	#print(letter_prompt_dict)
 
-func _ready() -> void:
+func start_qte():
+	is_active = true
+	qte_ui.show()
 	update_prompt_list()
 	timer.start()
 
+func stop_qte():
+	is_active = false
+	qte_ui.hide()
+	timer.stop()
+
+func _ready() -> void:
+	qte_ui.hide()
+
 func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("space"):
+		start_qte()
 	if event is InputEventKey and event.is_pressed():
 		if letter_prompt_dict.has(event.as_text()):
 			letter_prompt_dict[event.as_text()].hide()
@@ -38,11 +51,14 @@ func _process(_delta: float) -> void:
 	qte_ui.progress_bar.value = (timer.get_time_left() / timer.wait_time) * 100
 
 func _physics_process(_delta: float) -> void:
-	if timer.is_stopped():
-		qte_failed.emit()
-	else:
-		success_count >= 3
-		#print("success")
-		success_count = 0
-		#update_prompt_list()
-		#timer.start()
+	if is_active:
+		if timer.is_stopped():
+			qte_failed.emit()
+			print("fail")
+			stop_qte()
+		else:
+			if success_count >= 3:
+				#qte_succeeded.emit()
+				print("success")
+				success_count = 0
+				stop_qte()
