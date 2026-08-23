@@ -1,11 +1,5 @@
 extends Control
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+@onready var key_icon_1: TextureRect = $HBoxContainer/KeyIcon1
+@onready var key_icon_2: TextureRect = $HBoxContainer/KeyIcon2
+@onready var key_icon_3: TextureRect = $HBoxContainer/KeyIcon3
