@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://blvco30iodci7"]
 
+[ext_resource type="Texture2D" uid="uid://d0tk4uomjdwgd" path="res://resources/sprites/Blank_White_Normal.png" id="1_kq0m0"]
+
 [node name="QTE UI" type="Control" unique_id=665858185]
 layout_mode = 3
 anchors_preset = 15
@@ -9,12 +11,25 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1018324507]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=1945959971]
+texture_filter = 2
 layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("1_kq0m0")
+stretch_mode = 5
 
 [node name="Label" type="Label" parent="HBoxContainer/TextureRect" unique_id=563888745]
 layout_mode = 0
