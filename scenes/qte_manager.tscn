@@ -12,5 +12,5 @@ script = ExtResource("1_yxu2m")
 metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Timer" parent="." unique_id=1876630128]
-wait_time = 3.0
+wait_time = 2.0
 one_shot = true

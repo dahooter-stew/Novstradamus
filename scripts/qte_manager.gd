@@ -11,8 +11,11 @@ signal qte_succeeded
 signal qte_failed
 
 func update_prompt_list():
-	if not letter_prompt_dict.is_empty():
-		for prompt in letter_prompt_dict:
+	#if not letter_prompt_dict.is_empty():
+		#for prompt in letter_prompt_dict:
+			#letter_prompt_dict[prompt].show()
+	
+	for prompt in letter_prompt_dict:
 			letter_prompt_dict[prompt].show()
 
 	letter_prompt_dict.clear()
@@ -26,9 +29,9 @@ func update_prompt_list():
 	#print(letter_prompt_dict)
 
 func start_qte():
+	update_prompt_list()
 	is_active = true
 	qte_ui.show()
-	update_prompt_list()
 	timer.start()
 
 func stop_qte():
@@ -43,13 +46,14 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("space") and not is_active:
 		start_qte()
 
-	if event is InputEventKey and event.is_pressed():
+	if is_active and event is InputEventKey and event.is_pressed():
 		if letter_prompt_dict.has(event.as_text()):
 			letter_prompt_dict[event.as_text()].hide()
 			success_count += 1
 
 func _process(_delta: float) -> void:
 	qte_ui.progress_bar.value = (timer.get_time_left() / timer.wait_time) * 100
+	#print((timer.get_time_left() / timer.wait_time) * 100)
 
 func _physics_process(_delta: float) -> void:
 	if is_active:
