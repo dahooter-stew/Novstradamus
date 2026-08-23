@@ -10,6 +10,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1005263386]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1018324507]
 layout_mode = 1
 anchors_preset = 8
@@ -23,15 +31,76 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 50
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=1945959971]
+[node name="KeyIcon1" type="TextureRect" parent="HBoxContainer" unique_id=1945959971]
 texture_filter = 2
 layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("1_kq0m0")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="HBoxContainer/TextureRect" unique_id=563888745]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="KeyIconLabel" type="Label" parent="HBoxContainer/KeyIcon1" unique_id=563888745]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 45
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KeyIcon2" type="TextureRect" parent="HBoxContainer" unique_id=9220840]
+texture_filter = 2
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("1_kq0m0")
+stretch_mode = 5
+
+[node name="KeyIconLabel" type="Label" parent="HBoxContainer/KeyIcon2" unique_id=40829570]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 45
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KeyIcon3" type="TextureRect" parent="HBoxContainer" unique_id=1574824224]
+texture_filter = 2
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("1_kq0m0")
+stretch_mode = 5
+
+[node name="KeyIconLabel" type="Label" parent="HBoxContainer/KeyIcon3" unique_id=2102360784]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 45
+horizontal_alignment = 1
+vertical_alignment = 1
