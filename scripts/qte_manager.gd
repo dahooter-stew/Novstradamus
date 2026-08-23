@@ -16,6 +16,14 @@ func update_prompt_list():
 		i.get_node("KeyIconLabel").text = letter_prompt
 		letter_prompt_dict[letter_prompt] = i
 		letter_pick_list.erase(letter_prompt.to_lower())
+	
+	print(letter_prompt_dict)
 
 func _ready() -> void:
 	update_prompt_list()
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.is_pressed():
+		if letter_prompt_dict.has(event.as_text()):
+			letter_prompt_dict[event.as_text()].hide()
+			success_count += 1
