@@ -6,6 +6,9 @@ extends Node2D
 @onready var letter_prompt_dict: Dictionary
 @onready var success_count: int = 0
 
+signal qte_succeeded
+signal qte_failed
+
 func update_prompt_list():
 	if not letter_prompt_dict.is_empty():
 		for prompt in letter_prompt_dict:
@@ -31,13 +34,15 @@ func _input(event: InputEvent) -> void:
 			letter_prompt_dict[event.as_text()].hide()
 			success_count += 1
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	qte_ui.progress_bar.value = (timer.get_time_left() / timer.wait_time) * 100
-	#print(timer.get_time_left())
 
 func _physics_process(_delta: float) -> void:
-	if success_count >= 3:
+	if timer.is_stopped():
+		qte_failed.emit()
+	else:
+		success_count >= 3
 		#print("success")
 		success_count = 0
-		update_prompt_list()
-		timer.start()
+		#update_prompt_list()
+		#timer.start()
