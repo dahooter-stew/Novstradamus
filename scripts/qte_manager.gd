@@ -1,11 +1,21 @@
 extends Node2D
 
+@onready var qte_ui: Control = $"CanvasLayer/QTE UI"
+@onready var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+@onready var letter_prompt_dict: Dictionary
+@onready var success_count: int = 0
 
-# Called when the node enters the scene tree for the first time.
+func update_prompt_list():
+	if not letter_prompt_dict.is_empty():
+		for prompt in letter_prompt_dict:
+			letter_prompt_dict[prompt].get_parent().show()
+	letter_prompt_dict.clear()
+	var letter_pick_list: Array = letters.duplicate_deep()
+	for i in qte_ui.key_icon_list:
+		var letter_prompt = letter_pick_list.pick_random().to_upper()
+		i.get_node("KeyIconLabel").text = letter_prompt
+		letter_prompt_dict[letter_prompt] = i
+		letter_pick_list.erase(letter_prompt.to_lower())
+
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	update_prompt_list()

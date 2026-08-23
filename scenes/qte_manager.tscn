@@ -9,3 +9,4 @@ script = ExtResource("1_yxu2m")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1925401500]
 
 [node name="QTE UI" parent="CanvasLayer" unique_id=665858185 instance=ExtResource("1_0xvy3")]
+metadata/_edit_use_anchors_ = true
