@@ -23,6 +23,7 @@ func update_prompt_list():
 
 func _ready() -> void:
 	update_prompt_list()
+	timer.start()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.is_pressed():
@@ -30,8 +31,13 @@ func _input(event: InputEvent) -> void:
 			letter_prompt_dict[event.as_text()].hide()
 			success_count += 1
 
+func _process(delta: float) -> void:
+	qte_ui.progress_bar.value = (timer.get_time_left() / timer.wait_time) * 100
+	#print(timer.get_time_left())
+
 func _physics_process(_delta: float) -> void:
 	if success_count >= 3:
 		#print("success")
 		success_count = 0
 		update_prompt_list()
+		timer.start()
