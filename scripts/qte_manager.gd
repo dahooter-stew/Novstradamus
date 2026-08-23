@@ -40,8 +40,9 @@ func _ready() -> void:
 	qte_ui.hide()
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("space"):
+	if event.is_action_pressed("space") and not is_active:
 		start_qte()
+
 	if event is InputEventKey and event.is_pressed():
 		if letter_prompt_dict.has(event.as_text()):
 			letter_prompt_dict[event.as_text()].hide()
