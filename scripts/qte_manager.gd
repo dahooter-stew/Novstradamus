@@ -41,14 +41,14 @@ func _ready() -> void:
 	qte_ui.hide()
 	
 func _input(event: InputEvent) -> void:
-	if not is_active:
-		if event.is_action_pressed("space"):
-			start_qte()
-			print("started qte")
-	else:
-		if event.is_action_pressed("space"):
-			stop_qte()
-			print("cancelled qte")
+	#if not is_active:
+		#if event.is_action_pressed("space"):
+			#start_qte()
+			#print("started qte")
+	#else:
+		#if event.is_action_pressed("space"):
+			#stop_qte()
+			#print("cancelled qte")
 
 	if is_active and event is InputEventKey and event.is_pressed():
 		if letter_prompt_dict.has(event.as_text()):
@@ -73,4 +73,10 @@ func _physics_process(_delta: float) -> void:
 				stop_qte()
 
 func on_toggle_qte():
-	pass
+	if not is_active:
+		start_qte()
+		print("started qte")
+	else:
+		stop_qte()
+		print("cancelled qte")
+	#print("toggled qte")

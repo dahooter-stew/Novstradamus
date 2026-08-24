@@ -59,7 +59,7 @@ func _input(event: InputEvent) -> void:
 		#print(input_queue)
 		#print(last_dir_pressed)
 	
-	if Input.is_action_just_pressed("space"):
+	if Input.is_action_just_pressed("space") and detection_manager.can_takedown:
 		toggle_qte.emit()
 
 func _physics_process(delta: float) -> void:
