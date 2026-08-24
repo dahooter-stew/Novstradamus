@@ -23,6 +23,9 @@ animations = [{
 radius = 9.0
 height = 20.0
 
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_k11hu"]
+points = PackedVector2Array(40, 20, 20, 40, 0, 0)
+
 [node name="Guard" type="CharacterBody2D" unique_id=1339874387]
 script = ExtResource("1_ci2qi")
 
@@ -81,7 +84,20 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PlayerDetectionArea" type="Area2D" parent="." unique_id=1882423986]
+collision_layer = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerDetectionArea" unique_id=820371978]
-rotation = -0.78365284
-polygon = PackedVector2Array(30, 17, 17, 30, 0, 0)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionArea" unique_id=1646427570]
+rotation = -0.7853982
+shape = SubResource("ConvexPolygonShape2D_k11hu")
+
+[node name="Exclamation" type="Label" parent="." unique_id=1385588986]
+visible = false
+offset_left = -25.0
+offset_top = -42.0
+offset_right = 15.0
+offset_bottom = -19.0
+scale = Vector2(1.2916726, 1.2916726)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "!"
+horizontal_alignment = 1
+vertical_alignment = 1

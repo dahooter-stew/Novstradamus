@@ -22,7 +22,7 @@ position = Vector2(269, -181)
 scale = Vector2(3.147, 3.147)
 
 [node name="Guard2" parent="." unique_id=1528014308 instance=ExtResource("4_lbhrr")]
-position = Vector2(197, -181)
+position = Vector2(41, -192)
 scale = Vector2(3.147, 3.147)
 
 [node name="Guard3" parent="." unique_id=1039903100 instance=ExtResource("4_lbhrr")]

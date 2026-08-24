@@ -36,7 +36,7 @@ func on_guard_detected(guard):
 		#print(guard.name + " detected")
 		can_takedown = true
 		detected_guard_list.append(guard)
-		update_guard_attacking(guard)
+		update_guard_attacking()
 
 func on_guard_undetected(guard):
 	if guard is Guard:
@@ -45,6 +45,6 @@ func on_guard_undetected(guard):
 		detected_guard_list.erase(guard)
 		guard.takedown_prompt.hide()
 
-func update_guard_attacking(guard):
+func update_guard_attacking():
 	guard_attacking = detected_guard_list[0]
 	guard_attacking.takedown_prompt.show()
