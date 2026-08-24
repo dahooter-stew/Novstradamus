@@ -11,6 +11,7 @@ enum State {
 @onready var takedown_prompt: Control = $TakedownPrompt
 @onready var body_collision_shape: CollisionShape2D = $BodyCollisionShape
 @onready var player_detection_area: Area2D = $PlayerDetectionArea
+@onready var player_detection_collision_shape: CollisionShape2D = $PlayerDetectionArea/PlayerDetectionCollisionShape
 @onready var exclamation: Label = $Exclamation
 @onready var state: State = State.ACTIVE
 
@@ -26,6 +27,9 @@ func inactive():
 	state = State.INACTIVE
 	
 	body_collision_shape.disabled = true
+	player_detection_collision_shape.disabled = true
+	
+	player_detection_area.hide()
 
 func active():
 	if state == State.ACTIVE:
@@ -33,7 +37,10 @@ func active():
 	state = State.ACTIVE
 	
 	body_collision_shape.disabled = false
-
+	player_detection_collision_shape.disabled = false
+	
+	player_detection_area.show()
+	
 func on_player_detected(player):
 	if player is Player:
 		exclamation.show()
