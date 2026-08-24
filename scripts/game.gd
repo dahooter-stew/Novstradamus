@@ -24,7 +24,8 @@ func on_qte_failed():
 func on_qte_activated():
 	print("qte activated")
 	player.attack()
-
+	player.detection_manager.guard_attacking.takedown_prompt.hide()
+	
 func on_qte_deactivated():
 	print("qte deactivated")
 	await get_tree().create_timer(0.1).timeout

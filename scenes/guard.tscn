@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b8ehnkf1wai14"]
+[gd_scene format=3 uid="uid://beobhg8bx7rkc"]
 
 [ext_resource type="Script" uid="uid://c15p5r8qn6wkp" path="res://scripts/guard.gd" id="1_ci2qi"]
 [ext_resource type="Texture2D" uid="uid://o3wu7xvhhlao" path="res://resources/sprites/enemies/guard_proto.png" id="1_m4fl1"]
