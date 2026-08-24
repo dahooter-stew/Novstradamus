@@ -30,7 +30,7 @@ func _input(event: InputEvent) -> void:
 	
 	if event is InputEventKey and dir_keys.has(event.as_text()):
 		last_dir_pressed = event.as_text()
-		
+		#print(last_dir_pressed)
 
 func _physics_process(delta: float) -> void:
 	if not state == State.ATTACK:
