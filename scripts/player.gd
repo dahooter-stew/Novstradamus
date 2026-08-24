@@ -13,7 +13,6 @@ enum State {
 @export var attack_speed: float = 0.6
 @export var detection_manager: DetectionManager
 
-var state: State = State.IDLE
 var move_direction: Vector2 = Vector2.ZERO
 var last_dir_pressed: String
 var input_queue: Array
@@ -21,6 +20,7 @@ var input_queue: Array
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var animation_playback: AnimationNodeStateMachinePlayback = $AnimationTree["parameters/playback"]
 @onready var state_label: Label = $State
+@onready var state: State = State.IDLE
 
 signal toggle_qte
 
@@ -30,25 +30,29 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	var dir_keys: Array = ["W", "A", "S", "D"]
 	
-	if event.is_action_pressed("up"):
-		input_queue.append("W")
-	if event.is_action_released("up"):
-		input_queue.erase("W")
-	
-	if event.is_action_pressed("left"):
-		input_queue.append("A")
-	if event.is_action_released("left"):
-		input_queue.erase("A")
-	
-	if event.is_action_pressed("down"):
-		input_queue.append("S")
-	if event.is_action_released("down"):
-		input_queue.erase("S")
-	
-	if event.is_action_pressed("right"):
-		input_queue.append("D")
-	if event.is_action_released("right"):
-		input_queue.erase("D")
+	if not state == State.DEAD and not state == State.ATTACK:
+		if event.is_action_pressed("up"):
+			input_queue.append("W")
+		if event.is_action_released("up"):
+			input_queue.erase("W")
+		
+		if event.is_action_pressed("left"):
+			input_queue.append("A")
+		if event.is_action_released("left"):
+			input_queue.erase("A")
+		
+		if event.is_action_pressed("down"):
+			input_queue.append("S")
+		if event.is_action_released("down"):
+			input_queue.erase("S")
+		
+		if event.is_action_pressed("right"):
+			input_queue.append("D")
+		if event.is_action_released("right"):
+			input_queue.erase("D")
+		
+		if Input.is_action_just_pressed("space") and detection_manager.can_takedown:
+			toggle_qte.emit()
 		
 	if event is InputEventKey and dir_keys.has(event.as_text()):
 		if input_queue:
@@ -56,22 +60,21 @@ func _input(event: InputEvent) -> void:
 		#print(input_queue)
 		#print(last_dir_pressed)
 	
-	if Input.is_action_just_pressed("space") and detection_manager.can_takedown:
-		toggle_qte.emit()
-	
 	#if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		#attack()
 
 func _physics_process(delta: float) -> void:
 	state_label.text = str(state)
 	
-	if not state == State.ATTACK:
+	if not state == State.DEAD and not state == State.ATTACK:
 		movement_loop(delta)
 
-func movement_loop(delta: float) -> void:
+	if state == State.DEAD:
+		detection_manager.detection_area
+
+func movement_loop(_delta: float) -> void:
 	move_direction = Input.get_vector("left", "right", "up", "down")
-	var velocity: Vector2 = move_direction.normalized() * speed
-	set_velocity(velocity)
+	velocity = move_direction.normalized() * speed
 	move_and_slide()
 	
 	if state == State.IDLE or state == State.RUN:
@@ -95,6 +98,8 @@ func update_animation() -> void:
 			animation_playback.travel("run")
 		State.ATTACK:
 			animation_playback.travel("attack")
+		State.DEAD:
+			animation_playback.travel("dead")
 
 func idle():
 	if state == State.IDLE:
@@ -105,7 +110,12 @@ func attack() -> void:
 	if state == State.ATTACK:
 		return
 	state = State.ATTACK
-	
+
+func dead():
+	if state == State.DEAD:
+		return
+	state = State.DEAD
+
 	#var mouse_pos: Vector2 = get_global_mouse_position()
 	#var attack_dir: Vector2 = (mouse_pos - global_position).normalized()
 	#animation_tree.set("parameters/attack/BlendSpace2D/blend_position", attack_dir)

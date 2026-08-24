@@ -22,6 +22,7 @@ func on_qte_succeeded():
 func on_qte_failed():
 	print("qte failed")
 	menus_manager.fail_screen.show()
+	player.dead()
 
 func on_qte_activated():
 	print("qte activated")

@@ -36,7 +36,6 @@ func start_qte():
 	timer.start()
 
 func stop_qte():
-	qte_deactivated.emit()
 	success_count = 0
 	is_active = false
 	qte_ui.hide()
@@ -46,18 +45,6 @@ func _ready() -> void:
 	qte_ui.hide()
 	
 func _input(event: InputEvent) -> void:
-	#if not is_active:
-		#if event.is_action_pressed("space"):
-			#start_qte()
-			#print("started qte")
-	#else:
-		#if event.is_action_pressed("space"):
-			#stop_qte()
-			#print("cancelled qte")
-
-	#if event is InputEventKey:
-		#print(event.as_text())
-
 	if is_active and event is InputEventKey and event.is_pressed():
 		if letter_prompt_dict.has(event.as_text()):
 			letter_prompt_dict[event.as_text()].hide()
@@ -69,21 +56,24 @@ func _process(_delta: float) -> void:
 
 func _physics_process(_delta: float) -> void:
 	if is_active:
-		if timer.is_stopped():
-			qte_failed.emit()
+		if timer.is_stopped(): # Fail
 			#print("fail")
 			stop_qte()
-		else:
+			qte_failed.emit()
+			
+		else: # Win
 			if success_count == 3:
 				qte_succeeded.emit()
 				#print("success")
 				stop_qte()
+				qte_deactivated.emit()
 
 func on_toggle_qte():
-	if not is_active:
+	if not is_active: # Toggle on
 		start_qte()
 		#print("started qte")
-	else:
+	else:  # Toggle off
 		stop_qte()
+		qte_deactivated.emit()
 		#print("cancelled qte")
 	#print("toggled qte")

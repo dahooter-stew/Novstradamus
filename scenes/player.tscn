@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://d13trbrdclm8t"]
 
 [ext_resource type="Script" uid="uid://sjntl2ufudy2" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://dd14yvscw8gcd" path="res://resources/sprites/player/Warrior_Blue.png" id="2_g2els"]
 [ext_resource type="Script" uid="uid://cqh0qq7meas24" path="res://scripts/detection_area_manager.gd" id="3_qhqgy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ci2qi"]
@@ -73,6 +72,22 @@ tracks/0/keys = {
 "values": [36, 37, 38, 39, 40, 41]
 }
 
+[sub_resource type="Animation" id="Animation_smehm"]
+resource_name = "dead"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_g2els"]
 resource_name = "idle"
 length = 0.6
@@ -115,6 +130,7 @@ _data = {
 &"attack_down": SubResource("Animation_tuyoq"),
 &"attack_right": SubResource("Animation_qlg0r"),
 &"attack_up": SubResource("Animation_fjrip"),
+&"dead": SubResource("Animation_smehm"),
 &"idle": SubResource("Animation_g2els"),
 &"run": SubResource("Animation_dqkch")
 }
@@ -189,6 +205,9 @@ states/run/position = Vector2(423, 63)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_fjrip"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_smehm"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_ur7pv"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_g2els"), "run", "attack", SubResource("AnimationNodeStateMachineTransition_qhqgy"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_dqkch")]
 graph_offset = Vector2(-117, 11)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g2els"]
+load_path = "res://.godot/imported/Warrior_Blue.png-fe91b1b4a8fa1efc2e9419201f0a7d2c.ctex"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k11hu"]
 size = Vector2(67, 62)
 
@@ -218,7 +237,7 @@ parameters/attack/TimeScale/scale = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=340231094]
 position = Vector2(0, -32)
-texture = ExtResource("2_g2els")
+texture = SubResource("CompressedTexture2D_g2els")
 hframes = 6
 vframes = 8
 frame = 1
@@ -226,7 +245,7 @@ frame = 1
 [node name="DetectionAreaManager" type="Node2D" parent="." unique_id=1908590138 node_paths=PackedStringArray("player", "detection_area")]
 script = ExtResource("3_qhqgy")
 player = NodePath("..")
-detection_area = NodePath("../GuardDetectionBody")
+detection_area = NodePath("../GuardDetectionArea")
 
 [node name="RPos" type="Marker2D" parent="DetectionAreaManager" unique_id=542867148]
 position = Vector2(54, -28)
@@ -240,17 +259,16 @@ position = Vector2(0, 17)
 [node name="UPos" type="Marker2D" parent="DetectionAreaManager" unique_id=1745702091]
 position = Vector2(0, -87)
 
-[node name="GuardDetectionBody" type="Area2D" parent="." unique_id=349690715]
+[node name="GuardDetectionArea" type="Area2D" parent="." unique_id=349690715]
 position = Vector2(54, -36)
 collision_layer = 2
 
-[node name="GuardDetectionBody" type="CollisionShape2D" parent="GuardDetectionBody" unique_id=1026744672]
+[node name="GuardDetectionShape" type="CollisionShape2D" parent="GuardDetectionArea" unique_id=1026744672]
 shape = SubResource("RectangleShape2D_k11hu")
 
 [node name="State" type="Label" parent="." unique_id=812456435]
-visible = false
-offset_left = -28.000002
-offset_top = -142.0
-offset_right = 11.999998
-offset_bottom = -119.0
-scale = Vector2(1.4768262, 1.4768262)
+offset_left = -47.0
+offset_top = -228.0
+offset_right = -7.0
+offset_bottom = -205.0
+scale = Vector2(2.4208, 2.4208)
