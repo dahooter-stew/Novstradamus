@@ -1,4 +1,5 @@
 extends Node
+class_name MenusManager
 
 @onready var fail_screen: CanvasLayer = $"Fail Screen"
 
@@ -9,6 +10,8 @@ func _ready() -> void:
 
 func on_retry_pressed():
 	print("pressed retry")
+	fail_screen.hide()
 
 func on_quit_pressed():
 	print("pressed quit")
+	fail_screen.hide()

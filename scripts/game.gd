@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var player: Player = $Player
 @onready var qte_manager: Node2D = $"QTE Manager"
+@onready var menus_manager: Node = $"Menus Manager"
 
 var guard_list: Array
 
@@ -20,7 +21,7 @@ func on_qte_succeeded():
 
 func on_qte_failed():
 	print("qte failed")
-	
+	menus_manager
 
 func on_qte_activated():
 	print("qte activated")
