@@ -192,15 +192,17 @@ graph_offset = Vector2(-117, 11)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k11hu"]
 size = Vector2(67, 62)
 
-[node name="Player" type="CharacterBody2D" unique_id=1824872444]
+[node name="Player" type="CharacterBody2D" unique_id=1824872444 node_paths=PackedStringArray("detection_manager")]
 script = ExtResource("1_g2els")
 speed = 200
+detection_manager = NodePath("DetectionAreaManager")
 
 [node name="BodyCollisionShape" type="CollisionShape2D" parent="." unique_id=1799874114]
 position = Vector2(0, -22)
 shape = SubResource("CapsuleShape2D_ci2qi")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=419359626]
+zoom = Vector2(0.6, 0.6)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 

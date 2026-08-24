@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 enum State {
 	IDLE,
@@ -10,6 +11,7 @@ enum State {
 @export_category("Stats")
 @export var speed: int = 400
 @export var attack_speed: float = 0.6
+@export var detection_manager: DetectionManager
 
 var state: State = State.IDLE
 var move_direction: Vector2 = Vector2.ZERO
@@ -18,6 +20,8 @@ var input_queue: Array
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var animation_playback: AnimationNodeStateMachinePlayback = $AnimationTree["parameters/playback"]
+
+signal toggle_qte
 
 func _ready() -> void:
 	animation_tree.active = true
@@ -54,6 +58,9 @@ func _input(event: InputEvent) -> void:
 			last_dir_pressed = input_queue[-1]
 		#print(input_queue)
 		#print(last_dir_pressed)
+	
+	if Input.is_action_just_pressed("space"):
+		toggle_qte.emit()
 
 func _physics_process(delta: float) -> void:
 	if not state == State.ATTACK:

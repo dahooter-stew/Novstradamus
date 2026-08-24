@@ -7,14 +7,12 @@ extends Node2D
 @onready var success_count: int = 0
 @onready var is_active: bool = false
 
+var player: CharacterBody2D
+
 signal qte_succeeded
 signal qte_failed
 
 func update_prompt_list():
-	#if not letter_prompt_dict.is_empty():
-		#for prompt in letter_prompt_dict:
-			#letter_prompt_dict[prompt].show()
-	
 	for prompt in letter_prompt_dict:
 			letter_prompt_dict[prompt].show()
 
@@ -41,7 +39,7 @@ func stop_qte():
 
 func _ready() -> void:
 	qte_ui.hide()
-
+	
 func _input(event: InputEvent) -> void:
 	if not is_active:
 		if event.is_action_pressed("space"):
@@ -73,3 +71,6 @@ func _physics_process(_delta: float) -> void:
 				print("success")
 				success_count = 0
 				stop_qte()
+
+func on_toggle_qte():
+	pass

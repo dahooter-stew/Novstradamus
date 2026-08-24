@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://bi0icrdvirch3"]
 
+[ext_resource type="Script" uid="uid://bmlihd0hjc3to" path="res://scenes/game.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://dfgosyysdlnih" path="res://scenes/testmap.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://d13trbrdclm8t" path="res://scenes/player.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://bcdancodqu5qy" path="res://scenes/qte_manager.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://b8ehnkf1wai14" path="res://scenes/guard.tscn" id="4_lbhrr"]
 
 [node name="Game" type="Node2D" unique_id=131479963]
+script = ExtResource("1_iywne")
 
 [node name="Testmap" parent="." unique_id=1198871411 instance=ExtResource("1_yqjtg")]
 
@@ -15,4 +17,12 @@
 
 [node name="Guard" parent="." unique_id=1339874387 instance=ExtResource("4_lbhrr")]
 position = Vector2(353, -48)
+scale = Vector2(3.147, 3.147)
+
+[node name="Guard2" parent="." unique_id=1528014308 instance=ExtResource("4_lbhrr")]
+position = Vector2(197, -181)
+scale = Vector2(3.147, 3.147)
+
+[node name="Guard3" parent="." unique_id=1039903100 instance=ExtResource("4_lbhrr")]
+position = Vector2(86, 131)
 scale = Vector2(3.147, 3.147)
