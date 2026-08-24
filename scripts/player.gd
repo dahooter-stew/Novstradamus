@@ -14,6 +14,7 @@ enum State {
 var state: State = State.IDLE
 var move_direction: Vector2 = Vector2.ZERO
 var last_dir_pressed: String
+var input_queue: Array
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var animation_playback: AnimationNodeStateMachinePlayback = $AnimationTree["parameters/playback"]
@@ -28,8 +29,30 @@ func _unhandled_input(event: InputEvent) -> void:
 func _input(event: InputEvent) -> void:
 	var dir_keys: Array = ["W", "A", "S", "D"]
 	
+	if event.is_action_pressed("up"):
+		input_queue.append("W")
+	if event.is_action_released("up"):
+		input_queue.erase("W")
+	
+	if event.is_action_pressed("left"):
+		input_queue.append("A")
+	if event.is_action_released("left"):
+		input_queue.erase("A")
+	
+	if event.is_action_pressed("down"):
+		input_queue.append("S")
+	if event.is_action_released("down"):
+		input_queue.erase("S")
+	
+	if event.is_action_pressed("right"):
+		input_queue.append("D")
+	if event.is_action_released("right"):
+		input_queue.erase("D")
+		
 	if event is InputEventKey and dir_keys.has(event.as_text()):
-		last_dir_pressed = event.as_text()
+		if input_queue:
+			last_dir_pressed = input_queue[-1]
+		#print(input_queue)
 		#print(last_dir_pressed)
 
 func _physics_process(delta: float) -> void:

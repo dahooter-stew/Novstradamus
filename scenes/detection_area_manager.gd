@@ -9,12 +9,13 @@ extends Node2D
 @onready var u_pos: Marker2D = $UPos
 
 func _physics_process(delta: float) -> void:
-	match player.last_dir_pressed:
-		"W":
-			detection_area.position = u_pos.position
-		"A":
-			detection_area.position = l_pos.position
-		"S":
-			detection_area.position = d_pos.position
-		"D":
-			detection_area.position = r_pos.position
+	if player.last_dir_pressed and detection_area:
+		match player.last_dir_pressed:
+			"W":
+				detection_area.position = u_pos.position
+			"A":
+				detection_area.position = l_pos.position
+			"S":
+				detection_area.position = d_pos.position
+			"D":
+				detection_area.position = r_pos.position

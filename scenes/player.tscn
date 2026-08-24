@@ -194,6 +194,7 @@ size = Vector2(67, 62)
 [node name="Player" type="CharacterBody2D" unique_id=1824872444]
 script = ExtResource("1_g2els")
 speed = 200
+attack_speed = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1799874114]
 position = Vector2(0, -6)
