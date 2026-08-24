@@ -13,6 +13,7 @@ enum State {
 
 var state: State = State.IDLE
 var move_direction: Vector2 = Vector2.ZERO
+var last_dir_pressed: String
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var animation_playback: AnimationNodeStateMachinePlayback = $AnimationTree["parameters/playback"]
@@ -23,6 +24,13 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		attack()
+
+func _input(event: InputEvent) -> void:
+	var dir_keys: Array = ["W", "A", "S", "D"]
+	
+	if event is InputEventKey and dir_keys.has(event.as_text()):
+		last_dir_pressed = event.as_text()
+		
 
 func _physics_process(delta: float) -> void:
 	if not state == State.ATTACK:
