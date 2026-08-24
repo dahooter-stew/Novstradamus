@@ -2,11 +2,10 @@
 
 [ext_resource type="Script" uid="uid://sjntl2ufudy2" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://dd14yvscw8gcd" path="res://resources/sprites/player/Warrior_Blue.png" id="2_g2els"]
-[ext_resource type="Script" uid="uid://cqh0qq7meas24" path="res://scripts/detection_area_manager.gd" id="3_qhqgy"]
+[ext_resource type="Script" uid="uid://cqh0qq7meas24" path="res://scenes/detection_area_manager.gd" id="3_qhqgy"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ci2qi"]
-radius = 25.0
-height = 52.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n4a4t"]
+size = Vector2(6, 10)
 
 [sub_resource type="Animation" id="Animation_qhqgy"]
 length = 0.001
@@ -192,17 +191,15 @@ graph_offset = Vector2(-117, 11)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k11hu"]
 size = Vector2(67, 62)
 
-[node name="Player" type="CharacterBody2D" unique_id=1824872444 node_paths=PackedStringArray("detection_manager")]
+[node name="Player" type="CharacterBody2D" unique_id=1824872444]
 script = ExtResource("1_g2els")
 speed = 200
-detection_manager = NodePath("DetectionAreaManager")
 
-[node name="BodyCollisionShape" type="CollisionShape2D" parent="." unique_id=1799874114]
-position = Vector2(0, -22)
-shape = SubResource("CapsuleShape2D_ci2qi")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1799874114]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_n4a4t")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=419359626]
-zoom = Vector2(0.6, 0.6)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
@@ -223,16 +220,14 @@ hframes = 6
 vframes = 8
 frame = 1
 
-[node name="DetectionAreaManager" type="Node2D" parent="." unique_id=1908590138 node_paths=PackedStringArray("player", "detection_area")]
+[node name="DetectionAreaManager" type="Node2D" parent="." unique_id=1908590138]
 script = ExtResource("3_qhqgy")
-player = NodePath("..")
-detection_area = NodePath("../GuardDetectionBody")
 
 [node name="RPos" type="Marker2D" parent="DetectionAreaManager" unique_id=542867148]
-position = Vector2(54, -28)
+position = Vector2(54, -36)
 
 [node name="LPos" type="Marker2D" parent="DetectionAreaManager" unique_id=1934287734]
-position = Vector2(-54, -28)
+position = Vector2(-54, -36)
 
 [node name="DPos" type="Marker2D" parent="DetectionAreaManager" unique_id=663174697]
 position = Vector2(0, 17)
@@ -240,17 +235,6 @@ position = Vector2(0, 17)
 [node name="UPos" type="Marker2D" parent="DetectionAreaManager" unique_id=1745702091]
 position = Vector2(0, -87)
 
-[node name="GuardDetectionBody" type="Area2D" parent="." unique_id=349690715]
+[node name="GuardDetectionArea" type="CollisionShape2D" parent="." unique_id=1026744672]
 position = Vector2(54, -36)
-collision_layer = 2
-
-[node name="GuardDetectionBody" type="CollisionShape2D" parent="GuardDetectionBody" unique_id=1026744672]
 shape = SubResource("RectangleShape2D_k11hu")
-
-[node name="State" type="Label" parent="." unique_id=812456435]
-visible = false
-offset_left = -28.000002
-offset_top = -142.0
-offset_right = 11.999998
-offset_bottom = -119.0
-scale = Vector2(1.4768262, 1.4768262)

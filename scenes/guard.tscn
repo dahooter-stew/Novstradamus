@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://b8ehnkf1wai14"]
+
+[ext_resource type="Script" uid="uid://c15p5r8qn6wkp" path="res://scripts/guard.gd" id="1_ci2qi"]
+[ext_resource type="Texture2D" uid="uid://o3wu7xvhhlao" path="res://resources/sprites/enemies/guard_proto.png" id="1_m4fl1"]
+[ext_resource type="Texture2D" uid="uid://crtr2pxu82s1n" path="res://resources/sprites/Space_Key_Light.png" id="2_k0dx2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ci2qi"]
+atlas = ExtResource("1_m4fl1")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ysnk7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ci2qi")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ysnk7"]
+radius = 9.0
+height = 20.0
+
+[node name="Guard" type="CharacterBody2D" unique_id=1339874387]
+script = ExtResource("1_ci2qi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1165323101]
+sprite_frames = SubResource("SpriteFrames_ysnk7")
+
+[node name="BodyCollisionShape" type="CollisionShape2D" parent="." unique_id=714647691]
+position = Vector2(0, 9)
+shape = SubResource("CapsuleShape2D_ysnk7")
+
+[node name="TakedownPrompt" type="Control" parent="." unique_id=1889320811]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.5
+offset_top = -15.5
+offset_right = 15.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TakedownPrompt" unique_id=295377976]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1.5
+offset_top = -40.0
+offset_right = 101.5
+offset_bottom = 61.0
+grow_vertical = 2
+scale = Vector2(0.25969326, 0.25969326)
+theme_override_constants/separation = -22
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="TakedownPrompt/VBoxContainer" unique_id=1481226353]
+texture_filter = 2
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_k0dx2")
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TakedownPrompt/VBoxContainer" unique_id=80156802]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Takedown"
+horizontal_alignment = 1
+vertical_alignment = 1
