@@ -88,7 +88,7 @@ vertical_alignment = 1
 collision_layer = 2
 
 [node name="GuardSightSprite" type="Sprite2D" parent="PlayerDetectionArea" unique_id=933296697]
-modulate = Color(1.0419464, 1.0419464, 1.0419464, 0.47058824)
+modulate = Color(1, 1, 1, 0.5647059)
 scale = Vector2(0.8372204, 0.8372204)
 texture = ExtResource("4_ygo2t")
 offset = Vector2(23.026, -0.535)
@@ -99,12 +99,11 @@ shape = SubResource("ConvexPolygonShape2D_k11hu")
 
 [node name="Exclamation" type="Label" parent="." unique_id=1385588986]
 visible = false
-texture_filter = 2
-offset_left = -31.0
-offset_top = -45.0
-offset_right = 9.0
-offset_bottom = -22.0
-scale = Vector2(1.6281147, 1.6281147)
+offset_left = -25.0
+offset_top = -42.0
+offset_right = 15.0
+offset_bottom = -19.0
+scale = Vector2(1.2916726, 1.2916726)
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 text = "!"
 horizontal_alignment = 1
