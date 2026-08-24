@@ -20,16 +20,20 @@ script = ExtResource("1_iywne")
 [node name="Guard" parent="." unique_id=1339874387 instance=ExtResource("4_lbhrr")]
 position = Vector2(269, -181)
 scale = Vector2(3.147, 3.147)
+sight_sprite_rot = 0.48
 
 [node name="Guard2" parent="." unique_id=1528014308 instance=ExtResource("4_lbhrr")]
-position = Vector2(41, -192)
+position = Vector2(47, -176)
 scale = Vector2(3.147, 3.147)
+sight_sprite_rot = 59.095
 
 [node name="Guard3" parent="." unique_id=1039903100 instance=ExtResource("4_lbhrr")]
 position = Vector2(86, 131)
 scale = Vector2(3.147, 3.147)
+sight_sprite_rot = -1.315
 
 [node name="Menus Manager" type="Node" parent="." unique_id=279896274]
 script = ExtResource("6_u5sy4")
 
 [node name="Fail Screen" parent="Menus Manager" unique_id=654285528 instance=ExtResource("6_p57ef")]
+visible = false

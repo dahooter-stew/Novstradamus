@@ -87,6 +87,12 @@ vertical_alignment = 1
 [node name="PlayerDetectionArea" type="Area2D" parent="." unique_id=1882423986]
 collision_layer = 2
 
+[node name="GuardSight" type="Sprite2D" parent="PlayerDetectionArea" unique_id=933296697]
+modulate = Color(1, 1, 1, 0.5647059)
+scale = Vector2(0.8372204, 0.8372204)
+texture = ExtResource("4_ygo2t")
+offset = Vector2(23.026, -0.535)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionArea" unique_id=1646427570]
 rotation = -0.7853982
 shape = SubResource("ConvexPolygonShape2D_k11hu")
@@ -102,9 +108,3 @@ theme_override_colors/font_color = Color(1, 0, 0, 1)
 text = "!"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="GuardSightProto" type="Sprite2D" parent="." unique_id=933296697]
-modulate = Color(1, 1, 1, 0.5647059)
-position = Vector2(20.000002, 0)
-scale = Vector2(0.8372204, 0.8372204)
-texture = ExtResource("4_ygo2t")
