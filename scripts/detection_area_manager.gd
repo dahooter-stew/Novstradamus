@@ -27,8 +27,10 @@ func _physics_process(delta: float) -> void:
 
 func on_guard_detected(guard):
 	if guard is Guard:
-		print("guard detected")
+		print(guard.name + " detected")
+		guard.takedown_prompt.show()
 
 func on_guard_undetected(guard):
 	if guard is Guard:
-		print("guard undetected")
+		print(guard.name + " undetected")
+		guard.takedown_prompt.hide()

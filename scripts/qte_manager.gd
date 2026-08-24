@@ -43,8 +43,14 @@ func _ready() -> void:
 	qte_ui.hide()
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("space") and not is_active:
-		start_qte()
+	if not is_active:
+		if event.is_action_pressed("space"):
+			start_qte()
+			print("started qte")
+	else:
+		if event.is_action_pressed("space"):
+			stop_qte()
+			print("cancelled qte")
 
 	if is_active and event is InputEventKey and event.is_pressed():
 		if letter_prompt_dict.has(event.as_text()):
