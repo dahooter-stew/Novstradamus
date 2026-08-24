@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://dddjg3ay0rjg7"]
 
+[ext_resource type="Script" uid="uid://dvnkpmdnx1ssw" path="res://scenes/fail_screen.gd" id="1_rfuil"]
+
 [node name="Fail Screen" type="CanvasLayer" unique_id=654285528]
+script = ExtResource("1_rfuil")
 
 [node name="Control" type="Control" parent="." unique_id=356901961]
 layout_mode = 3
@@ -9,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Control" unique_id=1176213975]
 layout_mode = 1

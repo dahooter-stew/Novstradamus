@@ -20,6 +20,7 @@ func on_qte_succeeded():
 
 func on_qte_failed():
 	print("qte failed")
+	
 
 func on_qte_activated():
 	print("qte activated")
