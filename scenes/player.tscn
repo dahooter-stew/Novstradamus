@@ -187,6 +187,9 @@ states/run/position = Vector2(423, 63)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_fjrip"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_smehm"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_ur7pv"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_g2els"), "run", "attack", SubResource("AnimationNodeStateMachineTransition_qhqgy"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_dqkch")]
 graph_offset = Vector2(-117, 11)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ysnk7"]
+size = Vector2(74, 93)
+
 [node name="Player" type="CharacterBody2D" unique_id=1824872444]
 script = ExtResource("1_g2els")
 speed = 200
@@ -215,3 +218,7 @@ texture = ExtResource("2_g2els")
 hframes = 6
 vframes = 8
 frame = 1
+
+[node name="GuardDetectionArea" type="CollisionShape2D" parent="." unique_id=1026744672]
+position = Vector2(54, -36)
+shape = SubResource("RectangleShape2D_ysnk7")
