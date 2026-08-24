@@ -9,6 +9,8 @@ extends Node2D
 
 var player: CharacterBody2D
 
+signal qte_activated
+signal qte_deactivated
 signal qte_succeeded
 signal qte_failed
 
@@ -28,6 +30,7 @@ func update_prompt_list():
 
 func start_qte():
 	update_prompt_list()
+	print(letter_prompt_dict)
 	is_active = true
 	qte_ui.show()
 	timer.start()
@@ -63,20 +66,22 @@ func _physics_process(_delta: float) -> void:
 	if is_active:
 		if timer.is_stopped():
 			qte_failed.emit()
-			print("fail")
+			#print("fail")
 			stop_qte()
 		else:
-			if success_count >= 3:
-				#qte_succeeded.emit()
-				print("success")
+			if success_count == 3:
+				qte_succeeded.emit()
+				#print("success")
 				success_count = 0
 				stop_qte()
 
 func on_toggle_qte():
 	if not is_active:
 		start_qte()
-		print("started qte")
+		qte_activated.emit()
+		#print("started qte")
 	else:
 		stop_qte()
-		print("cancelled qte")
+		qte_deactivated.emit()
+		#print("cancelled qte")
 	#print("toggled qte")

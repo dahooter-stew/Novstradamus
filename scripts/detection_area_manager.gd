@@ -14,6 +14,7 @@ func _ready() -> void:
 	if detection_area:
 		detection_area.body_entered.connect(on_guard_detected)
 		detection_area.body_exited.connect(on_guard_undetected)
+		detection_area.position = d_pos.position
 
 func _physics_process(_delta: float) -> void:
 	if player.last_dir_pressed and detection_area:
