@@ -15,9 +15,6 @@ signal qte_succeeded
 signal qte_failed
 
 func update_prompt_list():
-	for prompt in letter_prompt_dict:
-			letter_prompt_dict[prompt].show()
-
 	letter_prompt_dict.clear()
 	var letter_pick_list: Array = letters.duplicate_deep()
 	for i in qte_ui.key_icon_list:
@@ -26,16 +23,19 @@ func update_prompt_list():
 		letter_prompt_dict[letter_prompt] = i
 		letter_pick_list.erase(letter_prompt.to_lower())
 	
+	for prompt in letter_prompt_dict:
+			letter_prompt_dict[prompt].show()
 	#print(letter_prompt_dict)
 
 func start_qte():
+	success_count = 0
 	update_prompt_list()
-	print(letter_prompt_dict)
 	is_active = true
 	qte_ui.show()
 	timer.start()
 
 func stop_qte():
+	success_count = 0
 	is_active = false
 	qte_ui.hide()
 	timer.stop()
@@ -44,6 +44,7 @@ func _ready() -> void:
 	qte_ui.hide()
 	
 func _input(event: InputEvent) -> void:
+	pass
 	#if not is_active:
 		#if event.is_action_pressed("space"):
 			#start_qte()
@@ -52,6 +53,9 @@ func _input(event: InputEvent) -> void:
 		#if event.is_action_pressed("space"):
 			#stop_qte()
 			#print("cancelled qte")
+
+	#if event is InputEventKey:
+		#print(event.as_text())
 
 	if is_active and event is InputEventKey and event.is_pressed():
 		if letter_prompt_dict.has(event.as_text()):
@@ -72,7 +76,6 @@ func _physics_process(_delta: float) -> void:
 			if success_count == 3:
 				qte_succeeded.emit()
 				#print("success")
-				success_count = 0
 				stop_qte()
 
 func on_toggle_qte():
