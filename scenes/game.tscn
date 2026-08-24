@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dfgosyysdlnih" path="res://scenes/testmap.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://d13trbrdclm8t" path="res://scenes/player.tscn" id="2_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://dw0cb75vxpkiq" path="res://scenes/qte_manager.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://bcdancodqu5qy" path="res://scenes/qte_manager.tscn" id="3_lnu2h"]
 
 [node name="Game" type="Node2D" unique_id=131479963]
 
