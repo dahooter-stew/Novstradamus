@@ -26,7 +26,6 @@ func on_qte_failed():
 
 func on_qte_activated():
 	print("qte activated")
-	player.attack()
 	player.detection_manager.guard_attacking.takedown_prompt.hide()
 	
 func on_qte_deactivated():

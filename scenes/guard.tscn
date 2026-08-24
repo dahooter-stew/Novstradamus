@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c15p5r8qn6wkp" path="res://scripts/guard.gd" id="1_ci2qi"]
 [ext_resource type="Texture2D" uid="uid://o3wu7xvhhlao" path="res://resources/sprites/enemies/guard_proto.png" id="1_m4fl1"]
 [ext_resource type="Texture2D" uid="uid://crtr2pxu82s1n" path="res://resources/sprites/Space_Key_Light.png" id="2_k0dx2"]
+[ext_resource type="Texture2D" uid="uid://cgn6nq64y5u6j" path="res://resources/sprites/enemies/guard_sight_proto.png" id="4_ygo2t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ci2qi"]
 atlas = ExtResource("1_m4fl1")
@@ -101,3 +102,9 @@ theme_override_colors/font_color = Color(1, 0, 0, 1)
 text = "!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="GuardSightProto" type="Sprite2D" parent="." unique_id=933296697]
+modulate = Color(1, 1, 1, 0.5647059)
+position = Vector2(20.000002, 0)
+scale = Vector2(0.8372204, 0.8372204)
+texture = ExtResource("4_ygo2t")

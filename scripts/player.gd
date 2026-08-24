@@ -5,6 +5,7 @@ enum State {
 	IDLE,
 	RUN,
 	ATTACK,
+	FOUND,
 	DEAD
 }
 
@@ -52,7 +53,7 @@ func _input(event: InputEvent) -> void:
 			input_queue.erase("D")
 		
 		if Input.is_action_just_pressed("space") and detection_manager.can_takedown:
-			toggle_qte.emit()
+			attack()
 		
 	if event is InputEventKey and dir_keys.has(event.as_text()):
 		if input_queue:
@@ -66,7 +67,7 @@ func _input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	state_label.text = str(state)
 	
-	if not state == State.DEAD and not state == State.ATTACK:
+	if not state == State.DEAD and not state == State.ATTACK and not state == State.FOUND:
 		movement_loop(delta)
 
 	if state == State.DEAD:
@@ -106,10 +107,16 @@ func idle():
 		return
 	state = State.IDLE
 
+func found():
+	if state == State.FOUND:
+		return
+	state = State.FOUND
+
 func attack() -> void:
 	if state == State.ATTACK:
 		return
 	state = State.ATTACK
+	toggle_qte.emit()
 
 func dead():
 	if state == State.DEAD:

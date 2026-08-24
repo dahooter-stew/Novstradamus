@@ -9,6 +9,7 @@ enum State {
 @onready var takedown_prompt: Control = $TakedownPrompt
 @onready var body_collision_shape: CollisionShape2D = $BodyCollisionShape
 @onready var player_detection_area: Area2D = $PlayerDetectionArea
+@onready var exclamation: Label = $Exclamation
 @onready var state: State = State.ACTIVE
 
 func _ready() -> void:
@@ -30,5 +31,9 @@ func active():
 
 func on_player_detected(player):
 	if player is Player:
+		exclamation.show()
+		player.found()
+		await get_tree().create_timer(0.5).timeout
+		exclamation.hide()
 		player.detection_manager.guard_attacking = self
-		player.toggle_qte.emit()
+		player.attack()
