@@ -10,6 +10,9 @@ class_name DetectionManager
 @onready var u_pos: Marker2D = $UPos
 @onready var can_takedown: bool = false
 
+var detected_guard_list: Array
+var guard_attacking: Guard
+
 func _ready() -> void:
 	if detection_area:
 		detection_area.body_entered.connect(on_guard_detected)
@@ -31,11 +34,17 @@ func _physics_process(_delta: float) -> void:
 func on_guard_detected(guard):
 	if guard is Guard:
 		#print(guard.name + " detected")
-		guard.takedown_prompt.show()
 		can_takedown = true
+		detected_guard_list.append(guard)
+		update_guard_attacking(guard)
 
 func on_guard_undetected(guard):
 	if guard is Guard:
 		#print(guard.name + " undetected")
-		guard.takedown_prompt.hide()
 		can_takedown = false
+		detected_guard_list.erase(guard)
+		guard.takedown_prompt.hide()
+
+func update_guard_attacking(guard):
+	guard_attacking = detected_guard_list[0]
+	guard_attacking.takedown_prompt.show()

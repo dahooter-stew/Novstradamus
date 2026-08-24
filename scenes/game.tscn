@@ -16,7 +16,7 @@ script = ExtResource("1_iywne")
 [node name="QTE Manager" parent="." unique_id=162154269 instance=ExtResource("3_lnu2h")]
 
 [node name="Guard" parent="." unique_id=1339874387 instance=ExtResource("4_lbhrr")]
-position = Vector2(353, -48)
+position = Vector2(269, -181)
 scale = Vector2(3.147, 3.147)
 
 [node name="Guard2" parent="." unique_id=1528014308 instance=ExtResource("4_lbhrr")]
