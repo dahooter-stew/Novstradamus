@@ -219,6 +219,8 @@ hframes = 6
 vframes = 8
 frame = 1
 
-[node name="GuardDetectionArea" type="CollisionShape2D" parent="." unique_id=1026744672]
+[node name="DetectionAreaManager" type="Node2D" parent="." unique_id=1908590138]
+
+[node name="GuardDetectionArea" type="CollisionShape2D" parent="DetectionAreaManager" unique_id=1026744672]
 position = Vector2(54, -36)
 shape = SubResource("RectangleShape2D_ysnk7")
