@@ -26,4 +26,5 @@ func on_qte_activated():
 
 func on_qte_deactivated():
 	print("qte deactivated")
+	await get_tree().create_timer(0.1).timeout
 	player.idle()

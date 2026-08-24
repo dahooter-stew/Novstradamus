@@ -248,6 +248,7 @@ collision_layer = 2
 shape = SubResource("RectangleShape2D_k11hu")
 
 [node name="State" type="Label" parent="." unique_id=812456435]
+visible = false
 offset_left = -28.000002
 offset_top = -142.0
 offset_right = 11.999998
