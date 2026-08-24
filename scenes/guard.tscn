@@ -79,3 +79,9 @@ size_flags_horizontal = 4
 text = "Takedown"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PlayerDetectionArea" type="Area2D" parent="." unique_id=1882423986]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerDetectionArea" unique_id=820371978]
+rotation = -0.78365284
+polygon = PackedVector2Array(30, 17, 17, 30, 0, 0)
