@@ -220,9 +220,10 @@ hframes = 6
 vframes = 8
 frame = 1
 
-[node name="DetectionAreaManager" type="Node2D" parent="." unique_id=1908590138 node_paths=PackedStringArray("player")]
+[node name="DetectionAreaManager" type="Node2D" parent="." unique_id=1908590138 node_paths=PackedStringArray("player", "detection_area")]
 script = ExtResource("3_qhqgy")
 player = NodePath("..")
+detection_area = NodePath("../GuardDetectionArea")
 
 [node name="RPos" type="Marker2D" parent="DetectionAreaManager" unique_id=542867148]
 position = Vector2(54, -36)
