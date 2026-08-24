@@ -28,6 +28,7 @@ func update_prompt_list():
 	#print(letter_prompt_dict)
 
 func start_qte():
+	qte_activated.emit()
 	success_count = 0
 	update_prompt_list()
 	is_active = true
@@ -35,6 +36,7 @@ func start_qte():
 	timer.start()
 
 func stop_qte():
+	qte_deactivated.emit()
 	success_count = 0
 	is_active = false
 	qte_ui.hide()
@@ -44,7 +46,6 @@ func _ready() -> void:
 	qte_ui.hide()
 	
 func _input(event: InputEvent) -> void:
-	pass
 	#if not is_active:
 		#if event.is_action_pressed("space"):
 			#start_qte()
@@ -81,10 +82,8 @@ func _physics_process(_delta: float) -> void:
 func on_toggle_qte():
 	if not is_active:
 		start_qte()
-		qte_activated.emit()
 		#print("started qte")
 	else:
 		stop_qte()
-		qte_deactivated.emit()
 		#print("cancelled qte")
 	#print("toggled qte")

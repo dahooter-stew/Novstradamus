@@ -246,3 +246,10 @@ collision_layer = 2
 
 [node name="GuardDetectionBody" type="CollisionShape2D" parent="GuardDetectionBody" unique_id=1026744672]
 shape = SubResource("RectangleShape2D_k11hu")
+
+[node name="State" type="Label" parent="." unique_id=812456435]
+offset_left = -28.000002
+offset_top = -142.0
+offset_right = 11.999998
+offset_bottom = -119.0
+scale = Vector2(1.4768262, 1.4768262)

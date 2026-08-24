@@ -22,6 +22,8 @@ func on_qte_failed():
 
 func on_qte_activated():
 	print("qte activated")
+	player.attack()
 
 func on_qte_deactivated():
 	print("qte deactivated")
+	player.idle()

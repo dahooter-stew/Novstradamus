@@ -20,15 +20,12 @@ var input_queue: Array
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var animation_playback: AnimationNodeStateMachinePlayback = $AnimationTree["parameters/playback"]
+@onready var state_label: Label = $State
 
 signal toggle_qte
 
 func _ready() -> void:
 	animation_tree.active = true
-
-func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		attack()
 
 func _input(event: InputEvent) -> void:
 	var dir_keys: Array = ["W", "A", "S", "D"]
@@ -61,8 +58,13 @@ func _input(event: InputEvent) -> void:
 	
 	if Input.is_action_just_pressed("space") and detection_manager.can_takedown:
 		toggle_qte.emit()
+	
+	#if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		#attack()
 
 func _physics_process(delta: float) -> void:
+	state_label.text = str(state)
+	
 	if not state == State.ATTACK:
 		movement_loop(delta)
 
@@ -94,17 +96,21 @@ func update_animation() -> void:
 		State.ATTACK:
 			animation_playback.travel("attack")
 
+func idle():
+	if state == State.IDLE:
+		return
+	state = State.IDLE
+
 func attack() -> void:
 	if state == State.ATTACK:
 		return
-		
 	state = State.ATTACK
 	
-	var mouse_pos: Vector2 = get_global_mouse_position()
-	var attack_dir: Vector2 = (mouse_pos - global_position).normalized()
-	animation_tree.set("parameters/attack/BlendSpace2D/blend_position", attack_dir)
-	$Sprite2D.flip_h = attack_dir.x < 0 and abs(attack_dir.x) >= abs(attack_dir.y)
-	update_animation()
-	
-	await get_tree().create_timer(attack_speed).timeout
-	state = State.IDLE
+	#var mouse_pos: Vector2 = get_global_mouse_position()
+	#var attack_dir: Vector2 = (mouse_pos - global_position).normalized()
+	#animation_tree.set("parameters/attack/BlendSpace2D/blend_position", attack_dir)
+	#$Sprite2D.flip_h = attack_dir.x < 0 and abs(attack_dir.x) >= abs(attack_dir.y)
+	#update_animation()
+	#
+	#await get_tree().create_timer(attack_speed).timeout
+	#state = State.IDLE
