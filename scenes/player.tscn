@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://sjntl2ufudy2" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://dd14yvscw8gcd" path="res://resources/sprites/player/Warrior_Blue.png" id="2_g2els"]
+[ext_resource type="Script" uid="uid://cqh0qq7meas24" path="res://scenes/detection_area_manager.gd" id="3_qhqgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n4a4t"]
 size = Vector2(6, 10)
@@ -187,8 +188,8 @@ states/run/position = Vector2(423, 63)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_fjrip"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_smehm"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_ur7pv"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_g2els"), "run", "attack", SubResource("AnimationNodeStateMachineTransition_qhqgy"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_dqkch")]
 graph_offset = Vector2(-117, 11)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ysnk7"]
-size = Vector2(74, 93)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k11hu"]
+size = Vector2(67, 62)
 
 [node name="Player" type="CharacterBody2D" unique_id=1824872444]
 script = ExtResource("1_g2els")
@@ -220,7 +221,20 @@ vframes = 8
 frame = 1
 
 [node name="DetectionAreaManager" type="Node2D" parent="." unique_id=1908590138]
+script = ExtResource("3_qhqgy")
 
-[node name="GuardDetectionArea" type="CollisionShape2D" parent="DetectionAreaManager" unique_id=1026744672]
+[node name="RPos" type="Marker2D" parent="DetectionAreaManager" unique_id=542867148]
 position = Vector2(54, -36)
-shape = SubResource("RectangleShape2D_ysnk7")
+
+[node name="LPos" type="Marker2D" parent="DetectionAreaManager" unique_id=1934287734]
+position = Vector2(-54, -36)
+
+[node name="DPos" type="Marker2D" parent="DetectionAreaManager" unique_id=663174697]
+position = Vector2(0, 17)
+
+[node name="UPos" type="Marker2D" parent="DetectionAreaManager" unique_id=1745702091]
+position = Vector2(0, -87)
+
+[node name="GuardDetectionArea" type="CollisionShape2D" parent="." unique_id=1026744672]
+position = Vector2(54, -36)
+shape = SubResource("RectangleShape2D_k11hu")
