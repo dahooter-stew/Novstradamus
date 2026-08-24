@@ -16,6 +16,7 @@ func _ready() -> void:
 
 func on_qte_succeeded():
 	print("qte succeeded")
+	player.detection_manager.guard_attacking.inactive()
 
 func on_qte_failed():
 	print("qte failed")
