@@ -7,8 +7,10 @@ class_name MenusManager
 
 signal game_started
 signal game_exited
+signal game_resetted
 
 func _ready() -> void:
+	main_menu.show()
 	fail_screen.hide()
 	win_screen.hide()
 	
@@ -23,6 +25,7 @@ func _ready() -> void:
 func on_retry_pressed():
 	print("pressed retry")
 	fail_screen.hide()
+	game_resetted.emit()
 
 func on_quit_pressed():
 	print("pressed quit")

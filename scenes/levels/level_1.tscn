@@ -14,7 +14,7 @@ tile_map_data = PackedByteArray("AAACAAIAAQAAAAQAAAACAAMAAQAAAAUAAAACAAQAAQAAAAY
 tile_map_data = PackedByteArray("AAAQAAMAAQAGAAAAAAAQAAQAAQAGAAEAAAARAAMAAQAHAAAAAAARAAQAAQAHAAEAAAASAAIAAQAAAAQAAAASAAMAAQAAAAUAAAATAAIAAQABAAQAAAATAAMAAQABAAUAAAASAAQAAQAAAAQAAAASAAUAAQAAAAUAAAATAAQAAQABAAQAAAATAAUAAQABAAUAAAA=")
 
 [node name="LevelChangeBody" parent="LevelChangeArea" parent_id_path=PackedInt32Array(936472820) index="0" unique_id=1523927557]
-position = Vector2(312, 55)
+position = Vector2(271, 70)
 
 [node name="Player" parent="." index="2" unique_id=1824872444 instance=ExtResource("2_6iamk")]
 position = Vector2(62, 76)

@@ -6,11 +6,14 @@ class_name LevelManager
 signal level_loaded
 signal levels_finished
 
+func unload_current_level():
+	if get_children():
+		get_child(0).queue_free()
+
 func play_current_level():
 	print("res://scenes/levels/level_" + str(current_level_number) + ".tscn")
 	
-	if get_children():
-		get_child(0).queue_free()
+	unload_current_level()
 	
 	if current_level_number == 0:
 		levels_finished.emit()

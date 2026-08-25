@@ -18,11 +18,13 @@ script = ExtResource("1_iywne")
 script = ExtResource("6_u5sy4")
 
 [node name="MainMenu" parent="Menus Manager" unique_id=598380413 instance=ExtResource("7_gee14")]
+visible = false
 
 [node name="Fail Screen" parent="Menus Manager" unique_id=654285528 instance=ExtResource("6_p57ef")]
 visible = false
 
 [node name="WinScreen" parent="Menus Manager" unique_id=1356335845 instance=ExtResource("6_gee14")]
+visible = false
 script = ExtResource("7_0tnpc")
 
 [node name="LevelManager" type="Node" parent="." unique_id=465472323]

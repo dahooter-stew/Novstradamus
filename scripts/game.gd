@@ -13,8 +13,11 @@ func _ready() -> void:
 	#qte_manager.player = player
 	menus_manager.game_exited.connect(on_game_exited)
 	menus_manager.game_started.connect(on_game_started)
+	menus_manager.game_resetted.connect(on_game_resetted)
+	
 	level_manager.level_loaded.connect(on_level_loaded)
 	level_manager.levels_finished.connect(on_levels_finished)
+	
 	qte_manager.qte_succeeded.connect(on_qte_succeeded)
 	qte_manager.qte_failed.connect(on_qte_failed)
 	qte_manager.qte_activated.connect(on_qte_activated)
@@ -26,6 +29,10 @@ func on_game_exited():
 
 func on_game_started():
 	print("pressed start")
+	level_manager.current_level_number = 1
+	level_manager.play_current_level()
+
+func on_game_resetted():
 	level_manager.play_current_level()
 
 func on_level_loaded(level_player):
@@ -42,6 +49,7 @@ func on_qte_succeeded():
 
 func on_qte_failed():
 	print("qte failed")
+	level_manager.unload_current_level()
 	menus_manager.fail_screen.show()
 	player.dead()
 
