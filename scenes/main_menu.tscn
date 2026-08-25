@@ -1,3 +1,29 @@
 [gd_scene format=3 uid="uid://h4j7gybxbnb4"]
 
+[ext_resource type="Texture2D" uid="uid://qggmm0t762hj" path="res://resources/Opening Screen Art.png" id="1_l6cm7"]
+
 [node name="MainMenu" type="CanvasLayer" unique_id=598380413]
+
+[node name="Control" type="Control" parent="." unique_id=1277987570]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScreenArt" type="TextureRect" parent="Control" unique_id=1659602292]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -42.0
+offset_right = 6294.0
+offset_bottom = 4260.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.09676397, 0.09665916)
+texture = ExtResource("1_l6cm7")
+stretch_mode = 4
