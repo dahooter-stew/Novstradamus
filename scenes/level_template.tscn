@@ -1,7 +1,16 @@
 [gd_scene format=3 uid="uid://c8jwqrkg76eo"]
 
+[ext_resource type="TileSet" uid="uid://dm2s468yksahf" path="res://proto_tileset.tres" id="1_o6142"]
+
 [node name="LevelTemplate" type="Node2D" unique_id=1695296030]
 
 [node name="TileMap" type="Node2D" parent="." unique_id=647814352]
 
-[node name="TileMapLayer" type="TileMapLayer" parent="TileMap" unique_id=1661434021]
+[node name="Floor" type="TileMapLayer" parent="TileMap" unique_id=1661434021]
+tile_set = ExtResource("1_o6142")
+
+[node name="Stairs" type="TileMapLayer" parent="TileMap" unique_id=1033798392]
+tile_set = ExtResource("1_o6142")
+
+[node name="Walls" type="TileMapLayer" parent="TileMap" unique_id=1623854578]
+tile_set = ExtResource("1_o6142")
