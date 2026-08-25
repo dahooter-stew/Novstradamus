@@ -70,8 +70,8 @@ func _physics_process(delta: float) -> void:
 	if not state == State.DEAD and not state == State.ATTACK and not state == State.FOUND:
 		movement_loop(delta)
 
-	if state == State.DEAD:
-		detection_manager.detection_area
+	#if state == State.DEAD:
+		#detection_manager.detection_area.
 
 func movement_loop(_delta: float) -> void:
 	move_direction = Input.get_vector("left", "right", "up", "down")

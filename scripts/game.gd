@@ -1,20 +1,35 @@
 extends Node2D
 
-@onready var player: Player = $Player
 @onready var qte_manager: Node2D = $"QTE Manager"
 @onready var menus_manager: MenusManager = $"Menus Manager"
 @onready var level_manager: LevelManager = $LevelManager
+
+var player: Player
 
 #var guard_list: Array
 
 func _ready() -> void:
 	#guard_list.append(find_children("*", "Guard"))
 	#qte_manager.player = player
-	player.toggle_qte.connect(qte_manager.on_toggle_qte)
+	menus_manager.game_exited.connect(on_game_exited)
+	menus_manager.game_started.connect(on_game_started)
+	level_manager.level_loaded.connect(on_level_loaded)
 	qte_manager.qte_succeeded.connect(on_qte_succeeded)
 	qte_manager.qte_failed.connect(on_qte_failed)
 	qte_manager.qte_activated.connect(on_qte_activated)
 	qte_manager.qte_deactivated.connect(on_qte_deactivated)
+
+func on_game_exited():
+	print("pressed exit")
+	get_tree().quit()
+
+func on_game_started():
+	print("pressed start")
+	level_manager.play_current_level()
+
+func on_level_loaded(level_player):
+	player = level_player
+	player.toggle_qte.connect(qte_manager.on_toggle_qte)
 
 func on_qte_succeeded():
 	print("qte succeeded")

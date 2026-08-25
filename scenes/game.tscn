@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bi0icrdvirch3"]
 
 [ext_resource type="Script" uid="uid://bmlihd0hjc3to" path="res://scripts/game.gd" id="1_iywne"]
-[ext_resource type="PackedScene" uid="uid://dfgosyysdlnih" path="res://scenes/testmap.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://dw0cb75vxpkiq" path="res://scenes/qte_manager.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://dddjg3ay0rjg7" path="res://scenes/fail_screen.tscn" id="6_p57ef"]
 [ext_resource type="Script" uid="uid://cm3q6jqkbum5x" path="res://scripts/menus_manager.gd" id="6_u5sy4"]
@@ -10,8 +9,6 @@
 
 [node name="Game" type="Node2D" unique_id=131479963]
 script = ExtResource("1_iywne")
-
-[node name="Testmap" parent="." unique_id=1198871411 instance=ExtResource("1_yqjtg")]
 
 [node name="QTE Manager" parent="." unique_id=162154269 instance=ExtResource("3_lnu2h")]
 
