@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dddjg3ay0rjg7" path="res://scenes/fail_screen.tscn" id="6_p57ef"]
 [ext_resource type="Script" uid="uid://cm3q6jqkbum5x" path="res://scripts/menus_manager.gd" id="6_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://h4j7gybxbnb4" path="res://scenes/main_menu.tscn" id="7_gee14"]
+[ext_resource type="Script" uid="uid://cpfkfrvkv8sjl" path="res://scenes/level_manager.gd" id="9_0tnpc"]
 
 [node name="Game" type="Node2D" unique_id=131479963]
 script = ExtResource("1_iywne")
@@ -42,3 +43,4 @@ script = ExtResource("6_u5sy4")
 visible = false
 
 [node name="LevelManager" type="Node" parent="." unique_id=465472323]
+script = ExtResource("9_0tnpc")

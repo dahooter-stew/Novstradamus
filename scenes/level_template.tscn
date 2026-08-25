@@ -14,10 +14,10 @@ script = ExtResource("1_mm7tu")
 [node name="Floor" type="TileMapLayer" parent="TileMap" unique_id=1661434021]
 tile_set = ExtResource("1_o6142")
 
-[node name="Stairs" type="TileMapLayer" parent="TileMap" unique_id=1033798392]
+[node name="Walls" type="TileMapLayer" parent="TileMap" unique_id=1623854578]
 tile_set = ExtResource("1_o6142")
 
-[node name="Walls" type="TileMapLayer" parent="TileMap" unique_id=1623854578]
+[node name="Stairs" type="TileMapLayer" parent="TileMap" unique_id=1033798392]
 tile_set = ExtResource("1_o6142")
 
 [node name="LevelChangeArea" type="Area2D" parent="." unique_id=936472820]
