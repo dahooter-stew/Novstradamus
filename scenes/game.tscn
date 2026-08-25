@@ -2,37 +2,18 @@
 
 [ext_resource type="Script" uid="uid://bmlihd0hjc3to" path="res://scripts/game.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://dfgosyysdlnih" path="res://scenes/testmap.tscn" id="1_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://d13trbrdclm8t" path="res://scenes/player.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://dw0cb75vxpkiq" path="res://scenes/qte_manager.tscn" id="3_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://beobhg8bx7rkc" path="res://scenes/guard.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://dddjg3ay0rjg7" path="res://scenes/fail_screen.tscn" id="6_p57ef"]
 [ext_resource type="Script" uid="uid://cm3q6jqkbum5x" path="res://scripts/menus_manager.gd" id="6_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://h4j7gybxbnb4" path="res://scenes/main_menu.tscn" id="7_gee14"]
-[ext_resource type="Script" uid="uid://cpfkfrvkv8sjl" path="res://scenes/level_manager.gd" id="9_0tnpc"]
+[ext_resource type="Script" uid="uid://cpfkfrvkv8sjl" path="res://scripts/level_manager.gd" id="9_0tnpc"]
 
 [node name="Game" type="Node2D" unique_id=131479963]
 script = ExtResource("1_iywne")
 
 [node name="Testmap" parent="." unique_id=1198871411 instance=ExtResource("1_yqjtg")]
 
-[node name="Player" parent="." unique_id=1824872444 instance=ExtResource("2_yqjtg")]
-
 [node name="QTE Manager" parent="." unique_id=162154269 instance=ExtResource("3_lnu2h")]
-
-[node name="Guard" parent="." unique_id=1339874387 instance=ExtResource("4_lbhrr")]
-position = Vector2(269, -181)
-scale = Vector2(3.147, 3.147)
-sight_sprite_rot = 0.48
-
-[node name="Guard2" parent="." unique_id=1528014308 instance=ExtResource("4_lbhrr")]
-position = Vector2(47, -176)
-scale = Vector2(3.147, 3.147)
-sight_sprite_rot = 59.095
-
-[node name="Guard3" parent="." unique_id=1039903100 instance=ExtResource("4_lbhrr")]
-position = Vector2(86, 131)
-scale = Vector2(3.147, 3.147)
-sight_sprite_rot = -1.315
 
 [node name="Menus Manager" type="Node" parent="." unique_id=279896274]
 script = ExtResource("6_u5sy4")
