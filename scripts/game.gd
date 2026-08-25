@@ -34,6 +34,7 @@ func on_level_loaded(level_player):
 
 func on_levels_finished():
 	print("finished levels")
+	menus_manager.win_screen.show()
 
 func on_qte_succeeded():
 	print("qte succeeded")

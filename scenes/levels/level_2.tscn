@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c8jwqrkg76eo" path="res://scenes/level_template.tscn" id="1_j2425"]
 [ext_resource type="PackedScene" uid="uid://d13trbrdclm8t" path="res://scenes/player.tscn" id="2_g2h2n"]
+[ext_resource type="PackedScene" uid="uid://beobhg8bx7rkc" path="res://scenes/guard.tscn" id="3_ra442"]
 
 [node name="Level2" unique_id=1695296030 node_paths=PackedStringArray("player") instance=ExtResource("1_j2425")]
 player = NodePath("Player")
@@ -18,3 +19,6 @@ position = Vector2(56, 55)
 [node name="Player" parent="." index="2" unique_id=1824872444 instance=ExtResource("2_g2h2n")]
 position = Vector2(186, 74)
 scale = Vector2(0.375, 0.375)
+
+[node name="Guard" parent="." index="3" unique_id=1339874387 instance=ExtResource("3_ra442")]
+position = Vector2(116, 40)
