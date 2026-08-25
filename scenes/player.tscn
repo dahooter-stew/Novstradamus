@@ -266,7 +266,8 @@ collision_layer = 2
 [node name="GuardDetectionShape" type="CollisionShape2D" parent="GuardDetectionArea" unique_id=1026744672]
 shape = SubResource("RectangleShape2D_k11hu")
 
-[node name="State" type="Label" parent="." unique_id=812456435]
+[node name="StateDebug" type="Label" parent="." unique_id=812456435]
+visible = false
 offset_left = -47.0
 offset_top = -228.0
 offset_right = -7.0

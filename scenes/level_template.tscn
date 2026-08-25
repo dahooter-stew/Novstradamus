@@ -2,6 +2,8 @@
 
 [ext_resource type="TileSet" uid="uid://dm2s468yksahf" path="res://proto_tileset.tres" id="1_o6142"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ysnk7"]
+
 [node name="LevelTemplate" type="Node2D" unique_id=1695296030]
 
 [node name="TileMap" type="Node2D" parent="." unique_id=647814352]
@@ -14,3 +16,8 @@ tile_set = ExtResource("1_o6142")
 
 [node name="Walls" type="TileMapLayer" parent="TileMap" unique_id=1623854578]
 tile_set = ExtResource("1_o6142")
+
+[node name="LevelChangeArea" type="Area2D" parent="." unique_id=936472820]
+
+[node name="LevelChangeBody" type="CollisionShape2D" parent="LevelChangeArea" unique_id=1523927557]
+shape = SubResource("RectangleShape2D_ysnk7")
