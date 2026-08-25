@@ -1,8 +1,10 @@
 [gd_scene format=4 uid="uid://bkopbk01pprmh"]
 
 [ext_resource type="PackedScene" uid="uid://c8jwqrkg76eo" path="res://scenes/level_template.tscn" id="1_j2425"]
+[ext_resource type="PackedScene" uid="uid://d13trbrdclm8t" path="res://scenes/player.tscn" id="2_g2h2n"]
 
-[node name="Level2" unique_id=1695296030 instance=ExtResource("1_j2425")]
+[node name="Level2" unique_id=1695296030 node_paths=PackedStringArray("player") instance=ExtResource("1_j2425")]
+player = NodePath("Player")
 
 [node name="Floor" parent="TileMap" parent_id_path=PackedInt32Array(647814352) index="0" unique_id=1661434021]
 tile_map_data = PackedByteArray("AAAFAAIAAQAAAAQAAAAFAAMAAQAAAAUAAAAFAAQAAQAAAAYAAAAFAAUAAQAAAAcAAAAGAAIAAQABAAQAAAAGAAMAAQABAAUAAAAGAAQAAQABAAYAAAAGAAUAAQABAAcAAAAHAAIAAQACAAQAAAAHAAMAAQACAAUAAAAHAAQAAQACAAYAAAAHAAUAAQACAAcAAAAIAAIAAQADAAQAAAAIAAMAAQADAAUAAAAIAAQAAQADAAYAAAAIAAUAAQADAAcAAAAJAAIAAQAEAAQAAAAJAAMAAQAEAAUAAAAJAAQAAQAEAAYAAAAJAAUAAQAEAAcAAAAKAAIAAQAFAAQAAAAKAAMAAQAFAAUAAAAKAAQAAQAFAAYAAAAKAAUAAQAFAAcAAAALAAIAAQAGAAQAAAALAAMAAQAGAAUAAAALAAQAAQAGAAYAAAALAAUAAQAGAAcAAAAMAAIAAQAHAAQAAAAMAAMAAQAHAAUAAAAMAAQAAQAHAAYAAAAMAAUAAQAHAAcAAAA=")
@@ -12,3 +14,7 @@ tile_map_data = PackedByteArray("AAAFAAMAAQAAAAAAAAAFAAQAAQAAAAEAAAAGAAMAAQABAAA
 
 [node name="LevelChangeBody" parent="LevelChangeArea" parent_id_path=PackedInt32Array(936472820) index="0" unique_id=1523927557]
 position = Vector2(56, 55)
+
+[node name="Player" parent="." index="2" unique_id=1824872444 instance=ExtResource("2_g2h2n")]
+position = Vector2(186, 74)
+scale = Vector2(0.375, 0.375)

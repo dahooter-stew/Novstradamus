@@ -21,6 +21,7 @@ tile_set = ExtResource("1_o6142")
 tile_set = ExtResource("1_o6142")
 
 [node name="LevelChangeArea" type="Area2D" parent="." unique_id=936472820]
+collision_layer = 4
 
 [node name="LevelChangeBody" type="CollisionShape2D" parent="LevelChangeArea" unique_id=1523927557]
 shape = SubResource("RectangleShape2D_ysnk7")
