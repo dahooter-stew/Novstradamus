@@ -20,7 +20,7 @@ var input_queue: Array
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var animation_playback: AnimationNodeStateMachinePlayback = $AnimationTree["parameters/playback"]
-@onready var state_label: Label = $State
+@onready var state_label: Label = $StateDebug
 @onready var state: State = State.IDLE
 
 signal toggle_qte

@@ -7,8 +7,8 @@ extends Node2D
 var guard_list: Array
 
 func _ready() -> void:
-	guard_list.append(find_children("*", "Guard"))
-	qte_manager.player = player
+	#guard_list.append(find_children("*", "Guard"))
+	#qte_manager.player = player
 	player.toggle_qte.connect(qte_manager.on_toggle_qte)
 	qte_manager.qte_succeeded.connect(on_qte_succeeded)
 	qte_manager.qte_failed.connect(on_qte_failed)
