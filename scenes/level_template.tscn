@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://dm2s468yksahf" path="res://proto_tileset.tres" id="1_o6142"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ysnk7"]
-size = Vector2(8, 8)
+size = Vector2(16, 16)
 
 [node name="LevelTemplate" type="Node2D" unique_id=1695296030]
 script = ExtResource("1_mm7tu")
