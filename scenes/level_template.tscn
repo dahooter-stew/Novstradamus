@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://c8jwqrkg76eo"]
 
+[ext_resource type="Script" uid="uid://da3e8x6o13ik7" path="res://scenes/level_template.gd" id="1_mm7tu"]
 [ext_resource type="TileSet" uid="uid://dm2s468yksahf" path="res://proto_tileset.tres" id="1_o6142"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ysnk7"]
+size = Vector2(8, 8)
 
 [node name="LevelTemplate" type="Node2D" unique_id=1695296030]
+script = ExtResource("1_mm7tu")
 
 [node name="TileMap" type="Node2D" parent="." unique_id=647814352]
 
