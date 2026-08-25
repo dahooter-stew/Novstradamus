@@ -40,3 +40,5 @@ script = ExtResource("6_u5sy4")
 
 [node name="Fail Screen" parent="Menus Manager" unique_id=654285528 instance=ExtResource("6_p57ef")]
 visible = false
+
+[node name="LevelManager" type="Node" parent="." unique_id=465472323]
