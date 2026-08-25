@@ -14,6 +14,7 @@ func _ready() -> void:
 	menus_manager.game_exited.connect(on_game_exited)
 	menus_manager.game_started.connect(on_game_started)
 	level_manager.level_loaded.connect(on_level_loaded)
+	level_manager.levels_finished.connect(on_levels_finished)
 	qte_manager.qte_succeeded.connect(on_qte_succeeded)
 	qte_manager.qte_failed.connect(on_qte_failed)
 	qte_manager.qte_activated.connect(on_qte_activated)
@@ -30,6 +31,9 @@ func on_game_started():
 func on_level_loaded(level_player):
 	player = level_player
 	player.toggle_qte.connect(qte_manager.on_toggle_qte)
+
+func on_levels_finished():
+	print("finished levels")
 
 func on_qte_succeeded():
 	print("qte succeeded")
