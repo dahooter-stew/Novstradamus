@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://h4j7gybxbnb4"]
 
+[ext_resource type="Script" uid="uid://bkvsevmwo32ky" path="res://scenes/main_menu.gd" id="1_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://qggmm0t762hj" path="res://resources/Opening Screen Art.png" id="1_l6cm7"]
 [ext_resource type="FontFile" uid="uid://4k1pgdmv4slc" path="res://resources/Cinzel-Bold.otf" id="2_ekxnf"]
 
@@ -14,6 +15,7 @@ font = ExtResource("2_ekxnf")
 font_size = 21
 
 [node name="MainMenu" type="CanvasLayer" unique_id=598380413]
+script = ExtResource("1_bqqt6")
 
 [node name="Control" type="Control" parent="." unique_id=1277987570]
 layout_mode = 3
