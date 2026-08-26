@@ -307,3 +307,4 @@ size_flags_vertical = 4
 color = Color(0, 0, 0, 1)
 
 [node name="HUD" parent="." unique_id=918116722 instance=ExtResource("5_qlg0r")]
+visible = false
