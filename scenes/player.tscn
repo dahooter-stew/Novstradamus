@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dw0cb75vxpkiq" path="res://scenes/qte_manager.tscn" id="2_dqkch"]
 [ext_resource type="Texture2D" uid="uid://cx7md3onew603" path="res://resources/sprites/Nova Sprite/Nova_spritesheet.png" id="3_dqkch"]
 [ext_resource type="Script" uid="uid://cqh0qq7meas24" path="res://scripts/detection_area_manager.gd" id="3_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://dt2w0su202dev" path="res://scenes/hud.tscn" id="5_qlg0r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ci2qi"]
 radius = 25.0
@@ -304,3 +305,5 @@ scale = Vector2(1.334594, 0.75009066)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(0, 0, 0, 1)
+
+[node name="HUD" parent="." unique_id=918116722 instance=ExtResource("5_qlg0r")]

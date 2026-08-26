@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://blvco30iodci7"]
+[gd_scene format=3 uid="uid://xeauxml6e4rk"]
 
 [ext_resource type="Script" uid="uid://1a07aca8gxsu" path="res://scripts/qte_ui.gd" id="1_qk5hg"]
 [ext_resource type="Texture2D" uid="uid://d0tk4uomjdwgd" path="res://resources/sprites/Blank_White_Normal.png" id="2_67yp2"]
