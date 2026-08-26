@@ -17,5 +17,4 @@ tile_map_data = PackedByteArray("AAAQAAMAAQAGAAAAAAAQAAQAAQAGAAEAAAARAAMAAQAHAAA
 position = Vector2(271, 70)
 
 [node name="Player" parent="." index="2" unique_id=1824872444 instance=ExtResource("2_6iamk")]
-position = Vector2(62, 76)
-scale = Vector2(0.375, 0.375)
+position = Vector2(57, 78)

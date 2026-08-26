@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d13trbrdclm8t"]
 
-[ext_resource type="Script" uid="uid://sjntl2ufudy2" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://sjntl2ufudy2" path="res://scripts/player_old.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://cx7md3onew603" path="res://resources/sprites/Nova Sprite/Nova_spritesheet.png" id="3_dqkch"]
 [ext_resource type="Script" uid="uid://cqh0qq7meas24" path="res://scripts/detection_area_manager.gd" id="3_qhqgy"]
 
@@ -215,15 +215,13 @@ states/walk/position = Vector2(423, 105)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_smehm"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_ur7pv"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_y4r1p")]
 graph_offset = Vector2(-237, -12)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g2els"]
-load_path = "res://.godot/imported/Warrior_Blue.png-fe91b1b4a8fa1efc2e9419201f0a7d2c.ctex"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k11hu"]
 size = Vector2(67, 62)
 
 [node name="Player" type="CharacterBody2D" unique_id=1824872444 node_paths=PackedStringArray("detection_manager")]
+scale = Vector2(0.265, 0.265)
 script = ExtResource("1_g2els")
-speed = 100
+speed = 60
 detection_manager = NodePath("DetectionAreaManager")
 
 [node name="BodyCollisionShape" type="CollisionShape2D" parent="." unique_id=1799874114]
