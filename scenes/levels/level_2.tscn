@@ -1,0 +1,24 @@
+[gd_scene format=4 uid="uid://bkopbk01pprmh"]
+
+[ext_resource type="PackedScene" uid="uid://c8jwqrkg76eo" path="res://scenes/level_template.tscn" id="1_j2425"]
+[ext_resource type="PackedScene" uid="uid://d13trbrdclm8t" path="res://scenes/player.tscn" id="2_g2h2n"]
+[ext_resource type="PackedScene" uid="uid://beobhg8bx7rkc" path="res://scenes/guard.tscn" id="3_ra442"]
+
+[node name="Level2" unique_id=1695296030 node_paths=PackedStringArray("player") instance=ExtResource("1_j2425")]
+player = NodePath("Player")
+
+[node name="Floor" parent="TileMap" parent_id_path=PackedInt32Array(647814352) index="0" unique_id=1661434021]
+tile_map_data = PackedByteArray("AAAFAAIAAQAAAAQAAAAFAAMAAQAAAAUAAAAFAAQAAQAAAAYAAAAFAAUAAQAAAAcAAAAGAAIAAQABAAQAAAAGAAMAAQABAAUAAAAGAAQAAQABAAYAAAAGAAUAAQABAAcAAAAHAAIAAQACAAQAAAAHAAMAAQACAAUAAAAHAAQAAQACAAYAAAAHAAUAAQACAAcAAAAIAAIAAQADAAQAAAAIAAMAAQADAAUAAAAIAAQAAQADAAYAAAAIAAUAAQADAAcAAAAJAAIAAQAEAAQAAAAJAAMAAQAEAAUAAAAJAAQAAQAEAAYAAAAJAAUAAQAEAAcAAAAKAAIAAQAFAAQAAAAKAAMAAQAFAAUAAAAKAAQAAQAFAAYAAAAKAAUAAQAFAAcAAAALAAIAAQAGAAQAAAALAAMAAQAGAAUAAAALAAQAAQAGAAYAAAALAAUAAQAGAAcAAAAMAAIAAQAHAAQAAAAMAAMAAQAHAAUAAAAMAAQAAQAHAAYAAAAMAAUAAQAHAAcAAAA=")
+
+[node name="Stairs" parent="TileMap" parent_id_path=PackedInt32Array(647814352) index="2" unique_id=1033798392]
+tile_map_data = PackedByteArray("AAAFAAMAAQAAAAAAAAAFAAQAAQAAAAEAAAAGAAMAAQABAAAAAAAGAAQAAQABAAEAAAADAAIAAQAAAAQAAAADAAMAAQAAAAUAAAADAAQAAQAAAAYAAAADAAUAAQAAAAcAAAAEAAIAAQABAAQAAAAEAAMAAQABAAUAAAAEAAQAAQABAAYAAAAEAAUAAQABAAcAAAA=")
+
+[node name="LevelChangeBody" parent="LevelChangeArea" parent_id_path=PackedInt32Array(936472820) index="0" unique_id=1523927557]
+position = Vector2(97, 71)
+
+[node name="Player" parent="." index="2" unique_id=1824872444 instance=ExtResource("2_g2h2n")]
+position = Vector2(186, 74)
+scale = Vector2(0.375, 0.375)
+
+[node name="Guard" parent="." index="3" unique_id=1339874387 instance=ExtResource("3_ra442")]
+position = Vector2(114, 26)

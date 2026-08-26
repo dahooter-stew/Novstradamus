@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://x6rud3ms51hv" path="res://resources/sprites/Tiny Swords (Free Pack)/Terrain/Decorations/Rocks in the Water/Water Rocks_02.png" id="2_g8l4j"]
 [ext_resource type="Texture2D" uid="uid://dgnmadnn8ebdu" path="res://resources/sprites/Tiny Swords (Free Pack)/Terrain/Tileset/Tilemap_color1.png" id="3_5wgtu"]
 [ext_resource type="Texture2D" uid="uid://7bekbhns7mfr" path="res://resources/sprites/Tiny Swords (Free Pack)/Terrain/Tileset/Water Foam.png" id="3_6fk1w"]
+[ext_resource type="PackedScene" uid="uid://d13trbrdclm8t" path="res://scenes/player.tscn" id="6_s36se"]
+[ext_resource type="PackedScene" uid="uid://beobhg8bx7rkc" path="res://scenes/guard.tscn" id="7_8qn3e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_efggw"]
 texture = ExtResource("1_yowm7")
@@ -341,3 +343,15 @@ tile_map_data = PackedByteArray("AAD8//7/AAAHAAIAAAD7//7/AAAGAAIAAAD7//3/AAAGAAE
 tile_set = SubResource("TileSet_n4a4t")
 
 [node name="Shadow" type="TileMapLayer" parent="." unique_id=2127558470]
+
+[node name="Player" parent="." unique_id=1824872444 instance=ExtResource("6_s36se")]
+position = Vector2(-21, 123)
+
+[node name="Guard" parent="." unique_id=1339874387 instance=ExtResource("7_8qn3e")]
+position = Vector2(-78, -136)
+
+[node name="Guard2" parent="." unique_id=1592022627 instance=ExtResource("7_8qn3e")]
+position = Vector2(262, 251)
+
+[node name="Guard3" parent="." unique_id=1033766541 instance=ExtResource("7_8qn3e")]
+position = Vector2(367, -62)

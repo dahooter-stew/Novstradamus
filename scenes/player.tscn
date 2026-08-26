@@ -213,7 +213,7 @@ size = Vector2(67, 62)
 
 [node name="Player" type="CharacterBody2D" unique_id=1824872444 node_paths=PackedStringArray("detection_manager")]
 script = ExtResource("1_g2els")
-speed = 200
+speed = 100
 detection_manager = NodePath("DetectionAreaManager")
 
 [node name="BodyCollisionShape" type="CollisionShape2D" parent="." unique_id=1799874114]
@@ -221,7 +221,7 @@ position = Vector2(0, -22)
 shape = SubResource("CapsuleShape2D_ci2qi")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=419359626]
-zoom = Vector2(0.6, 0.6)
+zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
@@ -266,7 +266,8 @@ collision_layer = 2
 [node name="GuardDetectionShape" type="CollisionShape2D" parent="GuardDetectionArea" unique_id=1026744672]
 shape = SubResource("RectangleShape2D_k11hu")
 
-[node name="State" type="Label" parent="." unique_id=812456435]
+[node name="StateDebug" type="Label" parent="." unique_id=812456435]
+visible = false
 offset_left = -47.0
 offset_top = -228.0
 offset_right = -7.0
