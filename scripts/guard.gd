@@ -8,6 +8,7 @@ enum State {
 
 @export var sight_sprite_rot: float = 0
 
+
 @onready var takedown_prompt: Control = $TakedownPrompt
 @onready var body_collision_shape: CollisionShape2D = $BodyCollisionShape
 @onready var player_detection_area: Area2D = $PlayerDetectionArea
@@ -19,7 +20,7 @@ func _ready() -> void:
 	player_detection_area.body_entered.connect(on_player_detected)
 
 func _physics_process(delta: float) -> void:
-	player_detection_area.rotation = sight_sprite_rot
+	player_detection_area.rotation = deg_to_rad(sight_sprite_rot)
 
 func inactive():
 	if state == State.INACTIVE:
