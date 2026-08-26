@@ -230,6 +230,7 @@ shape = SubResource("CapsuleShape2D_ci2qi")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=419359626]
 zoom = Vector2(2, 2)
+process_callback = 0
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
