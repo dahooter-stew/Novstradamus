@@ -286,3 +286,20 @@ offset_top = -142.0
 offset_right = 11.999998
 offset_bottom = -119.0
 scale = Vector2(1.4768262, 1.4768262)
+
+[node name="BlackBG" type="ColorRect" parent="." unique_id=117626936]
+z_index = -10
+z_as_relative = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -652.83026
+offset_top = -373.58493
+offset_right = 325.73975
+offset_bottom = 622.57007
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.334594, 0.75009066)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0, 0, 0, 1)
