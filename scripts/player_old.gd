@@ -17,6 +17,7 @@ enum State {
 var move_direction: Vector2 = Vector2.ZERO
 var last_dir_pressed: String
 var input_queue: Array
+var prev_dir: Vector2
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var animation_playback: AnimationNodeStateMachinePlayback = $AnimationTree["parameters/playback"]
@@ -80,9 +81,13 @@ func movement_loop(_delta: float) -> void:
 	
 	if state == State.IDLE or state == State.RUN:
 		if Input.is_action_pressed("left"):
-			$Sprite2D.flip_h = true
+			$NovaSpritesheet.flip_h = true
 		elif Input.is_action_pressed("right"):
-			$Sprite2D.flip_h = false
+			$NovaSpritesheet.flip_h = false
+	
+	if move_direction != Vector2.ZERO:
+		animation_tree.set("parameters/walk/BlendSpace2D/blend_position", move_direction)
+		animation_tree.set("parameters/idle/BlendSpace2D/blend_position", move_direction)
 	
 	if move_direction != Vector2.ZERO and state == State.IDLE:
 		state = State.RUN
@@ -95,8 +100,10 @@ func update_animation() -> void:
 	match state:
 		State.IDLE:
 			animation_playback.travel("idle")
+			print("idle")
 		State.RUN:
-			animation_playback.travel("run")
+			animation_playback.travel("walk")
+			print("walk")
 		State.ATTACK:
 			animation_playback.travel("attack")
 		State.DEAD:
@@ -126,7 +133,7 @@ func dead():
 	#var mouse_pos: Vector2 = get_global_mouse_position()
 	#var attack_dir: Vector2 = (mouse_pos - global_position).normalized()
 	#animation_tree.set("parameters/attack/BlendSpace2D/blend_position", attack_dir)
-	#$Sprite2D.flip_h = attack_dir.x < 0 and abs(attack_dir.x) >= abs(attack_dir.y)
+	#$NovaSpritesheet.flip_h = attack_dir.x < 0 and abs(attack_dir.x) >= abs(attack_dir.y)
 	#update_animation()
 	#
 	#await get_tree().create_timer(attack_speed).timeout
