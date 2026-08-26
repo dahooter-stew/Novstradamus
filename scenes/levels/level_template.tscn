@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://da3e8x6o13ik7" path="res://scripts/level.gd" id="1_mm7tu"]
 [ext_resource type="TileSet" uid="uid://dm2s468yksahf" path="res://proto_tileset.tres" id="1_o6142"]
+[ext_resource type="TileSet" uid="uid://ycyxnr3w6apu" path="res://basement_top_walls.tres" id="3_gr3xe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ysnk7"]
 size = Vector2(16, 16)
@@ -18,7 +19,7 @@ tile_set = ExtResource("1_o6142")
 tile_set = ExtResource("1_o6142")
 
 [node name="TopWalls" type="TileMapLayer" parent="TileMap" unique_id=1718827805]
-tile_set = ExtResource("1_o6142")
+tile_set = ExtResource("3_gr3xe")
 
 [node name="Stairs" type="TileMapLayer" parent="TileMap" unique_id=1033798392]
 tile_set = ExtResource("1_o6142")
