@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://d13trbrdclm8t" path="res://scenes/player.tscn" id="2_6iamk"]
 [ext_resource type="PackedScene" uid="uid://beobhg8bx7rkc" path="res://scenes/guard.tscn" id="2_nsrm0"]
 [ext_resource type="Texture2D" uid="uid://l3wnrnkuhvio" path="res://scenes/levels/level_layouts/level_1layout.png" id="2_x42e6"]
+[ext_resource type="PackedScene" uid="uid://b08uwwf58gfbc" path="res://scenes/patrol.tscn" id="5_6761a"]
 
 [node name="Level1" unique_id=1695296030 node_paths=PackedStringArray("player") instance=ExtResource("1_ksju7")]
 player = NodePath("Player")
@@ -25,7 +26,9 @@ tile_map_data = PackedByteArray("AAAgAAAAAgAAAAYAAAAgAAEAAgAAAAcAAAAhAAAAAgABAAY
 position = Vector2(584, -24)
 
 [node name="Guard" parent="." index="2" unique_id=1339874387 instance=ExtResource("2_nsrm0")]
-position = Vector2(493, 64)
+y_sort_enabled = true
+position = Vector2(492, 66)
+sight_rotation = 0.0
 
 [node name="Player" parent="." index="3" unique_id=1824872444 instance=ExtResource("2_6iamk")]
 position = Vector2(-22, 16)
@@ -37,3 +40,9 @@ position = Vector2(377, 128)
 scale = Vector2(0.08087851, 0.08087851)
 texture = ExtResource("2_x42e6")
 flip_h = true
+
+[node name="Path2D" parent="." index="5" unique_id=674059523 instance=ExtResource("5_6761a")]
+position = Vector2(108, 139)
+guard_speed = 10.0
+
+[editable path="Path2D"]

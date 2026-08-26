@@ -36,6 +36,7 @@ sprite_frames = SubResource("SpriteFrames_ysnk7")
 
 [node name="TakedownPrompt" type="Control" parent="." unique_id=1889320811]
 visible = false
+y_sort_enabled = true
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5

@@ -220,6 +220,7 @@ graph_offset = Vector2(-237, -12)
 size = Vector2(67, 62)
 
 [node name="Player" type="CharacterBody2D" unique_id=1824872444 node_paths=PackedStringArray("detection_manager")]
+y_sort_enabled = true
 scale = Vector2(0.265, 0.265)
 script = ExtResource("1_g2els")
 speed = 45

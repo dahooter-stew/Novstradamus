@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://b08uwwf58gfbc"]
+
+[ext_resource type="Script" uid="uid://blbo6asf34k5w" path="res://scripts/patrol.gd" id="1_tq3bv"]
+[ext_resource type="Script" uid="uid://dglkqsq1ckmww" path="res://scripts/guard_path_follow.gd" id="1_v3cfu"]
+[ext_resource type="PackedScene" uid="uid://beobhg8bx7rkc" path="res://scenes/guard.tscn" id="2_tq3bv"]
+
+[sub_resource type="Curve2D" id="Curve2D_cw8lf"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -10, -8, 0, 0, 0, 0, -9, -137, 0, 0, 0, 0, 8, -137, 0, 0, -5.577835, 0.50272346, 8, -8, 0, 0, 0, 0, -10, -8)
+}
+point_count = 5
+
+[node name="Path2D" type="Path2D" unique_id=674059523]
+curve = SubResource("Curve2D_cw8lf")
+script = ExtResource("1_tq3bv")
+
+[node name="GuardPath" type="PathFollow2D" parent="." unique_id=1809117608 node_paths=PackedStringArray("pathing_guard")]
+position = Vector2(-10, -8)
+rotates = false
+script = ExtResource("1_v3cfu")
+pathing_guard = NodePath("Guard")
+
+[node name="Guard" parent="GuardPath" unique_id=1339874387 instance=ExtResource("2_tq3bv")]
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="RemoteTransformPath" type="PathFollow2D" parent="." unique_id=2098026387 node_paths=PackedStringArray("pathing_guard")]
+position = Vector2(-10, -8)
+rotation = -1.5630445
+script = ExtResource("1_v3cfu")
+pathing_guard = NodePath("RemoteTransform2D")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="RemoteTransformPath" unique_id=404045550]
+remote_path = NodePath("../../GuardPath/Guard/PlayerDetectionArea")
+update_position = false
+update_scale = false

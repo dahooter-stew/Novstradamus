@@ -7,6 +7,7 @@ enum State {
 }
 
 @export var sight_rotation: float = 0
+@export var is_patrol: bool
 
 @onready var takedown_prompt: Control = $TakedownPrompt
 @onready var sprite: AnimatedSprite2D = $GuardSprite
@@ -24,8 +25,9 @@ func _ready() -> void:
 	#sight_line_offset = player_detection_area.position.y
 	#print(sight_line_offset)
 
-func _physics_process(delta: float) -> void:
-	player_detection_area.rotation = deg_to_rad(sight_rotation)
+func _physics_process(_delta: float) -> void:
+	if not is_patrol:
+		player_detection_area.rotation = deg_to_rad(sight_rotation)
 
 func inactive():
 	if state == State.INACTIVE:
