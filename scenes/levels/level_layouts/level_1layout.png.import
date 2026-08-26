@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfd1vouroayck"
-path="res://.godot/imported/Basement.png-358e12d0d03f789cd040b9b28231a1ce.ctex"
+uid="uid://l3wnrnkuhvio"
+path="res://.godot/imported/level_1layout.png-145316a43becb1c8f0aca1d4212626ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/Basement.png"
-dest_files=["res://.godot/imported/Basement.png-358e12d0d03f789cd040b9b28231a1ce.ctex"]
+source_file="res://scenes/levels/level_layouts/level_1layout.png"
+dest_files=["res://.godot/imported/level_1layout.png-145316a43becb1c8f0aca1d4212626ad.ctex"]
 
 [params]
 

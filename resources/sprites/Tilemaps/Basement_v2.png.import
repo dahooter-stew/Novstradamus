@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x34nu661axv1"
-path="res://.godot/imported/Classroom.png-23956344d4dbb20673c9b46bfbc626af.ctex"
+uid="uid://imshrnm0kt0b"
+path="res://.godot/imported/Basement_v2.png-9f807b715f8ee227118406386d67b11b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/sprites/Tilemaps/Classroom.png"
-dest_files=["res://.godot/imported/Classroom.png-23956344d4dbb20673c9b46bfbc626af.ctex"]
+source_file="res://resources/sprites/Tilemaps/Basement_v2.png"
+dest_files=["res://.godot/imported/Basement_v2.png-9f807b715f8ee227118406386d67b11b.ctex"]
 
 [params]
 

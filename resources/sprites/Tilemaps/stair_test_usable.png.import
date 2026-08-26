@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bko7ifmsgfkj"
-path="res://.godot/imported/stair_test_usable.png-d150b18e11d604cfa1fc05606606088b.ctex"
+path="res://.godot/imported/stair_test_usable.png-890b5b1f9a2137d9376516f1023246af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/stair_test_usable.png"
-dest_files=["res://.godot/imported/stair_test_usable.png-d150b18e11d604cfa1fc05606606088b.ctex"]
+source_file="res://resources/sprites/Tilemaps/stair_test_usable.png"
+dest_files=["res://.godot/imported/stair_test_usable.png-890b5b1f9a2137d9376516f1023246af.ctex"]
 
 [params]
 
