@@ -10,5 +10,5 @@ func _physics_process(delta: float) -> void:
 	if guard and not guard.state == guard.State.INACTIVE:
 		guard_path.move_through_path(guard_speed, delta)
 		remote_transform_path.move_through_path(guard_speed, delta)
-	
-	#print(remote_transform_path.rotation)
+
+	#print(remote_transform_path.get_child(0))
