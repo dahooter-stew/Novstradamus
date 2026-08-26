@@ -19,7 +19,7 @@ var last_dir_pressed: String
 var input_queue: Array
 var prev_dir: Vector2
 
-@onready var qte_manager: Node2D = $"QTE Manager"
+@onready var qte_manager: Node = $"QTE Manager"
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var animation_playback: AnimationNodeStateMachinePlayback = $AnimationTree["parameters/playback"]
 @onready var state_label: Label = $StateDebug
@@ -31,6 +31,8 @@ func _ready() -> void:
 	toggle_qte.connect(qte_manager.on_toggle_qte)
 	qte_manager.qte_succeeded.connect(on_qte_succeeded)
 	qte_manager.qte_failed.connect(on_qte_failed)
+	qte_manager.qte_activated.connect(on_qte_activated)
+	qte_manager.qte_deactivated.connect(on_qte_deactivated)
 	animation_tree.active = true
 
 func _input(event: InputEvent) -> void:
@@ -155,6 +157,15 @@ func on_qte_succeeded():
 func on_qte_failed():
 	print("qte failed")
 	dead()
+
+func on_qte_activated():
+	print("qte activated")
+	detection_manager.guard_attacking.takedown_prompt.hide()
+	
+func on_qte_deactivated():
+	print("qte deactivated")
+	await get_tree().create_timer(0.1).timeout
+	idle()
 
 	#var mouse_pos: Vector2 = get_global_mouse_position()
 	#var attack_dir: Vector2 = (mouse_pos - global_position).normalized()

@@ -17,6 +17,8 @@ enum State {
 @onready var state: State = State.ACTIVE
 #@onready var sight_line_offset: int
 
+signal inactivated
+
 func _ready() -> void:
 	player_detection_area.body_entered.connect(on_player_detected)
 	#sight_line_offset = player_detection_area.position.y
@@ -34,6 +36,8 @@ func inactive():
 	player_detection_collision_shape.disabled = true
 	
 	player_detection_area.hide()
+	
+	inactivated.emit()
 
 func active():
 	if state == State.ACTIVE:

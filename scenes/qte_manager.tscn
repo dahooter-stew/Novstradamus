@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://bcdancodqu5qy"]
+[gd_scene format=3 uid="uid://dw0cb75vxpkiq"]
 
 [ext_resource type="PackedScene" uid="uid://xeauxml6e4rk" path="res://scenes/qte_ui.tscn" id="1_0xvy3"]
 [ext_resource type="Script" uid="uid://pl3busl30wu4" path="res://scripts/qte_manager.gd" id="1_yxu2m"]
 
-[node name="QTE Manager" type="Node2D" unique_id=162154269]
+[node name="QTE Manager" type="Node" unique_id=1831492873]
 script = ExtResource("1_yxu2m")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1925401500]

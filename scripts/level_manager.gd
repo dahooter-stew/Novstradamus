@@ -24,7 +24,7 @@ func play_current_level():
 		current_level_instance.player_entered_level_change_area.connect(on_player_entered_level_change_area)
 		
 		if current_level_instance is Level:
-			level_loaded.emit(current_level_instance.player)
+			level_loaded.emit(current_level_instance)
 
 func on_player_entered_level_change_area(next_level_number):
 	current_level_number = next_level_number

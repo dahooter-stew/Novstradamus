@@ -11,8 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bgludwk43rm3q" path="res://resources/sprites/Tiny Swords (Free Pack)/Terrain/Decorations/Bushes/Bushe3.png" id="9_vfccl"]
 [ext_resource type="Texture2D" uid="uid://blq5rir4npc06" path="res://resources/sprites/Tiny Swords (Free Pack)/Terrain/Resources/Wood/Trees/Tree4.png" id="10_vcl1g"]
 [ext_resource type="Texture2D" uid="uid://dhl7sy24e22re" path="res://resources/sprites/Tiny Swords (Free Pack)/Terrain/Decorations/Rocks/Rock4.png" id="11_xdwl4"]
-[ext_resource type="PackedScene" uid="uid://beobhg8bx7rkc" path="res://scenes/guard.tscn" id="12_cw8lf"]
-[ext_resource type="Script" uid="uid://dglkqsq1ckmww" path="res://scripts/guard_path_follow.gd" id="12_fu6mf"]
+[ext_resource type="PackedScene" uid="uid://bq2orc4o6xedf" path="res://scenes/patrolling_guard.tscn" id="13_fu6mf"]
 [ext_resource type="PackedScene" uid="uid://d13trbrdclm8t" path="res://scenes/player.tscn" id="14_wjk8n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_efggw"]
@@ -380,12 +379,6 @@ sources/2 = SubResource("TileSetAtlasSource_ef8fv")
 sources/3 = SubResource("TileSetAtlasSource_td3q0")
 sources/4 = SubResource("TileSetAtlasSource_sw20f")
 
-[sub_resource type="Curve2D" id="Curve2D_cw8lf"]
-_data = {
-"points": PackedVector2Array(66.15922, 34.351902, -66.15922, -34.351902, 170, -107, -30.010311, -67.47447, 30.010311, 67.47447, 31, 4, -51.76072, 62.902916, 51.76072, -62.902916, 204, -1, 0, 0, 0, 0, 170, -107)
-}
-point_count = 4
-
 [node name="Testmap" type="Node2D" unique_id=1198871411]
 
 [node name="Water" type="TileMapLayer" parent="." unique_id=2016596487]
@@ -414,29 +407,4 @@ tile_set = SubResource("TileSet_intoy")
 [node name="Player" parent="." unique_id=1824872444 instance=ExtResource("14_wjk8n")]
 position = Vector2(248, 189)
 
-[node name="Path2D" type="Path2D" parent="." unique_id=547225699]
-position = Vector2(132, 187)
-curve = SubResource("Curve2D_cw8lf")
-
-[node name="GuardPath" type="PathFollow2D" parent="Path2D" unique_id=1551326165 node_paths=PackedStringArray("pathing_guard")]
-position = Vector2(170, -107)
-rotates = false
-script = ExtResource("12_fu6mf")
-pathing_guard = NodePath("Guard")
-guard_speed = 10.0
-
-[node name="Guard" parent="Path2D/GuardPath" unique_id=1339874387 instance=ExtResource("12_cw8lf")]
-scale = Vector2(1.0000001, 1.0000001)
-
-[node name="RemoteTransformPath" type="PathFollow2D" parent="Path2D" unique_id=549202131 node_paths=PackedStringArray("pathing_guard")]
-position = Vector2(170, -107)
-rotation = -2.6626792
-script = ExtResource("12_fu6mf")
-pathing_guard = NodePath("RemoteTransform2D")
-guard_speed = 10.0
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D/RemoteTransformPath" unique_id=622504318]
-scale = Vector2(0.093769364, 0.093769364)
-remote_path = NodePath("../../GuardPath/Guard/PlayerDetectionArea")
-update_position = false
-update_scale = false
+[node name="PatrollingGuard" parent="." unique_id=1477336495 instance=ExtResource("13_fu6mf")]

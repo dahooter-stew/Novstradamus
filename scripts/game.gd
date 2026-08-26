@@ -1,10 +1,11 @@
 extends Node2D
 
-@onready var qte_manager: Node2D = $"QTE Manager"
+#@onready var qte_manager: Node2D = $"QTE Manager"
 @onready var menus_manager: MenusManager = $"Menus Manager"
 @onready var level_manager: LevelManager = $LevelManager
 
-var player: Player
+#var player: Player
+var current_level: Level
 
 #var guard_list: Array
 
@@ -28,12 +29,13 @@ func on_game_started():
 func on_game_resetted():
 	level_manager.play_current_level()
 
-func on_level_loaded(level_player):
-	player = level_player
-	#player.qte_manager.qte_succeeded.connect(on_qte_succeeded)
-	player.qte_manager.qte_failed.connect(on_qte_failed)
-	player.qte_manager.qte_activated.connect(on_qte_activated)
-	player.qte_manager.qte_deactivated.connect(on_qte_deactivated)
+func on_level_loaded(level):
+	current_level = level
+	if current_level:
+		var player_children_array: Array = current_level.player.get_children()
+		for child in player_children_array:
+			if child.name == "QTE Manager":
+				child.qte_failed.connect(on_qte_failed)
 
 func on_levels_finished():
 	print("finished levels")
@@ -44,11 +46,11 @@ func on_qte_failed():
 	level_manager.unload_current_level()
 	menus_manager.fail_screen.show()
 
-func on_qte_activated():
-	print("qte activated")
-	player.detection_manager.guard_attacking.takedown_prompt.hide()
-	
-func on_qte_deactivated():
-	print("qte deactivated")
-	await get_tree().create_timer(0.1).timeout
-	player.idle()
+#func on_qte_activated():
+	#print("qte activated")
+	#current_level.player.detection_manager.guard_attacking.takedown_prompt.hide()
+	#
+#func on_qte_deactivated():
+	#print("qte deactivated")
+	#await get_tree().create_timer(0.1).timeout
+	#player.idle()

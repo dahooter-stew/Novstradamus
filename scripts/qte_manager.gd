@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 @onready var qte_ui: Control = $"CanvasLayer/QTE UI"
 @onready var timer: Timer = $Timer
@@ -6,8 +6,6 @@ extends Node2D
 @onready var letter_prompt_dict: Dictionary
 @onready var success_count: int = 0
 @onready var is_active: bool = false
-
-var player: CharacterBody2D
 
 signal qte_activated
 signal qte_deactivated
