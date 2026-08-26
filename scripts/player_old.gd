@@ -19,6 +19,7 @@ var last_dir_pressed: String
 var input_queue: Array
 var prev_dir: Vector2
 
+@onready var qte_manager: Node2D = $"QTE Manager"
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var animation_playback: AnimationNodeStateMachinePlayback = $AnimationTree["parameters/playback"]
 @onready var state_label: Label = $StateDebug
@@ -27,6 +28,9 @@ var prev_dir: Vector2
 signal toggle_qte
 
 func _ready() -> void:
+	toggle_qte.connect(qte_manager.on_toggle_qte)
+	qte_manager.qte_succeeded.connect(on_qte_succeeded)
+	qte_manager.qte_failed.connect(on_qte_failed)
 	animation_tree.active = true
 
 func _input(event: InputEvent) -> void:
@@ -129,6 +133,15 @@ func dead():
 	if state == State.DEAD:
 		return
 	state = State.DEAD
+
+func on_qte_succeeded():
+	print("qte succeeded")
+	detection_manager.guard_attacking.inactive()
+	idle()
+
+func on_qte_failed():
+	print("qte failed")
+	dead()
 
 	#var mouse_pos: Vector2 = get_global_mouse_position()
 	#var attack_dir: Vector2 = (mouse_pos - global_position).normalized()

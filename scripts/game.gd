@@ -9,19 +9,12 @@ var player: Player
 #var guard_list: Array
 
 func _ready() -> void:
-	#guard_list.append(find_children("*", "Guard"))
-	#qte_manager.player = player
 	menus_manager.game_exited.connect(on_game_exited)
 	menus_manager.game_started.connect(on_game_started)
 	menus_manager.game_resetted.connect(on_game_resetted)
 	
 	level_manager.level_loaded.connect(on_level_loaded)
 	level_manager.levels_finished.connect(on_levels_finished)
-	
-	qte_manager.qte_succeeded.connect(on_qte_succeeded)
-	qte_manager.qte_failed.connect(on_qte_failed)
-	qte_manager.qte_activated.connect(on_qte_activated)
-	qte_manager.qte_deactivated.connect(on_qte_deactivated)
 
 func on_game_exited():
 	print("pressed exit")
@@ -37,21 +30,19 @@ func on_game_resetted():
 
 func on_level_loaded(level_player):
 	player = level_player
-	player.toggle_qte.connect(qte_manager.on_toggle_qte)
+	#player.qte_manager.qte_succeeded.connect(on_qte_succeeded)
+	player.qte_manager.qte_failed.connect(on_qte_failed)
+	player.qte_manager.qte_activated.connect(on_qte_activated)
+	player.qte_manager.qte_deactivated.connect(on_qte_deactivated)
 
 func on_levels_finished():
 	print("finished levels")
 	menus_manager.win_screen.show()
 
-func on_qte_succeeded():
-	print("qte succeeded")
-	player.detection_manager.guard_attacking.inactive()
-
 func on_qte_failed():
 	print("qte failed")
 	level_manager.unload_current_level()
 	menus_manager.fail_screen.show()
-	player.dead()
 
 func on_qte_activated():
 	print("qte activated")

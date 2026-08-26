@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d13trbrdclm8t"]
 
 [ext_resource type="Script" uid="uid://sjntl2ufudy2" path="res://scripts/player_old.gd" id="1_g2els"]
+[ext_resource type="PackedScene" uid="uid://dw0cb75vxpkiq" path="res://scenes/qte_manager.tscn" id="2_dqkch"]
 [ext_resource type="Texture2D" uid="uid://cx7md3onew603" path="res://resources/sprites/Nova Sprite/Nova_spritesheet.png" id="3_dqkch"]
 [ext_resource type="Script" uid="uid://cqh0qq7meas24" path="res://scripts/detection_area_manager.gd" id="3_qhqgy"]
 
@@ -224,6 +225,16 @@ script = ExtResource("1_g2els")
 speed = 60
 detection_manager = NodePath("DetectionAreaManager")
 
+[node name="QTE Manager" parent="." unique_id=162154269 instance=ExtResource("2_dqkch")]
+
+[node name="NovaSpritesheet" type="Sprite2D" parent="." unique_id=2127007811]
+position = Vector2(2, -45)
+scale = Vector2(0.1005534, 0.09757009)
+texture = ExtResource("3_dqkch")
+hframes = 3
+vframes = 4
+frame = 6
+
 [node name="BodyCollisionShape" type="CollisionShape2D" parent="." unique_id=1799874114]
 position = Vector2(0, -22)
 shape = SubResource("CapsuleShape2D_ci2qi")
@@ -275,11 +286,3 @@ offset_top = -142.0
 offset_right = 11.999998
 offset_bottom = -119.0
 scale = Vector2(1.4768262, 1.4768262)
-
-[node name="NovaSpritesheet" type="Sprite2D" parent="." unique_id=2127007811]
-position = Vector2(2, -45)
-scale = Vector2(0.1005534, 0.0975701)
-texture = ExtResource("3_dqkch")
-hframes = 3
-vframes = 4
-frame = 6

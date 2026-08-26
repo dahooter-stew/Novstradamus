@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://blq5rir4npc06" path="res://resources/sprites/Tiny Swords (Free Pack)/Terrain/Resources/Wood/Trees/Tree4.png" id="10_vcl1g"]
 [ext_resource type="Texture2D" uid="uid://dhl7sy24e22re" path="res://resources/sprites/Tiny Swords (Free Pack)/Terrain/Decorations/Rocks/Rock4.png" id="11_xdwl4"]
 [ext_resource type="PackedScene" uid="uid://beobhg8bx7rkc" path="res://scenes/guard.tscn" id="12_cw8lf"]
-[ext_resource type="Script" uid="uid://dglkqsq1ckmww" path="res://scenes/levels/guard_path_follow.gd" id="12_fu6mf"]
+[ext_resource type="Script" uid="uid://dglkqsq1ckmww" path="res://scripts/guard_path_follow.gd" id="12_fu6mf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_efggw"]
 texture = ExtResource("1_yowm7")
@@ -381,9 +381,9 @@ sources/4 = SubResource("TileSetAtlasSource_sw20f")
 
 [sub_resource type="Curve2D" id="Curve2D_cw8lf"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 259, 63, 66.15922, 34.351902, -66.15922, -34.351902, 315, -168, 59.504128, -67.76859, -59.504128, 67.76859, -194, -117, -77.18576, -43.257954, 77.18576, 43.257954, 10, 117, 0, 0, 0, 0, 259, 63)
+"points": PackedVector2Array(66.15922, 34.351902, -66.15922, -34.351902, 178, -152, -124.43138, -141.88239, 124.43138, 141.88239, -19, 55, -38.931763, 122.942406, 38.931763, -122.942406, 299, 32, 0, 0, 0, 0, 178, -152)
 }
-point_count = 5
+point_count = 4
 
 [node name="Testmap" type="Node2D" unique_id=1198871411]
 
@@ -411,12 +411,12 @@ tile_set = SubResource("TileSet_n4a4t")
 tile_set = SubResource("TileSet_intoy")
 
 [node name="Path2D" type="Path2D" parent="." unique_id=547225699]
-position = Vector2(233, 211)
+position = Vector2(132, 187)
 curve = SubResource("Curve2D_cw8lf")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1551326165 node_paths=PackedStringArray("pathing_guard")]
-position = Vector2(259, 63)
-rotation = -1.014929
+position = Vector2(178, -152)
+rotation = -2.6626792
 script = ExtResource("12_fu6mf")
 pathing_guard = NodePath("Guard")
 guard_speed = 10.0
