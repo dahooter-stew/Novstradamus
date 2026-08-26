@@ -19,6 +19,7 @@ var last_dir_pressed: String
 var input_queue: Array
 var prev_dir: Vector2
 
+@onready var hud: CanvasLayer = $HUD
 @onready var qte_manager: Node = $"QTE Manager"
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var animation_playback: AnimationNodeStateMachinePlayback = $AnimationTree["parameters/playback"]
@@ -28,6 +29,8 @@ var prev_dir: Vector2
 signal toggle_qte
 
 func _ready() -> void:
+	hud.show()
+	
 	toggle_qte.connect(qte_manager.on_toggle_qte)
 	qte_manager.qte_succeeded.connect(on_qte_succeeded)
 	qte_manager.qte_failed.connect(on_qte_failed)

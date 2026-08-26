@@ -34,11 +34,11 @@ sight_rotation = 0.0
 
 [node name="Guard2" parent="." index="3" unique_id=58855462 instance=ExtResource("2_nsrm0")]
 y_sort_enabled = true
-position = Vector2(228, 92)
-sight_rotation = -225.8
+position = Vector2(230, 85)
+sight_rotation = -255.53
 
 [node name="Player" parent="." index="4" unique_id=1824872444 instance=ExtResource("2_6iamk")]
-position = Vector2(-22, 11)
+position = Vector2(-24, 14)
 
 [node name="Level1Layout" type="Sprite2D" parent="." index="5" unique_id=1194821366]
 visible = false
@@ -49,21 +49,24 @@ texture = ExtResource("2_x42e6")
 flip_h = true
 
 [node name="Path2D" parent="." index="6" unique_id=674059523 instance=ExtResource("5_6761a")]
-position = Vector2(118, 105)
+position = Vector2(121, 130)
 scale = Vector2(0.99257135, 1)
 guard_speed = 10.0
 
 [node name="GuardPath" parent="Path2D" index="0" unique_id=1809117608]
-position = Vector2(-16.119743, -11)
+position = Vector2(-17.127228, -8)
 
-[node name="PlayerDetectionArea" parent="Path2D/GuardPath/Guard" parent_id_path=PackedInt32Array(674059523, 1339874387) index="2" unique_id=1882423986]
+[node name="Guard" parent="Path2D/GuardPath" index="0" unique_id=1339874387]
+is_patrol = true
+
+[node name="PlayerDetectionArea" parent="Path2D/GuardPath/Guard" index="2" unique_id=1882423986]
 position = Vector2(0, 0)
-rotation = -1.5873109
-scale = Vector2(0.99999976, 0.99999976)
+rotation = -1.5707964
+scale = Vector2(0.9999998, 0.9999998)
 
 [node name="RemoteTransformPath" parent="Path2D" index="1" unique_id=2098026387]
-position = Vector2(-16.119743, -11)
-rotation = -1.5873109
+position = Vector2(-17.127228, -8)
+rotation = -1.5707964
 
 [node name="RemoteTransform2D" parent="Path2D/RemoteTransformPath" index="0" unique_id=404045550]
 use_global_coordinates = true
