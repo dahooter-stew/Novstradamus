@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://ivjwpd5hgjc0"]
 
-[ext_resource type="PackedScene" uid="uid://c8jwqrkg76eo" path="res://scenes/level_template.tscn" id="1_ksju7"]
+[ext_resource type="PackedScene" uid="uid://c8jwqrkg76eo" path="res://scenes/levels/level_template.tscn" id="1_ksju7"]
 [ext_resource type="PackedScene" uid="uid://d13trbrdclm8t" path="res://scenes/player.tscn" id="2_6iamk"]
 
 [node name="Level1" unique_id=1695296030 node_paths=PackedStringArray("player") instance=ExtResource("1_ksju7")]
