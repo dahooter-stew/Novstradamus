@@ -414,11 +414,11 @@ tile_set = SubResource("TileSet_intoy")
 position = Vector2(233, 211)
 curve = SubResource("Curve2D_cw8lf")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1551326165]
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1551326165 node_paths=PackedStringArray("pathing_guard")]
 position = Vector2(259, 63)
 rotation = -1.014929
 script = ExtResource("12_fu6mf")
-guard_speed = 3.0
+pathing_guard = NodePath("Guard")
+guard_speed = 10.0
 
 [node name="Guard" parent="Path2D/PathFollow2D" unique_id=1339874387 instance=ExtResource("12_cw8lf")]
-rotation = 1.4762515

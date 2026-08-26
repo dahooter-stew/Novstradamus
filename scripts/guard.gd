@@ -10,6 +10,7 @@ enum State {
 
 
 @onready var takedown_prompt: Control = $TakedownPrompt
+@onready var sprite: AnimatedSprite2D = $GuardSprite
 @onready var body_collision_shape: CollisionShape2D = $BodyCollisionShape
 @onready var player_detection_area: Area2D = $PlayerDetectionArea
 @onready var player_detection_collision_shape: CollisionShape2D = $PlayerDetectionArea/PlayerDetectionCollisionShape

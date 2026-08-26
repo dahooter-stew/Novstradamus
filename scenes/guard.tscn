@@ -30,7 +30,7 @@ points = PackedVector2Array(40, 20, 20, 40, 0, 0)
 [node name="Guard" type="CharacterBody2D" unique_id=1339874387]
 script = ExtResource("1_ci2qi")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1165323101]
+[node name="GuardSprite" type="AnimatedSprite2D" parent="." unique_id=1165323101]
 sprite_frames = SubResource("SpriteFrames_ysnk7")
 
 [node name="BodyCollisionShape" type="CollisionShape2D" parent="." unique_id=714647691]
