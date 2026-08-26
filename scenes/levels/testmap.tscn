@@ -381,7 +381,7 @@ sources/4 = SubResource("TileSetAtlasSource_sw20f")
 
 [sub_resource type="Curve2D" id="Curve2D_cw8lf"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, -116, 0, 0, 0, 0, -98, -93, 0, 0, 0, 0, -82, 12, 0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 259, 63, 66.15922, 34.351902, -66.15922, -34.351902, 315, -168, 59.504128, -67.76859, -59.504128, 67.76859, -194, -117, -77.18576, -43.257954, 77.18576, 43.257954, 10, 117, 0, 0, 0, 0, 259, 63)
 }
 point_count = 5
 
@@ -411,12 +411,14 @@ tile_set = SubResource("TileSet_n4a4t")
 tile_set = SubResource("TileSet_intoy")
 
 [node name="Path2D" type="Path2D" parent="." unique_id=547225699]
-position = Vector2(260, 195)
+position = Vector2(233, 211)
 curve = SubResource("Curve2D_cw8lf")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1551326165]
-rotation = -1.4762515
+position = Vector2(259, 63)
+rotation = -1.014929
 script = ExtResource("12_fu6mf")
+guard_speed = 3.0
 
 [node name="Guard" parent="Path2D/PathFollow2D" unique_id=1339874387 instance=ExtResource("12_cw8lf")]
 rotation = 1.4762515
