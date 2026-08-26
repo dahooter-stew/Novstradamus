@@ -20,12 +20,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ysnk7"]
-radius = 9.0
-height = 20.0
-
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_k11hu"]
 points = PackedVector2Array(40, 20, 20, 40, 0, 0)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ysnk7"]
+radius = 8.0
+height = 22.0
 
 [node name="Guard" type="CharacterBody2D" unique_id=1339874387]
 script = ExtResource("1_ci2qi")
@@ -33,10 +33,6 @@ sight_rotation = 90.0
 
 [node name="GuardSprite" type="AnimatedSprite2D" parent="." unique_id=1165323101]
 sprite_frames = SubResource("SpriteFrames_ysnk7")
-
-[node name="BodyCollisionShape" type="CollisionShape2D" parent="." unique_id=714647691]
-position = Vector2(0, 9)
-shape = SubResource("CapsuleShape2D_ysnk7")
 
 [node name="TakedownPrompt" type="Control" parent="." unique_id=1889320811]
 visible = false
@@ -46,10 +42,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -15.5
-offset_top = -15.5
-offset_right = 15.5
-offset_bottom = 15.5
+offset_left = -13.975
+offset_top = -15.565
+offset_right = 17.025
+offset_bottom = 15.435
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
@@ -86,7 +82,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PlayerDetectionArea" type="Area2D" parent="." unique_id=1882423986]
-position = Vector2(0, -4)
+position = Vector2(0, -5)
 collision_layer = 2
 
 [node name="GuardSightSprite" type="Sprite2D" parent="PlayerDetectionArea" unique_id=933296697]
@@ -110,3 +106,7 @@ theme_override_colors/font_color = Color(1, 0, 0, 1)
 text = "!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="BodyCollisionShape" type="CollisionShape2D" parent="." unique_id=714647691]
+position = Vector2(0, 7.775)
+shape = SubResource("CapsuleShape2D_ysnk7")

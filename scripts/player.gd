@@ -96,43 +96,56 @@ func movement_loop(_delta: float) -> void:
 	if move_direction != Vector2.ZERO and state == State.IDLE:
 		state = State.RUN
 		update_animation()
+		
+	#elif move_direction == Vector2.ZERO and state == State.RUN:
+		#state = State.IDLE
+		#update_animation()
+		
 	elif move_direction == Vector2.ZERO and state == State.RUN:
-		state = State.IDLE
-		update_animation()
+		idle()
 
 func update_animation() -> void:
 	match state:
 		State.IDLE:
 			animation_playback.travel("idle")
-			print("idle")
 		State.RUN:
 			animation_playback.travel("walk")
 			print("walk")
 		State.ATTACK:
-			animation_playback.travel("attack")
+			animation_playback.travel("idle")
 		State.DEAD:
-			animation_playback.travel("dead")
+			animation_playback.travel("idle")
+		State.FOUND:
+			animation_playback.travel("idle")
 
 func idle():
 	if state == State.IDLE:
 		return
 	state = State.IDLE
+	update_animation()
+	print("idle")
 
 func found():
 	if state == State.FOUND:
 		return
 	state = State.FOUND
+	update_animation()
+	print("found")
 
 func attack() -> void:
 	if state == State.ATTACK:
 		return
 	state = State.ATTACK
+	update_animation()
+	print("attack")
 	toggle_qte.emit()
 
 func dead():
 	if state == State.DEAD:
 		return
 	state = State.DEAD
+	update_animation()
+	print("dead")
 
 func on_qte_succeeded():
 	print("qte succeeded")
