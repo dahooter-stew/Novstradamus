@@ -17,6 +17,9 @@ tile_set = ExtResource("1_o6142")
 [node name="Walls" type="TileMapLayer" parent="TileMap" unique_id=1623854578]
 tile_set = ExtResource("1_o6142")
 
+[node name="TopWalls" type="TileMapLayer" parent="TileMap" unique_id=1718827805]
+tile_set = ExtResource("1_o6142")
+
 [node name="Stairs" type="TileMapLayer" parent="TileMap" unique_id=1033798392]
 tile_set = ExtResource("1_o6142")
 
