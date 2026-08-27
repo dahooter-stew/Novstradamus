@@ -35,7 +35,7 @@ func _physics_process(_delta: float) -> void:
 			"D":
 				detection_area.position = r_pos.position
 				detection_area.rotation = 0
-	if guard_attacking:
+	if guard_attacking and player.mask_abilities_manager.mask_charge_counter["STRENGTH"] > 0:
 		update_takedown_prompt()
 
 func update_guard_attacking():

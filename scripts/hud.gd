@@ -7,6 +7,19 @@ extends CanvasLayer
 const highlighted_color: Color = Color(1, 1, 1)
 const normal_color: Color = Color(0.5, 0.5, 0.5)
 
+func update_mask_charge_hud(mask, charge_count):
+	var mask_icon_list: Array
+	match mask:
+		1:
+			mask_icon_list = sly_hud.get_children()
+			mask_icon_list[charge_count].hide()
+		2:
+			mask_icon_list = strength_hud.get_children()
+			mask_icon_list[charge_count].hide()
+		3:
+			mask_icon_list = sage_hud.get_children()
+			mask_icon_list[charge_count].hide()
+
 func update_indicated_active_mask(mask):
 	match mask:
 		0:

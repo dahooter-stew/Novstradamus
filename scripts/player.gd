@@ -27,6 +27,7 @@ var input_queue: Array
 var prev_dir: Vector2
 var mask: Mask
 
+@onready var mask_abilities_manager: MaskAbilitiesManager = $MaskAbilitiesManager
 @onready var mask_sprite_manager: MaskSpriteManager = $MaskSpriteManager
 @onready var hud: CanvasLayer = $HUD
 @onready var qte_manager: Node = $"QTE Manager"
@@ -77,10 +78,12 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_released("right"):
 			input_queue.erase("D")
 		
-		#if Input.is_action_just_pressed("space") and detection_manager.can_takedown and mask == Mask.STRENGTH:
-		if Input.is_action_just_pressed("space") and mask == Mask.STRENGTH:
-			if detection_manager.guard_attacking:
-				detection_manager.guard_attacking.on_player_detected(self)
+		# Mask Ability Activation
+		if Input.is_action_just_pressed("space"):
+			if mask == Mask.STRENGTH:
+				if detection_manager.guard_attacking and mask_abilities_manager.mask_charge_counter["STRENGTH"] > 0:
+					detection_manager.guard_attacking.on_player_detected(self)
+					mask_abilities_manager.update_mask_charge("STRENGTH")
 		
 		if event.is_action_pressed("1"):
 			mask = Mask.SLY
@@ -183,6 +186,7 @@ func dead():
 func on_qte_succeeded():
 	print("qte succeeded")
 	detection_manager.guard_attacking.inactive()
+	hud.update_mask_charge_hud(Mask.STRENGTH, mask_abilities_manager.mask_charge_counter["STRENGTH"])
 	#detection_manager.update_guard_attacking()
 	idle()
 

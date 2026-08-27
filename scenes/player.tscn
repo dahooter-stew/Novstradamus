@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cqh0qq7meas24" path="res://scripts/detection_area_manager.gd" id="3_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://dt2w0su202dev" path="res://scenes/hud.tscn" id="5_qlg0r"]
 [ext_resource type="Script" uid="uid://caaobx1vrnqm6" path="res://scripts/mask_sprite_manager.gd" id="6_tuyoq"]
+[ext_resource type="Script" uid="uid://ck7bo7pp0ap1n" path="res://scripts/mask_abilities_manager.gd" id="7_fjrip"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ci2qi"]
 radius = 25.0
@@ -318,4 +319,12 @@ position = Vector2(0, -133.365)
 scale = Vector2(0.14, 0.14)
 script = ExtResource("6_tuyoq")
 
-[node name="Sprite2D" type="Sprite2D" parent="MaskSpriteManager" unique_id=1004376051]
+[node name="MaskSprite" type="Sprite2D" parent="MaskSpriteManager" unique_id=1004376051]
+
+[node name="MaskAbilitiesManager" type="Node" parent="." unique_id=921577971]
+script = ExtResource("7_fjrip")
+mask_charge_counter = {
+"SAGE": 2,
+"SLY": 2,
+"STRENGTH": 2
+}
