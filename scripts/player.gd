@@ -9,6 +9,12 @@ enum State {
 	DEAD
 }
 
+enum Mask {
+	SLY,
+	STRENGTH,
+	SAGE
+}
+
 @export_category("Stats")
 @export var speed: int = 400
 @export var attack_speed: float = 0.6
@@ -18,6 +24,7 @@ var move_direction: Vector2 = Vector2.ZERO
 var last_dir_pressed: String
 var input_queue: Array
 var prev_dir: Vector2
+var mask: Mask
 
 @onready var hud: CanvasLayer = $HUD
 @onready var qte_manager: Node = $"QTE Manager"
@@ -65,23 +72,31 @@ func _input(event: InputEvent) -> void:
 		if Input.is_action_just_pressed("space") and detection_manager.can_takedown:
 			attack()
 		
-	if event is InputEventKey and dir_keys.has(event.as_text()):
-		if input_queue:
-			last_dir_pressed = input_queue[-1]
+		if event.is_action_pressed("1"):
+			mask = Mask.SLY
+			#print(mask)
+		
+		elif event.is_action_pressed("2"):
+			mask = Mask.STRENGTH
+			#print(mask)
+		
+		elif event.is_action_pressed("3"):
+			mask = Mask.SAGE
+			#print(mask)
+		
+	if event is InputEventKey:
+		if dir_keys.has(event.as_text()):
+			if input_queue:
+				last_dir_pressed = input_queue[-1]
+	
 		#print(input_queue)
 		#print(last_dir_pressed)
-	
-	#if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		#attack()
 
 func _physics_process(delta: float) -> void:
 	state_label.text = str(state)
 	
 	if not state == State.DEAD and not state == State.ATTACK and not state == State.FOUND:
 		movement_loop(delta)
-
-	#if state == State.DEAD:
-		#detection_manager.detection_area.
 
 func movement_loop(_delta: float) -> void:
 	move_direction = Input.get_vector("left", "right", "up", "down")
@@ -101,10 +116,6 @@ func movement_loop(_delta: float) -> void:
 	if move_direction != Vector2.ZERO and state == State.IDLE:
 		state = State.RUN
 		update_animation()
-		
-	#elif move_direction == Vector2.ZERO and state == State.RUN:
-		#state = State.IDLE
-		#update_animation()
 		
 	elif move_direction == Vector2.ZERO and state == State.RUN:
 		idle()
