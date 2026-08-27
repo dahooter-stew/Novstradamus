@@ -27,6 +27,7 @@ var input_queue: Array
 var prev_dir: Vector2
 var mask: Mask
 
+@onready var mask_sprite_manager: MaskSpriteManager = $MaskSpriteManager
 @onready var hud: CanvasLayer = $HUD
 @onready var qte_manager: Node = $"QTE Manager"
 @onready var animation_tree: AnimationTree = $AnimationTree
@@ -35,6 +36,7 @@ var mask: Mask
 @onready var state: State = State.IDLE
 
 signal toggle_qte
+signal mask_changed
 
 func _ready() -> void:
 	hud.show()
@@ -44,6 +46,9 @@ func _ready() -> void:
 	qte_manager.qte_failed.connect(on_qte_failed)
 	qte_manager.qte_activated.connect(on_qte_activated)
 	qte_manager.qte_deactivated.connect(on_qte_deactivated)
+	
+	mask_changed.connect(mask_sprite_manager.update_mask_sprite)
+	
 	animation_tree.active = true
 
 func _input(event: InputEvent) -> void:
@@ -75,19 +80,22 @@ func _input(event: InputEvent) -> void:
 		
 		if event.is_action_pressed("1"):
 			mask = Mask.SLY
-			#print(mask)
+			mask_changed.emit(mask)
 		
 		elif event.is_action_pressed("2"):
 			mask = Mask.STRENGTH
 			#print(mask)
+			mask_changed.emit(mask)
 		
 		elif event.is_action_pressed("3"):
 			mask = Mask.SAGE
 			#print(mask)
+			mask_changed.emit(mask)
 			
 		elif event.is_action_pressed("4"):
 			mask = Mask.NONE
 			#print(mask)
+			mask_changed.emit(mask)
 		
 	if event is InputEventKey:
 		if dir_keys.has(event.as_text()):

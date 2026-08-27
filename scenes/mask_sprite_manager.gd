@@ -1,1 +1,0 @@
-class_name MaskSpriteManager extends Node2D
