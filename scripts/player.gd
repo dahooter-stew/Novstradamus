@@ -40,6 +40,7 @@ signal mask_changed
 
 func _ready() -> void:
 	hud.show()
+	hud.update_indicated_active_mask(mask)
 	
 	toggle_qte.connect(qte_manager.on_toggle_qte)
 	qte_manager.qte_succeeded.connect(on_qte_succeeded)
@@ -48,6 +49,7 @@ func _ready() -> void:
 	qte_manager.qte_deactivated.connect(on_qte_deactivated)
 	
 	mask_changed.connect(mask_sprite_manager.update_mask_sprite)
+	mask_changed.connect(hud.update_indicated_active_mask)
 	
 	animation_tree.active = true
 
@@ -81,7 +83,7 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_pressed("1"):
 			mask = Mask.SLY
 			mask_changed.emit(mask)
-		
+			
 		elif event.is_action_pressed("2"):
 			mask = Mask.STRENGTH
 			#print(mask)
