@@ -1,4 +1,4 @@
-extends Node
+class_name QTEManager extends Node
 
 @onready var qte_ui: Control = $"CanvasLayer/QTE UI"
 @onready var timer: Timer = $Timer

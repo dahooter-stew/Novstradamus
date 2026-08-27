@@ -66,5 +66,9 @@ func on_player_detected(player):
 		state = State.ATTACK
 		player.found()
 		await show_detection_prompt()
-		player.detection_manager.guard_attacking = self
-		player.attack()
+		if player.mask == player.Mask.STRENGTH:
+			player.detection_manager.guard_attacking = self
+			player.attack()
+		else:
+			player.qte_manager.qte_failed.emit()
+			

@@ -86,7 +86,6 @@ func _input(event: InputEvent) -> void:
 			if mask == Mask.STRENGTH:
 				if detection_manager.guard_attacking and mask_abilities_manager.mask_charge_counter["STRENGTH"] > 0:
 					detection_manager.guard_attacking.on_player_detected(self)
-					mask_abilities_manager.update_mask_charge("STRENGTH")
 
 			if mask == Mask.SLY:
 				print("SLY")
@@ -203,6 +202,7 @@ func dead():
 func on_qte_succeeded():
 	#print("qte succeeded")
 	detection_manager.guard_attacking.inactive()
+	mask_abilities_manager.update_mask_charge("STRENGTH")
 	hud.update_mask_charge_hud(Mask.STRENGTH, mask_abilities_manager.mask_charge_counter["STRENGTH"])
 	#detection_manager.update_guard_attacking()
 	idle()
