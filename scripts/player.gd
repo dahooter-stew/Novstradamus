@@ -18,7 +18,7 @@ enum Mask {
 
 @export_category("Stats")
 @export var speed: int = 400
-@export var attack_speed: float = 0.6
+@export var invisibility_duration: int = 5
 @export var detection_manager: DetectionManager
 
 var move_direction: Vector2 = Vector2.ZERO
@@ -27,6 +27,7 @@ var input_queue: Array
 var prev_dir: Vector2
 var mask: Mask
 
+@onready var sprite: Sprite2D = $NovaSpritesheet
 @onready var mask_abilities_manager: MaskAbilitiesManager = $MaskAbilitiesManager
 @onready var mask_sprite_manager: MaskSpriteManager = $MaskSpriteManager
 @onready var hud: CanvasLayer = $HUD
@@ -53,6 +54,8 @@ func _ready() -> void:
 	mask_changed.connect(hud.update_indicated_active_mask)
 	
 	animation_tree.active = true
+	
+	print(collision_layer)
 
 func _input(event: InputEvent) -> void:
 	var dir_keys: Array = ["W", "A", "S", "D"]
@@ -84,7 +87,21 @@ func _input(event: InputEvent) -> void:
 				if detection_manager.guard_attacking and mask_abilities_manager.mask_charge_counter["STRENGTH"] > 0:
 					detection_manager.guard_attacking.on_player_detected(self)
 					mask_abilities_manager.update_mask_charge("STRENGTH")
+
+			if mask == Mask.SLY:
+				print("SLY")
+				if mask_abilities_manager.mask_charge_counter["SLY"] > 0:
+					set_collision_layer_value(1, false)
+					set_collision_layer_value(5, true)
+					set_collision_mask_value(4, false)
+					sprite.modulate.a = 0.5
+					await get_tree().create_timer(invisibility_duration).timeout
+					set_collision_layer_value(1, true)
+					set_collision_layer_value(5, false)
+					set_collision_mask_value(4, true)
+					sprite.modulate.a = 1
 		
+		# Mask Selection
 		if event.is_action_pressed("1"):
 			mask = Mask.SLY
 			mask_changed.emit(mask)

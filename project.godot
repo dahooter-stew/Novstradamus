@@ -80,6 +80,7 @@ space={
 2d_physics/layer_2="DetectionAreas"
 2d_physics/layer_3="LevelChangeAreas"
 2d_physics/layer_4="Guards"
+2d_physics/layer_5="Intangible"
 
 [physics]
 
