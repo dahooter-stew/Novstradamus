@@ -94,7 +94,6 @@ func _input(event: InputEvent) -> void:
 					detection_manager.guard_attacking.on_player_detected(self)
 
 			if mask == Mask.SLY:
-				print("SLY")
 				if mask_abilities_manager.mask_charge_counter["SLY"] > 0:
 					set_collision_layer_value(1, false)
 					set_collision_layer_value(5, true)
@@ -102,11 +101,6 @@ func _input(event: InputEvent) -> void:
 					sprite.modulate.a = 0.5
 					stealth_timer.start()
 					stealth_duration_hud.show()
-					#await get_tree().create_timer(invisibility_duration).timeout
-					#set_collision_layer_value(1, true)
-					#set_collision_layer_value(5, false)
-					#set_collision_mask_value(4, true)
-					#sprite.modulate.a = 1
 		
 		# Mask Selection
 		if event.is_action_pressed("1"):
@@ -214,11 +208,13 @@ func dead():
 	#print("dead")
 
 func on_stealth_timer_timeout():
+	mask_abilities_manager.update_mask_charge("SLY")
+	hud.update_mask_charge_hud(Mask.SLY, mask_abilities_manager.mask_charge_counter["SLY"])
 	set_collision_layer_value(1, true)
 	set_collision_layer_value(5, false)
 	set_collision_mask_value(4, true)
 	sprite.modulate.a = 1
-	stealth_duration_hud.show()
+	stealth_duration_hud.hide()
 
 func on_qte_succeeded():
 	#print("qte succeeded")

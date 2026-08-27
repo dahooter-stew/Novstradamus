@@ -233,6 +233,8 @@ detection_manager = NodePath("DetectionAreaManager")
 
 [node name="StealthDurationHUD" type="TextureProgressBar" parent="." unique_id=1341491528]
 visible = false
+self_modulate = Color(1, 1, 1, 0.8235294)
+z_index = 1
 texture_filter = 2
 anchors_preset = 8
 anchor_left = 0.5

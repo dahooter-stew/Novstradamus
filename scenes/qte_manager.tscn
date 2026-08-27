@@ -7,9 +7,12 @@
 script = ExtResource("1_yxu2m")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1925401500]
+layer = 3
 
 [node name="QTE UI" parent="CanvasLayer" unique_id=665858185 instance=ExtResource("1_0xvy3")]
 visible = false
+z_index = 5
+z_as_relative = false
 metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Timer" parent="." unique_id=1876630128]

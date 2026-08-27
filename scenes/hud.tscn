@@ -13,6 +13,7 @@
 font_size = 34
 
 [node name="HUD" type="CanvasLayer" unique_id=918116722]
+layer = 2
 script = ExtResource("1_6fi6k")
 
 [node name="Control" type="Control" parent="." unique_id=642940499]
