@@ -10,6 +10,7 @@ enum State {
 }
 
 enum Mask {
+	NONE,
 	SLY,
 	STRENGTH,
 	SAGE
@@ -69,7 +70,7 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_released("right"):
 			input_queue.erase("D")
 		
-		if Input.is_action_just_pressed("space") and detection_manager.can_takedown:
+		if Input.is_action_just_pressed("space") and detection_manager.can_takedown and mask == Mask.STRENGTH:
 			attack()
 		
 		if event.is_action_pressed("1"):
@@ -82,6 +83,10 @@ func _input(event: InputEvent) -> void:
 		
 		elif event.is_action_pressed("3"):
 			mask = Mask.SAGE
+			#print(mask)
+			
+		elif event.is_action_pressed("4"):
+			mask = Mask.NONE
 			#print(mask)
 		
 	if event is InputEventKey:

@@ -34,9 +34,10 @@ func _physics_process(_delta: float) -> void:
 func on_guard_detected(guard):
 	if guard is Guard:
 		#print(guard.name + " detected")
-		can_takedown = true
-		detected_guard_list.append(guard)
-		update_guard_attacking()
+		if player.mask == Player.Mask.STRENGTH:
+			can_takedown = true
+			detected_guard_list.append(guard)
+			update_guard_attacking()
 
 func on_guard_undetected(guard):
 	if guard is Guard:

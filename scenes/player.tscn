@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cx7md3onew603" path="res://resources/sprites/Nova Sprite/Nova_spritesheet.png" id="3_dqkch"]
 [ext_resource type="Script" uid="uid://cqh0qq7meas24" path="res://scripts/detection_area_manager.gd" id="3_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://dt2w0su202dev" path="res://scenes/hud.tscn" id="5_qlg0r"]
+[ext_resource type="Script" uid="uid://caaobx1vrnqm6" path="res://scenes/mask_sprite_manager.gd" id="6_tuyoq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ci2qi"]
 radius = 25.0
@@ -308,3 +309,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="HUD" parent="." unique_id=918116722 instance=ExtResource("5_qlg0r")]
 visible = false
+
+[node name="MaskSpriteManager" type="Node2D" parent="." unique_id=178307472]
+z_index = 1
+script = ExtResource("6_tuyoq")
