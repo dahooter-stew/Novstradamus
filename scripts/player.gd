@@ -146,7 +146,7 @@ func update_animation() -> void:
 			animation_playback.travel("idle")
 		State.RUN:
 			animation_playback.travel("walk")
-			print("walk")
+			#print("walk")
 		State.ATTACK:
 			animation_playback.travel("idle")
 		State.DEAD:
@@ -159,21 +159,21 @@ func idle():
 		return
 	state = State.IDLE
 	update_animation()
-	print("idle")
+	#print("idle")
 
 func found():
 	if state == State.FOUND:
 		return
 	state = State.FOUND
 	update_animation()
-	print("found")
+	#print("found")
 
 func attack() -> void:
 	if state == State.ATTACK:
 		return
 	state = State.ATTACK
 	update_animation()
-	print("attack")
+	#print("attack")
 	toggle_qte.emit()
 
 func dead():
@@ -181,25 +181,25 @@ func dead():
 		return
 	state = State.DEAD
 	update_animation()
-	print("dead")
+	#print("dead")
 
 func on_qte_succeeded():
-	print("qte succeeded")
+	#print("qte succeeded")
 	detection_manager.guard_attacking.inactive()
 	hud.update_mask_charge_hud(Mask.STRENGTH, mask_abilities_manager.mask_charge_counter["STRENGTH"])
 	#detection_manager.update_guard_attacking()
 	idle()
 
 func on_qte_failed():
-	print("qte failed")
+	#print("qte failed")
 	dead()
 
 func on_qte_activated():
-	print("qte activated")
+	#print("qte activated")
 	detection_manager.guard_attacking.takedown_prompt.hide()
 	
 func on_qte_deactivated():
-	print("qte deactivated")
+	#print("qte deactivated")
 	await get_tree().create_timer(0.1).timeout
 	idle()
 

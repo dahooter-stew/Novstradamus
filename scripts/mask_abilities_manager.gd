@@ -4,4 +4,4 @@ class_name MaskAbilitiesManager extends Node
 
 func update_mask_charge(mask_name):
 	mask_charge_counter[mask_name] -= 1
-	print(mask_charge_counter[mask_name])
+	#print(mask_charge_counter[mask_name])

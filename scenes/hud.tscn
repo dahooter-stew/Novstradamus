@@ -51,9 +51,10 @@ layout_mode = 2
 offset_transform_enabled = true
 
 [node name="TextureRect3" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer" unique_id=527998147]
+custom_minimum_size = Vector2(500, 500)
 layout_mode = 2
+offset_transform_enabled = true
 texture = ExtResource("2_5pdws")
-expand_mode = 2
 stretch_mode = 5
 
 [node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer" unique_id=1707869464]
@@ -69,9 +70,9 @@ layout_mode = 2
 offset_transform_enabled = true
 
 [node name="TextureRect3" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer2" unique_id=1339605036]
+custom_minimum_size = Vector2(500, 500)
 layout_mode = 2
 texture = ExtResource("4_hd3ao")
-expand_mode = 2
 stretch_mode = 5
 
 [node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer2" unique_id=1865406839]
@@ -87,9 +88,9 @@ layout_mode = 2
 offset_transform_enabled = true
 
 [node name="TextureRect3" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer3" unique_id=2069926208]
+custom_minimum_size = Vector2(500, 500)
 layout_mode = 2
 texture = ExtResource("6_0i1j5")
-expand_mode = 2
 stretch_mode = 5
 
 [node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer3" unique_id=1007027906]

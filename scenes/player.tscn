@@ -323,8 +323,8 @@ script = ExtResource("6_tuyoq")
 
 [node name="MaskAbilitiesManager" type="Node" parent="." unique_id=921577971]
 script = ExtResource("7_fjrip")
-mask_charge_counter = {
+mask_charge_counter = Dictionary[String, int]({
 "SAGE": 2,
 "SLY": 2,
 "STRENGTH": 2
-}
+})

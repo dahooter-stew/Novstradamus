@@ -42,7 +42,7 @@ func update_guard_attacking():
 	guard_attacking = detected_guard_list[0]
 
 func update_takedown_prompt():
-	if guard_attacking.is_in_player_detection_area == true and player.mask == Player.Mask.STRENGTH:
+	if guard_attacking.is_in_player_detection_area == true and player.mask == Player.Mask.STRENGTH and guard_attacking.state == guard_attacking.State.ACTIVE:
 		guard_attacking.takedown_prompt.show()
 	else:
 		guard_attacking.takedown_prompt.hide()
