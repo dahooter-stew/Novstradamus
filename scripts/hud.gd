@@ -12,13 +12,13 @@ func update_mask_charge_hud(mask, charge_count):
 	match mask:
 		1:
 			mask_icon_list = sly_hud.get_children()
-			mask_icon_list[charge_count].hide()
+			mask_icon_list[charge_count + 1].hide()
 		2:
 			mask_icon_list = strength_hud.get_children()
-			mask_icon_list[charge_count].hide()
+			mask_icon_list[charge_count + 1].hide()
 		3:
 			mask_icon_list = sage_hud.get_children()
-			mask_icon_list[charge_count].hide()
+			mask_icon_list[charge_count + 1].hide()
 
 func update_indicated_active_mask(mask):
 	match mask:
