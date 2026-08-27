@@ -66,6 +66,7 @@ func on_player_detected(player):
 		state = State.ATTACK
 		player.found()
 		await show_detection_prompt()
+		
 		if player.mask == player.Mask.STRENGTH:
 			player.detection_manager.guard_attacking = self
 			player.attack()

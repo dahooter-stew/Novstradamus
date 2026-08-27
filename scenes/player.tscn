@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cx7md3onew603" path="res://resources/sprites/Nova Sprite/Nova_spritesheet.png" id="3_dqkch"]
 [ext_resource type="Script" uid="uid://cqh0qq7meas24" path="res://scripts/detection_area_manager.gd" id="3_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://dt2w0su202dev" path="res://scenes/hud.tscn" id="5_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://o0q5m4s07l7b" path="res://resources/icons/loading_circle.png" id="5_smehm"]
 [ext_resource type="Script" uid="uid://caaobx1vrnqm6" path="res://scripts/mask_sprite_manager.gd" id="6_tuyoq"]
 [ext_resource type="Script" uid="uid://ck7bo7pp0ap1n" path="res://scripts/mask_abilities_manager.gd" id="7_fjrip"]
 
@@ -230,6 +231,26 @@ script = ExtResource("1_g2els")
 speed = 40
 detection_manager = NodePath("DetectionAreaManager")
 
+[node name="StealthDurationHUD" type="TextureProgressBar" parent="." unique_id=1341491528]
+visible = false
+texture_filter = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.01887
+offset_top = -132.07547
+offset_right = 428.98114
+offset_bottom = 379.92453
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3252917, 0.3252917)
+fill_mode = 5
+texture_under = ExtResource("5_smehm")
+texture_progress = ExtResource("5_smehm")
+tint_under = Color(0.17641911, 0.17641908, 0.17641908, 1)
+
 [node name="QTE Manager" parent="." unique_id=162154269 instance=ExtResource("2_dqkch")]
 
 [node name="NovaSpritesheet" type="Sprite2D" parent="." unique_id=2127007811]
@@ -281,6 +302,7 @@ position = Vector2(0, -87)
 position = Vector2(54, -35.999996)
 scale = Vector2(2.487526, -1.2510406)
 collision_layer = 2
+collision_mask = 8
 
 [node name="GuardDetectionShape" type="CollisionShape2D" parent="DetectionAreaManager/GuardDetectionArea" unique_id=1026744672]
 shape = SubResource("RectangleShape2D_k11hu")
@@ -311,7 +333,6 @@ size_flags_vertical = 4
 color = Color(0, 0, 0, 1)
 
 [node name="HUD" parent="." unique_id=918116722 instance=ExtResource("5_qlg0r")]
-visible = false
 
 [node name="MaskSpriteManager" type="Node2D" parent="." unique_id=627001203]
 modulate = Color(1, 1, 1, 0.70980394)
@@ -329,3 +350,6 @@ mask_charge_counter = Dictionary[String, int]({
 "SLY": 2,
 "STRENGTH": 2
 })
+
+[node name="StealthTimer" type="Timer" parent="." unique_id=1432888926]
+one_shot = true

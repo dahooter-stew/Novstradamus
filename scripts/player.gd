@@ -27,6 +27,8 @@ var input_queue: Array
 var prev_dir: Vector2
 var mask: Mask
 
+@onready var stealth_timer: Timer = $StealthTimer
+@onready var stealth_duration_hud: TextureProgressBar = $StealthDurationHUD
 @onready var sprite: Sprite2D = $NovaSpritesheet
 @onready var mask_abilities_manager: MaskAbilitiesManager = $MaskAbilitiesManager
 @onready var mask_sprite_manager: MaskSpriteManager = $MaskSpriteManager
@@ -53,7 +55,11 @@ func _ready() -> void:
 	mask_changed.connect(mask_sprite_manager.update_mask_sprite)
 	mask_changed.connect(hud.update_indicated_active_mask)
 	
+	stealth_timer.timeout.connect(on_stealth_timer_timeout)
+	
 	animation_tree.active = true
+	
+	stealth_timer.wait_time = invisibility_duration
 	
 	print(collision_layer)
 
@@ -94,11 +100,13 @@ func _input(event: InputEvent) -> void:
 					set_collision_layer_value(5, true)
 					set_collision_mask_value(4, false)
 					sprite.modulate.a = 0.5
-					await get_tree().create_timer(invisibility_duration).timeout
-					set_collision_layer_value(1, true)
-					set_collision_layer_value(5, false)
-					set_collision_mask_value(4, true)
-					sprite.modulate.a = 1
+					stealth_timer.start()
+					stealth_duration_hud.show()
+					#await get_tree().create_timer(invisibility_duration).timeout
+					#set_collision_layer_value(1, true)
+					#set_collision_layer_value(5, false)
+					#set_collision_mask_value(4, true)
+					#sprite.modulate.a = 1
 		
 		# Mask Selection
 		if event.is_action_pressed("1"):
@@ -133,6 +141,12 @@ func _physics_process(delta: float) -> void:
 	
 	if not state == State.DEAD and not state == State.ATTACK and not state == State.FOUND:
 		movement_loop(delta)
+	
+	if not stealth_timer.is_stopped():
+		countdown_stealth_duration_hud()
+
+func countdown_stealth_duration_hud():
+	stealth_duration_hud.value = (stealth_timer.time_left / invisibility_duration) * 100
 
 func movement_loop(_delta: float) -> void:
 	move_direction = Input.get_vector("left", "right", "up", "down")
@@ -198,6 +212,13 @@ func dead():
 	state = State.DEAD
 	update_animation()
 	#print("dead")
+
+func on_stealth_timer_timeout():
+	set_collision_layer_value(1, true)
+	set_collision_layer_value(5, false)
+	set_collision_mask_value(4, true)
+	sprite.modulate.a = 1
+	stealth_duration_hud.show()
 
 func on_qte_succeeded():
 	#print("qte succeeded")
