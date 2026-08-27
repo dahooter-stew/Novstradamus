@@ -38,7 +38,7 @@ position = Vector2(230, 85)
 sight_rotation = -255.53
 
 [node name="Player" parent="." index="4" unique_id=1824872444 instance=ExtResource("2_6iamk")]
-position = Vector2(-24, 14)
+position = Vector2(-22, 11)
 
 [node name="Level1Layout" type="Sprite2D" parent="." index="5" unique_id=1194821366]
 visible = false

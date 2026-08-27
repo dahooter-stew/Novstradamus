@@ -28,6 +28,7 @@ radius = 8.0
 height = 22.0
 
 [node name="Guard" type="CharacterBody2D" unique_id=1339874387]
+collision_layer = 9
 script = ExtResource("1_ci2qi")
 sight_rotation = 90.0
 

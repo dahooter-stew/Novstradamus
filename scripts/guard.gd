@@ -16,7 +16,7 @@ enum State {
 @onready var player_detection_collision_shape: CollisionShape2D = $PlayerDetectionArea/PlayerDetectionCollisionShape
 @onready var exclamation: Label = $Exclamation
 @onready var state: State = State.ACTIVE
-#@onready var sight_line_offset: int
+@onready var is_in_player_detection_area: bool = false
 
 signal inactivated
 

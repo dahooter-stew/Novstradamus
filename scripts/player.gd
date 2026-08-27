@@ -77,7 +77,8 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_released("right"):
 			input_queue.erase("D")
 		
-		if Input.is_action_just_pressed("space") and detection_manager.can_takedown and mask == Mask.STRENGTH:
+		#if Input.is_action_just_pressed("space") and detection_manager.can_takedown and mask == Mask.STRENGTH:
+		if Input.is_action_just_pressed("space") and mask == Mask.STRENGTH:
 			attack()
 		
 		if event.is_action_pressed("1"):
@@ -181,6 +182,7 @@ func dead():
 func on_qte_succeeded():
 	print("qte succeeded")
 	detection_manager.guard_attacking.inactive()
+	#detection_manager.update_guard_attacking()
 	idle()
 
 func on_qte_failed():

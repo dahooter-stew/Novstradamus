@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dt2w0su202dev"]
 
 [ext_resource type="Texture2D" uid="uid://l22kprrgutwp" path="res://resources/icons/nova_masks3.png" id="1_5ysmq"]
-[ext_resource type="Script" uid="uid://bde12q60j7pcg" path="res://scenes/hud.gd" id="1_6fi6k"]
+[ext_resource type="Script" uid="uid://bde12q60j7pcg" path="res://scripts/hud.gd" id="1_6fi6k"]
 [ext_resource type="Texture2D" uid="uid://clak55akoibsk" path="res://resources/icons/nova_masks2.png" id="2_6fi6k"]
 [ext_resource type="Texture2D" uid="uid://dx6awv8f4odig" path="res://resources/icons/nova_masks1.png" id="3_uo2fv"]
 

@@ -261,7 +261,7 @@ parameters/walk/BlendSpace2D/blend_position = Vector2(0, 0)
 [node name="DetectionAreaManager" type="Node2D" parent="." unique_id=1908590138 node_paths=PackedStringArray("player", "detection_area")]
 script = ExtResource("3_qhqgy")
 player = NodePath("..")
-detection_area = NodePath("../GuardDetectionArea")
+detection_area = NodePath("GuardDetectionArea")
 
 [node name="RPos" type="Marker2D" parent="DetectionAreaManager" unique_id=542867148]
 position = Vector2(54, -28)
@@ -275,12 +275,12 @@ position = Vector2(0, 17)
 [node name="UPos" type="Marker2D" parent="DetectionAreaManager" unique_id=1745702091]
 position = Vector2(0, -87)
 
-[node name="GuardDetectionArea" type="Area2D" parent="." unique_id=349690715]
-position = Vector2(54, -36)
-scale = Vector2(1.5189869, 1.5189869)
+[node name="GuardDetectionArea" type="Area2D" parent="DetectionAreaManager" unique_id=349690715]
+position = Vector2(54, -35.999996)
+scale = Vector2(1.5189868, 1.5189868)
 collision_layer = 2
 
-[node name="GuardDetectionShape" type="CollisionShape2D" parent="GuardDetectionArea" unique_id=1026744672]
+[node name="GuardDetectionShape" type="CollisionShape2D" parent="DetectionAreaManager/GuardDetectionArea" unique_id=1026744672]
 shape = SubResource("RectangleShape2D_k11hu")
 
 [node name="StateDebug" type="Label" parent="." unique_id=812456435]

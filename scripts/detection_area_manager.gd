@@ -30,22 +30,31 @@ func _physics_process(_delta: float) -> void:
 				detection_area.position = d_pos.position
 			"D":
 				detection_area.position = r_pos.position
-
-func on_guard_detected(guard):
-	if guard is Guard:
-		#print(guard.name + " detected")
-		if player.mask == Player.Mask.STRENGTH:
-			can_takedown = true
-			detected_guard_list.append(guard)
-			update_guard_attacking()
-
-func on_guard_undetected(guard):
-	if guard is Guard:
-		#print(guard.name + " undetected")
-		can_takedown = false
-		detected_guard_list.erase(guard)
-		guard.takedown_prompt.hide()
+	if guard_attacking:
+		update_takedown_prompt()
 
 func update_guard_attacking():
 	guard_attacking = detected_guard_list[0]
-	guard_attacking.takedown_prompt.show()
+
+func update_takedown_prompt():
+	if guard_attacking.is_in_player_detection_area == true and player.mask == Player.Mask.STRENGTH:
+		guard_attacking.takedown_prompt.show()
+	else:
+		guard_attacking.takedown_prompt.hide()
+
+func on_guard_detected(guard):
+	if guard is Guard:
+		guard.is_in_player_detection_area = true
+		#print(guard.name + " detected")
+		#if player.mask == Player.Mask.STRENGTH:
+			#can_takedown = true
+		detected_guard_list.append(guard)
+		update_guard_attacking()
+
+func on_guard_undetected(guard):
+	if guard is Guard:
+		guard.is_in_player_detection_area = false
+		#print(guard.name + " undetected")
+		#can_takedown = false
+		detected_guard_list.erase(guard)
+		guard.takedown_prompt.hide()
