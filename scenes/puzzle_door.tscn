@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://tt5wq46yrici"]
+
+[ext_resource type="Texture2D" uid="uid://bcxanri5xvri7" path="res://resources/sprites/puzzle_door_sprite.png" id="1_kv28y"]
+[ext_resource type="Texture2D" uid="uid://crtr2pxu82s1n" path="res://resources/sprites/Space_Key_Light.png" id="2_cbq4s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ysnk7"]
+size = Vector2(16, 64)
+
+[node name="PuzzleDoor" type="Node2D" unique_id=1250454736]
+
+[node name="CollisionBody" type="CollisionShape2D" parent="." unique_id=1895178846]
+shape = SubResource("RectangleShape2D_ysnk7")
+
+[node name="DoorSprite" type="Sprite2D" parent="." unique_id=1588439372]
+texture = ExtResource("1_kv28y")
+
+[node name="PasswordPrompt" type="Control" parent="." unique_id=908029102]
+y_sort_enabled = true
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.5
+offset_top = -39.5
+offset_right = 15.5
+offset_bottom = -8.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PasswordPrompt" unique_id=409389667]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 0.52
+offset_top = -40.0
+offset_right = 121.52
+offset_bottom = 61.0
+grow_vertical = 2
+scale = Vector2(0.25969326, 0.25969326)
+theme_override_constants/separation = -22
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PasswordPrompt/VBoxContainer" unique_id=1182952581]
+texture_filter = 2
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(-4.165, 0)
+texture = ExtResource("2_cbq4s")
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="PasswordPrompt/VBoxContainer" unique_id=1214692812]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Input Password"
+horizontal_alignment = 1
+vertical_alignment = 1
