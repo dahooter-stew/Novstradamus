@@ -277,7 +277,7 @@ position = Vector2(0, -87)
 
 [node name="GuardDetectionArea" type="Area2D" parent="DetectionAreaManager" unique_id=349690715]
 position = Vector2(54, -35.999996)
-scale = Vector2(1.5189868, 1.5189868)
+scale = Vector2(2.487526, -1.2510406)
 collision_layer = 2
 
 [node name="GuardDetectionShape" type="CollisionShape2D" parent="DetectionAreaManager/GuardDetectionArea" unique_id=1026744672]

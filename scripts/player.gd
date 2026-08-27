@@ -79,7 +79,8 @@ func _input(event: InputEvent) -> void:
 		
 		#if Input.is_action_just_pressed("space") and detection_manager.can_takedown and mask == Mask.STRENGTH:
 		if Input.is_action_just_pressed("space") and mask == Mask.STRENGTH:
-			attack()
+			if detection_manager.guard_attacking:
+				detection_manager.guard_attacking.on_player_detected(self)
 		
 		if event.is_action_pressed("1"):
 			mask = Mask.SLY

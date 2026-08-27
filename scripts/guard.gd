@@ -3,7 +3,8 @@ class_name Guard
 
 enum State {
 	ACTIVE,
-	INACTIVE
+	INACTIVE,
+	ATTACK
 }
 
 @export var sight_rotation: float = 0
@@ -18,6 +19,8 @@ enum State {
 @onready var state: State = State.ACTIVE
 @onready var is_in_player_detection_area: bool = false
 
+@onready var label: Label = $Label
+
 signal inactivated
 
 func _ready() -> void:
@@ -26,6 +29,8 @@ func _ready() -> void:
 	#print(sight_line_offset)
 
 func _physics_process(_delta: float) -> void:
+	label.text = str(state)
+	
 	if not is_patrol:
 		player_detection_area.rotation = deg_to_rad(sight_rotation)
 
@@ -50,12 +55,16 @@ func active():
 	player_detection_collision_shape.disabled = false
 	
 	player_detection_area.show()
-	
+
+func show_detection_prompt():
+	exclamation.show()
+	await get_tree().create_timer(0.5).timeout
+	exclamation.hide()
+
 func on_player_detected(player):
 	if player is Player:
+		state = State.ATTACK
 		player.found()
-		exclamation.show()
-		await get_tree().create_timer(0.5).timeout
-		exclamation.hide()
+		show_detection_prompt()
 		player.detection_manager.guard_attacking = self
 		player.attack()

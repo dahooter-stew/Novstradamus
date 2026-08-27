@@ -15,7 +15,7 @@ curve = SubResource("Curve2D_cw8lf")
 script = ExtResource("1_tq3bv")
 
 [node name="GuardPath" type="PathFollow2D" parent="." unique_id=1809117608 node_paths=PackedStringArray("pathing_guard")]
-position = Vector2(-16.119743, -11)
+position = Vector2(-17.127228, -8)
 rotates = false
 script = ExtResource("1_v3cfu")
 pathing_guard = NodePath("Guard")
@@ -24,8 +24,8 @@ pathing_guard = NodePath("Guard")
 scale = Vector2(1.0000001, 1.0000001)
 
 [node name="RemoteTransformPath" type="PathFollow2D" parent="." unique_id=2098026387 node_paths=PackedStringArray("pathing_guard")]
-position = Vector2(-16.119743, -11)
-rotation = -1.5873109
+position = Vector2(-17.127228, -8)
+rotation = -1.5707964
 script = ExtResource("1_v3cfu")
 pathing_guard = NodePath("RemoteTransform2D")
 

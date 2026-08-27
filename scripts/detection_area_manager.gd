@@ -17,19 +17,24 @@ func _ready() -> void:
 	if detection_area:
 		detection_area.body_entered.connect(on_guard_detected)
 		detection_area.body_exited.connect(on_guard_undetected)
-		detection_area.position = d_pos.position
+		detection_area.position = r_pos.position
+		detection_area.rotation = 0
 
 func _physics_process(_delta: float) -> void:
 	if player.last_dir_pressed and detection_area:
 		match player.last_dir_pressed:
 			"W":
 				detection_area.position = u_pos.position
+				detection_area.rotation = deg_to_rad(90)
 			"A":
 				detection_area.position = l_pos.position
+				detection_area.rotation = 0
 			"S":
 				detection_area.position = d_pos.position
+				detection_area.rotation = deg_to_rad(90)
 			"D":
 				detection_area.position = r_pos.position
+				detection_area.rotation = 0
 	if guard_attacking:
 		update_takedown_prompt()
 

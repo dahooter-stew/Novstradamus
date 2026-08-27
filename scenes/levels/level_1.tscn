@@ -53,10 +53,7 @@ position = Vector2(121, 130)
 scale = Vector2(0.99257135, 1)
 guard_speed = 10.0
 
-[node name="GuardPath" parent="Path2D" index="0" unique_id=1809117608]
-position = Vector2(-17.127228, -8)
-
-[node name="Guard" parent="Path2D/GuardPath" index="0" unique_id=1339874387]
+[node name="Guard" parent="Path2D/GuardPath" parent_id_path=PackedInt32Array(674059523, 1809117608) index="0" unique_id=1339874387]
 is_patrol = true
 
 [node name="PlayerDetectionArea" parent="Path2D/GuardPath/Guard" index="2" unique_id=1882423986]
@@ -64,11 +61,7 @@ position = Vector2(0, 0)
 rotation = -1.5707964
 scale = Vector2(0.9999998, 0.9999998)
 
-[node name="RemoteTransformPath" parent="Path2D" index="1" unique_id=2098026387]
-position = Vector2(-17.127228, -8)
-rotation = -1.5707964
-
-[node name="RemoteTransform2D" parent="Path2D/RemoteTransformPath" index="0" unique_id=404045550]
+[node name="RemoteTransform2D" parent="Path2D/RemoteTransformPath" parent_id_path=PackedInt32Array(674059523, 2098026387) index="0" unique_id=404045550]
 use_global_coordinates = true
 update_position = true
 update_scale = true

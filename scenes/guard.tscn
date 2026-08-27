@@ -113,3 +113,9 @@ vertical_alignment = 1
 [node name="BodyCollisionShape" type="CollisionShape2D" parent="." unique_id=714647691]
 position = Vector2(0, 7.775)
 shape = SubResource("CapsuleShape2D_ysnk7")
+
+[node name="Label" type="Label" parent="." unique_id=1822268303]
+offset_left = -60.0
+offset_right = -20.0
+offset_bottom = 23.0
+scale = Vector2(1.2241012, 1.2241012)
