@@ -42,11 +42,11 @@ vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=727833535]
 layout_mode = 1
-offset_left = 7.9999995
-offset_top = 7.9999995
-offset_right = 1036.0
-offset_bottom = 1552.0
-scale = Vector2(0.1, 0.1)
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 1556.0
+offset_bottom = 1568.0
+scale = Vector2(0.07736691, 0.07736691)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer" unique_id=1718708697]
 layout_mode = 2

@@ -5,6 +5,7 @@ enum State {
 	IDLE,
 	RUN,
 	ATTACK,
+	INVISIBLE,
 	FOUND,
 	DEAD
 }
@@ -95,6 +96,7 @@ func _input(event: InputEvent) -> void:
 
 			if mask == Mask.SLY:
 				if mask_abilities_manager.mask_charge_counter["SLY"] > 0:
+					state = State.INVISIBLE
 					set_collision_layer_value(1, false)
 					set_collision_layer_value(5, true)
 					set_collision_mask_value(4, false)
@@ -103,24 +105,25 @@ func _input(event: InputEvent) -> void:
 					stealth_duration_hud.show()
 		
 		# Mask Selection
-		if event.is_action_pressed("1"):
-			mask = Mask.SLY
-			mask_changed.emit(mask)
+		if state == State.IDLE or state == State.RUN:
+			if event.is_action_pressed("1"):
+				mask = Mask.SLY
+				mask_changed.emit(mask)
+				
+			elif event.is_action_pressed("2"):
+				mask = Mask.STRENGTH
+				#print(mask)
+				mask_changed.emit(mask)
 			
-		elif event.is_action_pressed("2"):
-			mask = Mask.STRENGTH
-			#print(mask)
-			mask_changed.emit(mask)
-		
-		elif event.is_action_pressed("3"):
-			mask = Mask.SAGE
-			#print(mask)
-			mask_changed.emit(mask)
-			
-		elif event.is_action_pressed("4"):
-			mask = Mask.NONE
-			#print(mask)
-			mask_changed.emit(mask)
+			elif event.is_action_pressed("3"):
+				mask = Mask.SAGE
+				#print(mask)
+				mask_changed.emit(mask)
+				
+			elif event.is_action_pressed("4"):
+				mask = Mask.NONE
+				#print(mask)
+				mask_changed.emit(mask)
 		
 	if event is InputEventKey:
 		if dir_keys.has(event.as_text()):
@@ -215,6 +218,7 @@ func on_stealth_timer_timeout():
 	set_collision_mask_value(4, true)
 	sprite.modulate.a = 1
 	stealth_duration_hud.hide()
+	idle()
 
 func on_qte_succeeded():
 	#print("qte succeeded")
