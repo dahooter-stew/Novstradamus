@@ -3,6 +3,8 @@ class_name PasswordManager extends Node
 @export var door: Area2D
 @export var ui: Control
 
+var password_sequence: Array
+
 func _ready() -> void:
 	ui.keypad_button_pressed.connect(on_keypad_button_pressed)
 

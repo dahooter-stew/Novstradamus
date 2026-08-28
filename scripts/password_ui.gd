@@ -1,30 +1,45 @@
 extends Control
 
-@onready var button_1: TextureButton = $ColorRect2/GridContainer/TextureButton
-@onready var button_2: TextureButton = $ColorRect2/GridContainer/TextureButton2
-@onready var button_3: TextureButton = $ColorRect2/GridContainer/TextureButton3
-@onready var button_4: TextureButton = $ColorRect2/GridContainer/TextureButton4
-@onready var button_5: TextureButton = $ColorRect2/GridContainer/TextureButton5
-@onready var button_6: TextureButton = $ColorRect2/GridContainer/TextureButton6
-@onready var button_7: TextureButton = $ColorRect2/GridContainer/TextureButton7
-@onready var button_8: TextureButton = $ColorRect2/GridContainer/TextureButton8
-@onready var button_9: TextureButton = $ColorRect2/GridContainer/TextureButton9
+@onready var keypad_button_1: TextureButton = $ColorRect2/GridContainer/KeypadButton1
+@onready var keypad_button_2: TextureButton = $ColorRect2/GridContainer/KeypadButton2
+@onready var keypad_button_3: TextureButton = $ColorRect2/GridContainer/KeypadButton3
+@onready var keypad_button_4: TextureButton = $ColorRect2/GridContainer/KeypadButton4
+@onready var keypad_button_5: TextureButton = $ColorRect2/GridContainer/KeypadButton5
+@onready var keypad_button_6: TextureButton = $ColorRect2/GridContainer/KeypadButton6
+@onready var keypad_button_7: TextureButton = $ColorRect2/GridContainer/KeypadButton7
+@onready var keypad_button_8: TextureButton = $ColorRect2/GridContainer/KeypadButton8
+@onready var keypad_button_9: TextureButton = $ColorRect2/GridContainer/KeypadButton9
 
-@onready var led_1: TextureRect = $ColorRect2/HBoxContainer/TextureRect
-@onready var led_2: TextureRect = $ColorRect2/HBoxContainer/TextureRect2
-@onready var led_3: TextureRect = $ColorRect2/HBoxContainer/TextureRect3
+@onready var led_light_1: TextureRect = $ColorRect2/HBoxContainer/LedLight1
+@onready var led_light_2: TextureRect = $ColorRect2/HBoxContainer/LedLight2
+@onready var led_light_3: TextureRect = $ColorRect2/HBoxContainer/LedLight3
 
-var button_array: Array = []
-var led_array: Array = []
+@onready var indicator_1: Sprite2D = $ColorRect2/GridContainer/KeypadButton1/Indicator1
+@onready var indicator_2: Sprite2D = $ColorRect2/GridContainer/KeypadButton2/Indicator2
+@onready var indicator_3: Sprite2D = $ColorRect2/GridContainer/KeypadButton3/Indicator3
+@onready var indicator_4: Sprite2D = $ColorRect2/GridContainer/KeypadButton4/Indicator4
+@onready var indicator_5: Sprite2D = $ColorRect2/GridContainer/KeypadButton5/Indicator5
+@onready var indicator_6: Sprite2D = $ColorRect2/GridContainer/KeypadButton6/Indicator6
+@onready var indicator_7: Sprite2D = $ColorRect2/GridContainer/KeypadButton7/Indicator7
+@onready var indicator_8: Sprite2D = $ColorRect2/GridContainer/KeypadButton8/Indicator8
+@onready var indicator_9: Sprite2D = $ColorRect2/GridContainer/KeypadButton9/Indicator9
+
+
+var keypad_button_array: Array = []
+var led_light_array: Array = []
+var indicator_array: Array = []
 
 signal keypad_button_pressed(prssed_keypad_button)
 
 func _ready() -> void:
-	button_array = [button_1, button_2, button_3, button_3, button_4, button_5, button_6, button_7, button_8, button_9]
-	led_array = [led_1, led_2, led_3]
+	keypad_button_array = [keypad_button_1, keypad_button_2, keypad_button_3, keypad_button_3, keypad_button_4, keypad_button_5, keypad_button_6, keypad_button_7, keypad_button_8, keypad_button_9]
+	led_light_array = [led_light_1, led_light_2, led_light_3]
+	indicator_array = [indicator_1, indicator_2, indicator_3, indicator_4, indicator_5, indicator_6, indicator_7, indicator_8, indicator_9]
 
-	for button in button_array:
-		button.pressed.connect(on_keypad_button_pressed.bind(button))
+	for keypad_button in keypad_button_array:
+		#print(keypad_button)
+		if not keypad_button.pressed.is_connected(on_keypad_button_pressed):
+			keypad_button.pressed.connect(on_keypad_button_pressed.bind(keypad_button))
 
 func on_keypad_button_pressed(keypad_button):
 	keypad_button_pressed.emit(keypad_button)
