@@ -55,10 +55,10 @@ func update_takedown_prompt():
 func update_password_prompt():
 	if password_door_detected.is_in_player_detection_area == true and player.mask == Player.Mask.SAGE:
 		password_door_detected.password_prompt.show()
-		print(password_door_detected.password_prompt.visible)
+		#print(password_door_detected.password_prompt.visible)
 	else:
 		password_door_detected.password_prompt.hide()
-		print(password_door_detected.password_prompt.visible)
+		#print(password_door_detected.password_prompt.visible)
 
 func on_guard_detected(guard):
 	if guard is Guard:
@@ -69,7 +69,7 @@ func on_guard_detected(guard):
 		detected_guard_list.append(guard)
 		update_guard_attacking()
 	if guard is PasswordDoor:
-		print(guard, "detected")
+		#print(guard, "detected")
 		guard.is_in_player_detection_area = true
 		password_door_detected = guard
 
@@ -81,7 +81,7 @@ func on_guard_undetected(guard):
 		detected_guard_list.erase(guard)
 		guard.takedown_prompt.hide()
 	if guard is PasswordDoor:
-		print(guard, "undetected")
+		#print(guard, "undetected")
 		guard.is_in_player_detection_area = false
 		password_door_detected = null
 		guard.password_prompt.hide()

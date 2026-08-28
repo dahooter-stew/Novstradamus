@@ -62,7 +62,7 @@ func _ready() -> void:
 	
 	stealth_timer.wait_time = invisibility_duration
 	
-	print(collision_layer)
+	#print(collision_layer)
 
 func _input(event: InputEvent) -> void:
 	var dir_keys: Array = ["W", "A", "S", "D"]
@@ -103,6 +103,10 @@ func _input(event: InputEvent) -> void:
 					sprite.modulate.a = 0.5
 					stealth_timer.start()
 					stealth_duration_hud.show()
+			
+			if mask == Mask.SAGE:
+				if detection_manager.password_door_detected and mask_abilities_manager.mask_charge_counter["SAGE"] > 0:
+					detection_manager.password_door_detected.password_manager.start_sequence()
 		
 		# Mask Selection
 		if state == State.IDLE or state == State.RUN:

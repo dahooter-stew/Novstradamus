@@ -419,4 +419,4 @@ position = Vector2(155, 12)
 position = Vector2(148, -158)
 
 [node name="PasswordDoor" parent="." unique_id=817220185 instance=ExtResource("14_3ku07")]
-position = Vector2(-133, 88)
+position = Vector2(-138, -10)

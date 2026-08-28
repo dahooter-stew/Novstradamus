@@ -48,7 +48,7 @@ func indicate_keypad_button(button_number):
 	var animated_indicator = indicator_array[button_number]
 	animated_indicator.show()
 	animated_indicator.modulate = Color.WHITE * 2
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.3).timeout
 	animated_indicator.modulate = Color.WHITE
 	animated_indicator.hide()
 	await get_tree().create_timer(0.3).timeout
