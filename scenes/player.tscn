@@ -227,6 +227,7 @@ size = Vector2(67, 62)
 y_sort_enabled = true
 scale = Vector2(0.265, 0.265)
 collision_layer = 9
+collision_mask = 33
 script = ExtResource("1_g2els")
 speed = 40
 detection_manager = NodePath("DetectionAreaManager")
@@ -304,7 +305,7 @@ position = Vector2(0, -87)
 position = Vector2(54, -35.999996)
 scale = Vector2(2.487526, -1.2510406)
 collision_layer = 2
-collision_mask = 8
+collision_mask = 40
 
 [node name="GuardDetectionShape" type="CollisionShape2D" parent="DetectionAreaManager/GuardDetectionArea" unique_id=1026744672]
 shape = SubResource("RectangleShape2D_k11hu")

@@ -5,6 +5,7 @@ enum State {
 	IDLE,
 	RUN,
 	ATTACK,
+	HACK,
 	INVISIBLE,
 	FOUND,
 	DEAD
@@ -62,7 +63,7 @@ func _ready() -> void:
 	
 	stealth_timer.wait_time = invisibility_duration
 	
-	print(collision_layer)
+	#print(collision_layer)
 
 func _input(event: InputEvent) -> void:
 	var dir_keys: Array = ["W", "A", "S", "D"]
@@ -103,6 +104,13 @@ func _input(event: InputEvent) -> void:
 					sprite.modulate.a = 0.5
 					stealth_timer.start()
 					stealth_duration_hud.show()
+			
+			if mask == Mask.SAGE:
+				if detection_manager.password_door_detected and mask_abilities_manager.mask_charge_counter["SAGE"] > 0:
+					hack()
+					detection_manager.password_door_detected.password_manager.door_hacking_succeeded.connect(on_door_hacking_succeeded)
+					detection_manager.password_door_detected.password_manager.door_hacking_failed.connect(on_door_hacking_failed)
+					detection_manager.password_door_detected.password_manager.start_sequence()
 		
 		# Mask Selection
 		if state == State.IDLE or state == State.RUN:
@@ -136,7 +144,10 @@ func _input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	state_label.text = str(state)
 	
-	if not state == State.DEAD and not state == State.ATTACK and not state == State.FOUND:
+	#if not state == State.DEAD and not state == State.ATTACK and not state == State.FOUND:
+		#movement_loop(delta)
+		
+	if state == State.IDLE or state == State.RUN or state == State.INVISIBLE:
 		movement_loop(delta)
 	
 	if not stealth_timer.is_stopped():
@@ -180,6 +191,8 @@ func update_animation() -> void:
 			animation_playback.travel("idle")
 		State.FOUND:
 			animation_playback.travel("idle")
+		State.HACK:
+			animation_playback.travel("idle")
 
 func idle():
 	if state == State.IDLE:
@@ -209,6 +222,12 @@ func dead():
 	state = State.DEAD
 	update_animation()
 	#print("dead")
+	
+func hack():
+	if state == State.HACK:
+		return
+	state = State.HACK
+	update_animation()
 
 func on_stealth_timer_timeout():
 	mask_abilities_manager.update_mask_charge("SLY")
@@ -241,11 +260,11 @@ func on_qte_deactivated():
 	await get_tree().create_timer(0.1).timeout
 	idle()
 
-	#var mouse_pos: Vector2 = get_global_mouse_position()
-	#var attack_dir: Vector2 = (mouse_pos - global_position).normalized()
-	#animation_tree.set("parameters/attack/BlendSpace2D/blend_position", attack_dir)
-	#$NovaSpritesheet.flip_h = attack_dir.x < 0 and abs(attack_dir.x) >= abs(attack_dir.y)
-	#update_animation()
-	#
-	#await get_tree().create_timer(attack_speed).timeout
-	#state = State.IDLE
+func on_door_hacking_succeeded():
+	mask_abilities_manager.update_mask_charge("SAGE")
+	hud.update_mask_charge_hud(Mask.SAGE, mask_abilities_manager.mask_charge_counter["SAGE"])
+	idle()
+
+func on_door_hacking_failed():
+	print("hacking failed")
+	qte_manager.qte_failed.emit()
