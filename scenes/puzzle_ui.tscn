@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b3ylxc8arxa3t" path="res://resources/icons/keypad_button_sprite1.png" id="1_a7xsk"]
 [ext_resource type="Texture2D" uid="uid://bayrwvpicpv0l" path="res://resources/icons/keypad_button_sprite2.png" id="2_ouaa4"]
+[ext_resource type="Texture2D" uid="uid://2s2qth3jlhrp" path="res://resources/icons/led_light_green.png" id="3_a7xsk"]
 
 [node name="PuzzleUI" type="Control" unique_id=621389050]
 layout_mode = 3
@@ -33,7 +34,7 @@ offset_right = 133.25
 offset_bottom = 147.25
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.32544068, 0.32544094, 0.32544088, 1)
+color = Color(0.446777, 0.44677705, 0.44677705, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="GridContainer" type="GridContainer" parent="ColorRect2" unique_id=439055223]
@@ -125,18 +126,28 @@ stretch_mode = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect2" unique_id=2132295851]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.054329373
 anchor_right = 0.5
-anchor_bottom = 0.054329373
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 40.0
+offset_left = -49.0
+offset_top = 16.0
+offset_right = 49.0
+offset_bottom = 46.0
 grow_horizontal = 2
-metadata/_edit_use_anchors_ = true
+theme_override_constants/separation = 16
+alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect2/HBoxContainer" unique_id=1380467734]
-custom_minimum_size = Vector2(50, 50)
-custom_maximum_size = Vector2(50, 50)
+custom_maximum_size = Vector2(30, 30)
 layout_mode = 2
+texture = ExtResource("3_a7xsk")
+
+[node name="TextureRect2" type="TextureRect" parent="ColorRect2/HBoxContainer" unique_id=1972206866]
+custom_maximum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("3_a7xsk")
+
+[node name="TextureRect3" type="TextureRect" parent="ColorRect2/HBoxContainer" unique_id=1046985794]
+custom_maximum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("3_a7xsk")
