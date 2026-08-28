@@ -1,0 +1,1 @@
+class_name PasswordDoor extends Area2D
