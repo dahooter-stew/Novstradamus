@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://blq5rir4npc06" path="res://resources/sprites/Tiny Swords (Free Pack)/Terrain/Resources/Wood/Trees/Tree4.png" id="10_vcl1g"]
 [ext_resource type="Texture2D" uid="uid://dhl7sy24e22re" path="res://resources/sprites/Tiny Swords (Free Pack)/Terrain/Decorations/Rocks/Rock4.png" id="11_xdwl4"]
 [ext_resource type="PackedScene" uid="uid://beobhg8bx7rkc" path="res://scenes/guard.tscn" id="13_fu6mf"]
+[ext_resource type="PackedScene" uid="uid://tt5wq46yrici" path="res://scenes/password_door.tscn" id="14_3ku07"]
 [ext_resource type="PackedScene" uid="uid://d13trbrdclm8t" path="res://scenes/player.tscn" id="14_wjk8n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_efggw"]
@@ -406,6 +407,7 @@ tile_set = SubResource("TileSet_intoy")
 
 [node name="Player" parent="." unique_id=1824872444 instance=ExtResource("14_wjk8n")]
 position = Vector2(-88, -17)
+collision_mask = 9
 
 [node name="Guard" parent="." unique_id=1339874387 instance=ExtResource("13_fu6mf")]
 position = Vector2(52, -83)
@@ -415,3 +417,6 @@ position = Vector2(155, 12)
 
 [node name="Guard3" parent="." unique_id=907135598 instance=ExtResource("13_fu6mf")]
 position = Vector2(148, -158)
+
+[node name="PasswordDoor" parent="." unique_id=817220185 instance=ExtResource("14_3ku07")]
+position = Vector2(-133, 88)
