@@ -11,7 +11,8 @@ class_name PasswordManager extends Node
 var password_sequence: Array
 var player_input_sequence: Array
 
-signal sequence_indication
+signal door_hacking_succeeded
+signal door_hacking_failed
 
 func _ready() -> void:
 	ui.keypad_button_pressed.connect(on_keypad_button_pressed)
@@ -36,8 +37,7 @@ func generate_password_sequence():
 func start_sequence():
 	ui_canvas_layer.show()
 	can_input = false
-	await get_tree().create_timer(0.3).timeout
-	start_player_inputting_sequence()
+	await start_player_inputting_sequence()
 	
 func indicate_password_sequence():
 	can_input = false
@@ -46,6 +46,8 @@ func indicate_password_sequence():
 	can_input = true
 
 func start_player_inputting_sequence():
+	await get_tree().create_timer(0.5).timeout
+	ui.keypad_enter_button.set_disabled(true)
 	player_input_sequence = []
 	password_sequence = generate_password_sequence()
 	print(password_sequence)
@@ -64,8 +66,19 @@ func on_keypad_enter_button_pressed():
 	print("entered")
 	ui.keypad_enter_button.set_disabled(true)
 	if player_input_sequence == password_sequence:
+		door_hacking_succeeded.emit()
+		door.collision_body.set_disabled(true)
+		door.sprite.self_modulate = Color(0.5, 0.5, 0.5)
+		ui_canvas_layer.hide()
 		print("success")
 	else:
-		print("fail")
+		if attempts_remaining > 1:
+			attempts_remaining -= 1
+			print("failed, ", attempts_remaining," remaining")
+			start_player_inputting_sequence()
+		else:
+			print("caught")
+			ui_canvas_layer.hide()
+			door_hacking_failed.emit()
 		#ui_canvas_layer.hide()
 		#door.self_modulate.

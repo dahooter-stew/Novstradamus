@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://beobhg8bx7rkc" path="res://scenes/guard.tscn" id="2_nsrm0"]
 [ext_resource type="Texture2D" uid="uid://l3wnrnkuhvio" path="res://scenes/levels/level_layouts/level_1layout.png" id="2_x42e6"]
 [ext_resource type="PackedScene" uid="uid://b08uwwf58gfbc" path="res://scenes/patrol.tscn" id="5_6761a"]
-[ext_resource type="Texture2D" uid="uid://bcxanri5xvri7" path="res://resources/sprites/puzzle_door_sprite.png" id="6_sk5k4"]
+[ext_resource type="PackedScene" uid="uid://tt5wq46yrici" path="res://scenes/password_door.tscn" id="6_sk5k4"]
 
 [node name="Level1" unique_id=1695296030 node_paths=PackedStringArray("player") instance=ExtResource("1_ksju7")]
 player = NodePath("Player")
@@ -66,13 +66,11 @@ use_global_coordinates = true
 update_position = true
 update_scale = true
 
-[node name="PuzzleDoorSprite" type="Sprite2D" parent="." index="7" unique_id=1501741916]
-position = Vector2(255, 113)
-texture = ExtResource("6_sk5k4")
+[node name="PasswordDoor" parent="." index="7" unique_id=2012343126 instance=ExtResource("6_sk5k4")]
+position = Vector2(255, 112)
 
-[node name="PuzzleDoorSprite2" type="Sprite2D" parent="." index="8" unique_id=1424945780]
-position = Vector2(319, -47)
-texture = ExtResource("6_sk5k4")
+[node name="PasswordDoor2" parent="." index="8" unique_id=399807139 instance=ExtResource("6_sk5k4")]
+position = Vector2(320, -48)
 
 [editable path="Path2D"]
 [editable path="Path2D/GuardPath/Guard"]
