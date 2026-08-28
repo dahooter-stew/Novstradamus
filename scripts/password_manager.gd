@@ -64,5 +64,8 @@ func on_keypad_enter_button_pressed():
 	print("entered")
 	ui.keypad_enter_button.set_disabled(true)
 	if player_input_sequence == password_sequence:
-		ui_canvas_layer.hide()
+		print("success")
+	else:
+		print("fail")
+		#ui_canvas_layer.hide()
 		#door.self_modulate.
