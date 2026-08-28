@@ -74,11 +74,10 @@ func on_keypad_enter_button_pressed():
 	else:
 		if attempts_remaining > 1:
 			attempts_remaining -= 1
+			ui.deactivate_led(attempts_remaining)
 			print("failed, ", attempts_remaining," remaining")
 			start_player_inputting_sequence()
 		else:
 			print("caught")
 			ui_canvas_layer.hide()
 			door_hacking_failed.emit()
-		#ui_canvas_layer.hide()
-		#door.self_modulate.

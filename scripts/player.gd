@@ -147,7 +147,7 @@ func _physics_process(delta: float) -> void:
 	#if not state == State.DEAD and not state == State.ATTACK and not state == State.FOUND:
 		#movement_loop(delta)
 		
-	if state == State.IDLE or state == State.RUN:
+	if state == State.IDLE or state == State.RUN or state == State.INVISIBLE:
 		movement_loop(delta)
 	
 	if not stealth_timer.is_stopped():

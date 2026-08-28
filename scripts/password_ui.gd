@@ -26,6 +26,8 @@ extends Control
 @onready var indicator_8: Sprite2D = $ColorRect2/GridContainer/KeypadButton8/Indicator8
 @onready var indicator_9: Sprite2D = $ColorRect2/GridContainer/KeypadButton9/Indicator9
 
+const LED_LIGHT_RED = preload("uid://1wtpnivifbst")
+
 var keypad_button_array: Array = []
 var led_light_array: Array = []
 var indicator_array: Array = []
@@ -52,6 +54,10 @@ func indicate_keypad_button(button_number):
 	animated_indicator.modulate = Color.WHITE
 	animated_indicator.hide()
 	await get_tree().create_timer(0.3).timeout
+
+func deactivate_led(attempts_remaining):
+	var led_to_deactivate = led_light_array[attempts_remaining]
+	led_to_deactivate.set_texture(LED_LIGHT_RED)
 
 func on_keypad_button_pressed(keypad_button):
 	keypad_button_pressed.emit(keypad_button)
