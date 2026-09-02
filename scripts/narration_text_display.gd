@@ -25,7 +25,7 @@ func display_narration_text_line():
 	for character in current_line:
 		current_line_char += 1
 		label.visible_characters = current_line_char
-		for x in range(2): await get_tree().physics_frame
+		for x in range(4): await get_tree().physics_frame
 	line_display_finished.emit()
 
 func _on_line_display_finished():
@@ -34,6 +34,7 @@ func _on_line_display_finished():
 func _on_next_button_pressed():
 	next_button.hide()
 	if current_line_index >= text_array.size() - 1:
+		current_line_index = 0
 		text_array_display_completed.emit()
 	else:
 		current_line_index += 1
@@ -41,5 +42,5 @@ func _on_next_button_pressed():
 
 func _on_skip_button_pressed():
 	current_line_index = 0
-	hide()
+	#hide()
 	text_array_display_completed.emit()
