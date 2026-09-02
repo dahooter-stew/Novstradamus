@@ -1,16 +1,20 @@
 [gd_scene format=3 uid="uid://co15heabk11yy"]
 
 [ext_resource type="Script" uid="uid://d4fvkwbanrbiw" path="res://scripts/narration_text_display.gd" id="1_tajk3"]
-[ext_resource type="Texture2D" uid="uid://baogrxmt1mtrc" path="res://resources/icons/narration_buttons_next.png" id="2_8chx5"]
-[ext_resource type="Texture2D" uid="uid://eea7qsnqp5vn" path="res://resources/icons/narration_buttons_skip.png" id="2_ja8v0"]
+[ext_resource type="Texture2D" uid="uid://cpngrj8mpoec1" path="res://resources/icons/narration_buttons_skip_black.png" id="3_cldeh"]
+[ext_resource type="Texture2D" uid="uid://bj8832ay1iycm" path="res://resources/paper_bg.png" id="4_cldeh"]
+[ext_resource type="Texture2D" uid="uid://7frj0fxwi7jn" path="res://resources/icons/narration_buttons_next_black.png" id="4_igsrs"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1q6y6"]
 font_size = 12
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_cldeh"]
 font_size = 12
+font_color = Color(0, 0, 0, 1)
 
 [node name="NarrationTextDisplay" type="Control" unique_id=2014987831]
+texture_filter = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,6 +23,17 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tajk3")
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1727789758]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_cldeh")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1314374830]
 layout_mode = 1
 anchors_preset = 8
@@ -26,13 +41,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -263.8875
-offset_top = -46.5
-offset_right = 263.8875
-offset_bottom = 46.5
+offset_left = -264.0
+offset_top = -88.0
+offset_right = 263.77502
+offset_bottom = 161.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 20
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 2
+theme_override_font_sizes/normal_font_size = 31
 autowrap_mode = 2
 
 [node name="SkipButton" type="TextureButton" parent="." unique_id=1607331520]
@@ -41,12 +58,12 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -66.0
-offset_top = 8.0
+offset_left = -46.0
+offset_top = 5.0
 offset_right = -16.0
-offset_bottom = 58.0
+offset_bottom = 35.0
 grow_horizontal = 0
-texture_normal = ExtResource("2_ja8v0")
+texture_normal = ExtResource("3_cldeh")
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="SkipButton" unique_id=594672908]
@@ -74,12 +91,12 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -54.0
-offset_top = -46.0
+offset_top = -39.0
 offset_right = -24.0
-offset_bottom = -16.0
+offset_bottom = -9.0
 grow_horizontal = 0
 grow_vertical = 0
-texture_normal = ExtResource("2_8chx5")
+texture_normal = ExtResource("4_igsrs")
 stretch_mode = 5
 
 [node name="Label2" type="Label" parent="NextButton" unique_id=150159912]
