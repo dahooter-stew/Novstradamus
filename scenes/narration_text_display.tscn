@@ -4,6 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://baogrxmt1mtrc" path="res://resources/icons/narration_buttons_next.png" id="2_8chx5"]
 [ext_resource type="Texture2D" uid="uid://eea7qsnqp5vn" path="res://resources/icons/narration_buttons_skip.png" id="2_ja8v0"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_1q6y6"]
+font_size = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_cldeh"]
+font_size = 12
+
 [node name="NarrationTextDisplay" type="Control" unique_id=2014987831]
 layout_mode = 3
 anchors_preset = 15
@@ -27,9 +33,10 @@ offset_bottom = 46.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 20
+autowrap_mode = 2
 
 [node name="SkipButton" type="TextureButton" parent="." unique_id=1607331520]
-custom_maximum_size = Vector2(50, 50)
+custom_maximum_size = Vector2(30, 30)
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -53,6 +60,9 @@ offset_right = -7.0
 offset_bottom = 11.5
 grow_vertical = 2
 text = "Skip All"
+label_settings = SubResource("LabelSettings_1q6y6")
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="NextButton" type="TextureButton" parent="." unique_id=1862739505]
 visible = false
@@ -83,3 +93,6 @@ offset_right = -8.0
 offset_bottom = 11.5
 grow_vertical = 2
 text = "Next"
+label_settings = SubResource("LabelSettings_cldeh")
+horizontal_alignment = 2
+vertical_alignment = 1

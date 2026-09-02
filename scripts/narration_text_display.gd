@@ -25,7 +25,10 @@ func display_narration_text_line():
 	for character in current_line:
 		current_line_char += 1
 		label.visible_characters = current_line_char
-		for x in range(4): await get_tree().physics_frame
+		if character == "," or character == ".":
+			for x in range(20): await get_tree().physics_frame
+		else:
+			for x in range(3): await get_tree().physics_frame
 	line_display_finished.emit()
 
 func _on_line_display_finished():
