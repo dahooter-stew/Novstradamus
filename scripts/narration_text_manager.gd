@@ -4,7 +4,6 @@ extends Node
 @export var narration_text_display: NarrationTextDisplay
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 
-
 var current_text_res: String
 
 func change_current_text_array(text_res):

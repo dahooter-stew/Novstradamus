@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dabrjqcdn2ds3"]
+
+[ext_resource type="Script" uid="uid://lh8geuct3iso" path="res://scripts/scene_transition_manager.gd" id="1_ln7l7"]
+
+[node name="SceneTransitionAnimationManager" type="Node" unique_id=1580915401]
+script = ExtResource("1_ln7l7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=733191519]
+layer = 5
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1220808351]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true

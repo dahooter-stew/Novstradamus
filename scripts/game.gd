@@ -4,6 +4,7 @@ extends Node2D
 @onready var menus_manager: MenusManager = $"Menus Manager"
 @onready var level_manager: LevelManager = $LevelManager
 @onready var narration_text_manager: NarrationTextManager = $NarrationTextManager
+@onready var scene_transition_anim_manager: SceneTransitionAnimationManager = $SceneTransitionAnimationManager
 
 
 #var player: Player
@@ -29,7 +30,6 @@ func on_game_started():
 	print("pressed start")
 	#level_manager.current_level_number = 1
 	#level_manager.play_current_level()
-	
 	narration_text_manager.canvas_layer.show()
 	narration_text_manager.change_current_text_array(preload("uid://de2y8gg5w4gl3"))
 	narration_text_manager.narration_text_display.display_narration_text_line()
@@ -60,6 +60,7 @@ func on_qte_failed():
 	menus_manager.fail_screen.show()
 
 func on_text_array_display_completed():
+	await scene_transition_anim_manager.play_scene_fade_out()
 	match narration_text_manager.current_text_res:
 		"intro_text":
 			narration_text_manager.canvas_layer.hide()
@@ -68,7 +69,6 @@ func on_text_array_display_completed():
 		"outro_text":
 			narration_text_manager.canvas_layer.hide()
 			menus_manager.win_screen.show()
-			pass
 
 #func on_qte_activated():
 	#print("qte activated")

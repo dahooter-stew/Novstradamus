@@ -1,6 +1,8 @@
 extends Node
 class_name MenusManager
 
+@export var game: Node2D
+
 @onready var fail_screen: CanvasLayer = $"Fail Screen"
 @onready var main_menu: CanvasLayer = $MainMenu
 @onready var win_screen: CanvasLayer = $WinScreen
