@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://co15heabk11yy"]
+
+[ext_resource type="Script" uid="uid://d4fvkwbanrbiw" path="res://narration_text_display.gd" id="1_tajk3"]
+
+[node name="NarrationTextDisplay" type="Control" unique_id=2014987831]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tajk3")
