@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://b7ea35osk5qdh" path="res://scripts/narration_text_manager.gd" id="8_gee14"]
 [ext_resource type="Script" uid="uid://cpfkfrvkv8sjl" path="res://scripts/level_manager.gd" id="9_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://co15heabk11yy" path="res://scenes/narration_text_display.tscn" id="9_vtaks"]
+[ext_resource type="Script" uid="uid://lh8geuct3iso" path="res://scenes/scene_transition_manager.gd" id="10_vtaks"]
 
 [node name="Game" type="Node2D" unique_id=131479963]
 script = ExtResource("1_iywne")
@@ -37,3 +38,18 @@ narration_text_display = NodePath("CanvasLayer/NarrationTextDisplay")
 visible = false
 
 [node name="NarrationTextDisplay" parent="NarrationTextManager/CanvasLayer" unique_id=2014987831 instance=ExtResource("9_vtaks")]
+
+[node name="SceneTransitionAnimationManager" type="Node" parent="." unique_id=2083052192]
+script = ExtResource("10_vtaks")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="SceneTransitionAnimationManager" unique_id=1806412853]
+layer = 5
+
+[node name="ColorRect" type="ColorRect" parent="SceneTransitionAnimationManager/CanvasLayer" unique_id=1848988277]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
