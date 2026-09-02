@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://c8jwqrkg76eo" path="res://scenes/levels/level_template.tscn" id="1_ksju7"]
 [ext_resource type="PackedScene" uid="uid://d13trbrdclm8t" path="res://scenes/player.tscn" id="2_6iamk"]
 [ext_resource type="PackedScene" uid="uid://beobhg8bx7rkc" path="res://scenes/guard.tscn" id="2_nsrm0"]
-[ext_resource type="Texture2D" uid="uid://l3wnrnkuhvio" path="res://scenes/levels/level_layouts/level_1layout.png" id="2_x42e6"]
 [ext_resource type="PackedScene" uid="uid://b08uwwf58gfbc" path="res://scenes/patrol.tscn" id="5_6761a"]
 [ext_resource type="PackedScene" uid="uid://tt5wq46yrici" path="res://scenes/password_door.tscn" id="6_sk5k4"]
 
@@ -38,17 +37,9 @@ position = Vector2(230, 85)
 sight_rotation = -255.53
 
 [node name="Player" parent="." index="4" unique_id=1824872444 instance=ExtResource("2_6iamk")]
-position = Vector2(516, -25)
+position = Vector2(-25, 15)
 
-[node name="Level1Layout" type="Sprite2D" parent="." index="5" unique_id=1194821366]
-visible = false
-modulate = Color(1, 1, 1, 0.2)
-position = Vector2(377, 128)
-scale = Vector2(0.08087851, 0.08087851)
-texture = ExtResource("2_x42e6")
-flip_h = true
-
-[node name="Path2D" parent="." index="6" unique_id=674059523 instance=ExtResource("5_6761a")]
+[node name="Path2D" parent="." index="5" unique_id=674059523 instance=ExtResource("5_6761a")]
 position = Vector2(121, 130)
 scale = Vector2(0.99257135, 1)
 guard_speed = 10.0
@@ -66,10 +57,10 @@ use_global_coordinates = true
 update_position = true
 update_scale = true
 
-[node name="PasswordDoor" parent="." index="7" unique_id=2012343126 instance=ExtResource("6_sk5k4")]
+[node name="PasswordDoor" parent="." index="6" unique_id=2012343126 instance=ExtResource("6_sk5k4")]
 position = Vector2(255, 112)
 
-[node name="PasswordDoor2" parent="." index="8" unique_id=399807139 instance=ExtResource("6_sk5k4")]
+[node name="PasswordDoor2" parent="." index="7" unique_id=399807139 instance=ExtResource("6_sk5k4")]
 position = Vector2(320, -48)
 
 [editable path="Path2D"]
