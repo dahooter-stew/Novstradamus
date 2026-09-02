@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="NarrationText" format=3 uid="uid://bxo87sg40csnm"]
+
+[ext_resource type="Script" uid="uid://wks6p62eg21q" path="res://resources/text/narration_text.gd" id="1_jgade"]
+
+[resource]
+script = ExtResource("1_jgade")
+text_lines_array = Array[String](["outro test 1", "outro test 2", "outro test 3"])
+metadata/_custom_type_script = "uid://wks6p62eg21q"

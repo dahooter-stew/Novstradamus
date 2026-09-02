@@ -3,6 +3,8 @@ extends Node2D
 #@onready var qte_manager: Node2D = $"QTE Manager"
 @onready var menus_manager: MenusManager = $"Menus Manager"
 @onready var level_manager: LevelManager = $LevelManager
+@onready var narration_text_manager: NarrationTextManager = $NarrationTextManager
+
 
 #var player: Player
 var current_level: Level
@@ -16,6 +18,8 @@ func _ready() -> void:
 	
 	level_manager.level_loaded.connect(on_level_loaded)
 	level_manager.levels_finished.connect(on_levels_finished)
+	
+	narration_text_manager.narration_text_display.text_array_display_completed.connect(on_text_array_display_completed)
 
 func on_game_exited():
 	print("pressed exit")
@@ -23,8 +27,12 @@ func on_game_exited():
 
 func on_game_started():
 	print("pressed start")
-	level_manager.current_level_number = 1
-	level_manager.play_current_level()
+	#level_manager.current_level_number = 1
+	#level_manager.play_current_level()
+	
+	narration_text_manager.canvas_layer.show()
+	narration_text_manager.change_current_text_array(preload("uid://de2y8gg5w4gl3"))
+	narration_text_manager.narration_text_display.display_narration_text_line()
 
 func on_game_resetted():
 	level_manager.play_current_level()
@@ -39,12 +47,28 @@ func on_level_loaded(level):
 
 func on_levels_finished():
 	print("finished levels")
-	menus_manager.win_screen.show()
+	
+	narration_text_manager.canvas_layer.show()
+	narration_text_manager.change_current_text_array(preload("uid://bxo87sg40csnm"))
+	narration_text_manager.narration_text_display.display_narration_text_line()
+	
+	#menus_manager.win_screen.show()
 
 func on_qte_failed():
 	print("qte failed")
 	level_manager.unload_current_level()
 	menus_manager.fail_screen.show()
+
+func on_text_array_display_completed():
+	match narration_text_manager.current_text_res:
+		"intro_text":
+			narration_text_manager.canvas_layer.hide()
+			level_manager.current_level_number = 1
+			level_manager.play_current_level()
+		"outro_text":
+			narration_text_manager.canvas_layer.hide()
+			menus_manager.win_screen.show()
+			pass
 
 #func on_qte_activated():
 	#print("qte activated")

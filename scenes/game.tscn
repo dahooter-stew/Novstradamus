@@ -6,7 +6,9 @@
 [ext_resource type="Script" uid="uid://cm3q6jqkbum5x" path="res://scripts/menus_manager.gd" id="6_u5sy4"]
 [ext_resource type="Script" uid="uid://2epv7x77xdtp" path="res://scripts/win_screen.gd" id="7_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://h4j7gybxbnb4" path="res://scenes/main_menu.tscn" id="7_gee14"]
+[ext_resource type="Script" uid="uid://b7ea35osk5qdh" path="res://scripts/narration_text_manager.gd" id="8_gee14"]
 [ext_resource type="Script" uid="uid://cpfkfrvkv8sjl" path="res://scripts/level_manager.gd" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://co15heabk11yy" path="res://scenes/narration_text_display.tscn" id="9_vtaks"]
 
 [node name="Game" type="Node2D" unique_id=131479963]
 script = ExtResource("1_iywne")
@@ -26,3 +28,12 @@ script = ExtResource("7_0tnpc")
 
 [node name="LevelManager" type="Node" parent="." unique_id=465472323]
 script = ExtResource("9_0tnpc")
+
+[node name="NarrationTextManager" type="Node" parent="." unique_id=1280387073 node_paths=PackedStringArray("narration_text_display")]
+script = ExtResource("8_gee14")
+narration_text_display = NodePath("CanvasLayer/NarrationTextDisplay")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="NarrationTextManager" unique_id=1285273581]
+visible = false
+
+[node name="NarrationTextDisplay" parent="NarrationTextManager/CanvasLayer" unique_id=2014987831 instance=ExtResource("9_vtaks")]
