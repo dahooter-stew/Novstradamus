@@ -1,12 +1,8 @@
 class_name NarrationTextManager
 extends Node
 
+@export var narration_text_display: NarrationTextDisplay
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func change_current_text_array(text_res):
+	if text_res:
+		narration_text_display.text_array = text_res.text_lines_array
