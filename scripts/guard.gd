@@ -37,8 +37,8 @@ func _physics_process(_delta: float) -> void:
 		#player_detection_area.rotation = deg_to_rad(sight_rotation)
 		
 	var facing_angle = rad_to_deg(player_detection_area.global_position.angle_to_point(marker.global_position))
-	label.text = str(facing_angle)
-	if not is_patrol:
+	#label.text = str(facing_angle)
+	if not is_patrol or (is_patrol and state != State.ACTIVE):
 		if facing_angle <= -45 and facing_angle >= -135: # Up
 			sprite.play("idle_up")
 		elif (facing_angle < -135 and facing_angle >= -180) or (facing_angle < 135 and facing_angle >= 180): # Left

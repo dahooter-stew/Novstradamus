@@ -95,7 +95,7 @@ func _input(event: InputEvent) -> void:
 				if detection_manager.guard_attacking and mask_abilities_manager.mask_charge_counter["STRENGTH"] > 0:
 					detection_manager.guard_attacking.on_player_detected(self)
 
-			if mask == Mask.SLY:
+			if mask == Mask.SLY and stealth_timer.is_stopped():
 				if mask_abilities_manager.mask_charge_counter["SLY"] > 0:
 					state = State.INVISIBLE
 					set_collision_layer_value(1, false)

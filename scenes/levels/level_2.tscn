@@ -25,7 +25,7 @@ tile_map_data = PackedByteArray("AAAaAOr/AAACAAQAAAAbAOr/AAADAAQAAAAcAOr/AAACAAQ
 position = Vector2(919, 9)
 
 [node name="Player" parent="." index="2" unique_id=1824872444 instance=ExtResource("2_g2h2n")]
-position = Vector2(589, 112)
+position = Vector2(22, 22)
 speed = 50
 
 [node name="Guard" parent="." index="3" unique_id=1339874387 instance=ExtResource("3_ra442")]
