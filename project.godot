@@ -82,6 +82,8 @@ space={
 2d_physics/layer_4="Guards"
 2d_physics/layer_5="Intangible"
 2d_physics/layer_6="PasswordDoors"
+2d_physics/layer_7="Stairs"
+2d_physics/layer_8="SideStairs"
 
 [physics]
 
