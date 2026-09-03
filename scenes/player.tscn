@@ -319,6 +319,7 @@ offset_bottom = -119.0
 scale = Vector2(1.4768262, 1.4768262)
 
 [node name="HUD" parent="." unique_id=918116722 instance=ExtResource("5_qlg0r")]
+visible = false
 
 [node name="MaskSpriteManager" type="Node2D" parent="." unique_id=627001203]
 modulate = Color(1, 1, 1, 0.70980394)

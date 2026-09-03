@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d4fvkwbanrbiw" path="res://scripts/narration_text_display.gd" id="1_tajk3"]
 [ext_resource type="Texture2D" uid="uid://cpngrj8mpoec1" path="res://resources/icons/narration_buttons_skip_black.png" id="3_cldeh"]
+[ext_resource type="FontFile" uid="uid://6ybtlmfsjl5d" path="res://resources/Cafe24Dongdong-v2.0.otf" id="3_igsrs"]
 [ext_resource type="Texture2D" uid="uid://bj8832ay1iycm" path="res://resources/paper_bg.png" id="4_cldeh"]
 [ext_resource type="Texture2D" uid="uid://7frj0fxwi7jn" path="res://resources/icons/narration_buttons_next_black.png" id="4_igsrs"]
 
@@ -42,13 +43,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -264.0
-offset_top = -88.0
+offset_top = -85.88
 offset_right = 263.77502
-offset_bottom = 161.0
+offset_bottom = 163.11978
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_constants/line_separation = 2
+theme_override_constants/line_separation = 10
+theme_override_fonts/normal_font = ExtResource("3_igsrs")
 theme_override_font_sizes/normal_font_size = 31
 autowrap_mode = 2
 
