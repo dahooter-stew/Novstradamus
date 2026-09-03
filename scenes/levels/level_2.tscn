@@ -25,11 +25,12 @@ tile_map_data = PackedByteArray("AAAaAOr/AAACAAQAAAAbAOr/AAADAAQAAAAcAOr/AAACAAQ
 position = Vector2(919, 9)
 
 [node name="Player" parent="." index="2" unique_id=1824872444 instance=ExtResource("2_g2h2n")]
-position = Vector2(33, 25)
+position = Vector2(589, 112)
 speed = 50
 
 [node name="Guard" parent="." index="3" unique_id=1339874387 instance=ExtResource("3_ra442")]
 position = Vector2(144, -25)
+disable_mode = 1
 sight_rotation = 45.655
 
 [node name="Guard2" parent="." index="4" unique_id=1213362252 instance=ExtResource("3_ra442")]
@@ -49,7 +50,7 @@ position = Vector2(0, 45)
 shape = SubResource("RectangleShape2D_ysnk7")
 
 [node name="Marker2D" type="Marker2D" parent="Area2D" index="1" unique_id=43229722]
-position = Vector2(216, 48)
+position = Vector2(180, 45)
 
 [node name="PasswordDoor" parent="." index="7" unique_id=2012343126 instance=ExtResource("2_fiq81")]
 position = Vector2(495, 96)

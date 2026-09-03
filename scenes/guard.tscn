@@ -197,7 +197,7 @@ radius = 8.0
 height = 22.0
 
 [node name="Guard" type="CharacterBody2D" unique_id=1339874387]
-collision_layer = 8
+collision_layer = 9
 collision_mask = 9
 script = ExtResource("1_ci2qi")
 sight_rotation = 90.0
@@ -295,7 +295,6 @@ position = Vector2(0, 7.775)
 shape = SubResource("CapsuleShape2D_ysnk7")
 
 [node name="Label" type="Label" parent="." unique_id=1822268303]
-visible = false
 offset_left = -60.0
 offset_right = -20.0
 offset_bottom = 23.0

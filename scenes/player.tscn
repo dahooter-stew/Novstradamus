@@ -226,8 +226,7 @@ size = Vector2(67, 62)
 [node name="Player" type="CharacterBody2D" unique_id=1824872444 node_paths=PackedStringArray("detection_manager")]
 y_sort_enabled = true
 scale = Vector2(0.265, 0.265)
-collision_layer = 9
-collision_mask = 161
+collision_mask = 169
 script = ExtResource("1_g2els")
 speed = 40
 detection_manager = NodePath("DetectionAreaManager")

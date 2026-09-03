@@ -3,8 +3,15 @@
 [ext_resource type="PackedScene" uid="uid://c8jwqrkg76eo" path="res://scenes/levels/level_template.tscn" id="1_ksju7"]
 [ext_resource type="PackedScene" uid="uid://d13trbrdclm8t" path="res://scenes/player.tscn" id="2_6iamk"]
 [ext_resource type="PackedScene" uid="uid://beobhg8bx7rkc" path="res://scenes/guard.tscn" id="2_nsrm0"]
-[ext_resource type="PackedScene" uid="uid://b08uwwf58gfbc" path="res://scenes/patrol.tscn" id="5_6761a"]
+[ext_resource type="Script" uid="uid://blbo6asf34k5w" path="res://scripts/patrol.gd" id="4_sk5k4"]
+[ext_resource type="Script" uid="uid://dglkqsq1ckmww" path="res://scripts/guard_path_follow.gd" id="5_oc4kc"]
 [ext_resource type="PackedScene" uid="uid://tt5wq46yrici" path="res://scenes/password_door.tscn" id="6_sk5k4"]
+
+[sub_resource type="Curve2D" id="Curve2D_cw8lf"]
+_data = {
+"points": PackedVector2Array(-0.408921, 10.418037, 0, 0, -17.127228, -8, 0, 0, 0, 0, -17.127228, -122.99999, 0, 0, 0, 0, -15.112259, -6.9999924, 0, 0, 0, 0, 34.254463, -6.9999924, 0, 0, 0, 0, 34.254463, -5.9999924, 0, 0, -5.436145, -6.115196, -16.119743, -6.9999924)
+}
+point_count = 6
 
 [node name="Level1" unique_id=1695296030 node_paths=PackedStringArray("player") instance=ExtResource("1_ksju7")]
 player = NodePath("Player")
@@ -39,12 +46,21 @@ sight_rotation = -255.53
 [node name="Player" parent="." index="4" unique_id=1824872444 instance=ExtResource("2_6iamk")]
 position = Vector2(-25, 15)
 
-[node name="Path2D" parent="." index="5" unique_id=674059523 instance=ExtResource("5_6761a")]
+[node name="Path2D" type="Path2D" parent="." index="5" unique_id=674059523]
 position = Vector2(121, 130)
 scale = Vector2(0.99257135, 1)
+curve = SubResource("Curve2D_cw8lf")
+script = ExtResource("4_sk5k4")
 guard_speed = 10.0
 
-[node name="Guard" parent="Path2D/GuardPath" parent_id_path=PackedInt32Array(674059523, 1809117608) index="0" unique_id=1339874387]
+[node name="GuardPath" type="PathFollow2D" parent="Path2D" index="0" unique_id=1809117608 node_paths=PackedStringArray("pathing_guard")]
+position = Vector2(-17.127228, -8)
+rotates = false
+script = ExtResource("5_oc4kc")
+pathing_guard = NodePath("Guard")
+
+[node name="Guard" parent="Path2D/GuardPath" index="0" unique_id=1643584579 instance=ExtResource("2_nsrm0")]
+scale = Vector2(1.0000001, 1.0000001)
 is_patrol = true
 
 [node name="PlayerDetectionArea" parent="Path2D/GuardPath/Guard" index="2" unique_id=1882423986]
@@ -52,10 +68,14 @@ position = Vector2(0, 0)
 rotation = -1.5707964
 scale = Vector2(0.9999998, 0.9999998)
 
-[node name="RemoteTransform2D" parent="Path2D/RemoteTransformPath" parent_id_path=PackedInt32Array(674059523, 2098026387) index="0" unique_id=404045550]
-use_global_coordinates = true
-update_position = true
-update_scale = true
+[node name="RemoteTransformPath" type="PathFollow2D" parent="Path2D" index="1" unique_id=2098026387 node_paths=PackedStringArray("pathing_guard")]
+position = Vector2(-17.127228, -8)
+rotation = -1.5707964
+script = ExtResource("5_oc4kc")
+pathing_guard = NodePath("RemoteTransform2D")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D/RemoteTransformPath" index="0" unique_id=404045550]
+remote_path = NodePath("../../GuardPath/Guard/PlayerDetectionArea")
 
 [node name="PasswordDoor" parent="." index="6" unique_id=2012343126 instance=ExtResource("6_sk5k4")]
 position = Vector2(255, 112)
@@ -63,5 +83,4 @@ position = Vector2(255, 112)
 [node name="PasswordDoor2" parent="." index="7" unique_id=399807139 instance=ExtResource("6_sk5k4")]
 position = Vector2(320, -48)
 
-[editable path="Path2D"]
 [editable path="Path2D/GuardPath/Guard"]
