@@ -1,22 +1,191 @@
 [gd_scene format=3 uid="uid://beobhg8bx7rkc"]
 
 [ext_resource type="Script" uid="uid://c15p5r8qn6wkp" path="res://scripts/guard.gd" id="1_ci2qi"]
-[ext_resource type="Texture2D" uid="uid://o3wu7xvhhlao" path="res://resources/sprites/enemies/guard_proto.png" id="1_m4fl1"]
 [ext_resource type="Texture2D" uid="uid://crtr2pxu82s1n" path="res://resources/sprites/Space_Key_Light.png" id="2_k0dx2"]
+[ext_resource type="Texture2D" uid="uid://ctliyqvlkyn1m" path="res://resources/sprites/enemies/guard_spritesheet.png" id="2_ygo2t"]
 [ext_resource type="Texture2D" uid="uid://cgn6nq64y5u6j" path="res://resources/sprites/enemies/guard_sight_proto.png" id="4_ygo2t"]
+[ext_resource type="Texture2D" uid="uid://8oxtpjh8nhq3" path="res://icon.svg" id="5_gn8tx"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ci2qi"]
-atlas = ExtResource("1_m4fl1")
-region = Rect2(0, 0, 16, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_gn8tx"]
+atlas = ExtResource("2_ygo2t")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dfqo"]
+atlas = ExtResource("2_ygo2t")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywdc2"]
+atlas = ExtResource("2_ygo2t")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4sgu"]
+atlas = ExtResource("2_ygo2t")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmy4q"]
+atlas = ExtResource("2_ygo2t")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vd6r2"]
+atlas = ExtResource("2_ygo2t")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpkwa"]
+atlas = ExtResource("2_ygo2t")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17ufb"]
+atlas = ExtResource("2_ygo2t")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nflhy"]
+atlas = ExtResource("2_ygo2t")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybvlj"]
+atlas = ExtResource("2_ygo2t")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vuaq3"]
+atlas = ExtResource("2_ygo2t")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00o3k"]
+atlas = ExtResource("2_ygo2t")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_su24k"]
+atlas = ExtResource("2_ygo2t")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1axas"]
+atlas = ExtResource("2_ygo2t")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snqa8"]
+atlas = ExtResource("2_ygo2t")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3yqu"]
+atlas = ExtResource("2_ygo2t")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uylac"]
+atlas = ExtResource("2_ygo2t")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b24lj"]
+atlas = ExtResource("2_ygo2t")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hspyp"]
+atlas = ExtResource("2_ygo2t")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47c6n"]
+atlas = ExtResource("2_ygo2t")
+region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ysnk7"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ci2qi")
+"texture": SubResource("AtlasTexture_gn8tx")
 }],
 "loop": 1,
-"name": &"default",
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dfqo")
+}],
+"loop": 1,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywdc2")
+}],
+"loop": 1,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4sgu")
+}],
+"loop": 1,
+"name": &"idle_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmy4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vd6r2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpkwa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17ufb")
+}],
+"loop": 1,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nflhy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybvlj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vuaq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00o3k")
+}],
+"loop": 1,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_su24k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1axas")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snqa8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3yqu")
+}],
+"loop": 1,
+"name": &"walk_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uylac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b24lj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hspyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47c6n")
+}],
+"loop": 1,
+"name": &"walk_up",
 "speed": 5.0
 }]
 
@@ -35,6 +204,7 @@ sight_rotation = 90.0
 
 [node name="GuardSprite" type="AnimatedSprite2D" parent="." unique_id=1165323101]
 sprite_frames = SubResource("SpriteFrames_ysnk7")
+animation = &"walk_up"
 
 [node name="TakedownPrompt" type="Control" parent="." unique_id=1889320811]
 visible = false
@@ -98,6 +268,15 @@ offset = Vector2(23.026, -0.535)
 rotation = -0.7853982
 scale = Vector2(1.0096953, 1.0121666)
 shape = SubResource("ConvexPolygonShape2D_k11hu")
+
+[node name="Marker2D" type="Marker2D" parent="PlayerDetectionArea" unique_id=1028836408]
+position = Vector2(48, 0)
+gizmo_extents = 21.0
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerDetectionArea/Marker2D" unique_id=680394656]
+visible = false
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("5_gn8tx")
 
 [node name="Exclamation" type="Label" parent="." unique_id=1385588986]
 visible = false

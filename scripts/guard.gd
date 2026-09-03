@@ -16,6 +16,7 @@ enum State {
 @onready var player_detection_area: Area2D = $PlayerDetectionArea
 @onready var player_detection_collision_shape: CollisionShape2D = $PlayerDetectionArea/PlayerDetectionCollisionShape
 @onready var exclamation: Label = $Exclamation
+@onready var marker: Marker2D = $PlayerDetectionArea/Marker2D
 @onready var state: State = State.ACTIVE
 @onready var is_in_player_detection_area: bool = false
 
@@ -29,13 +30,26 @@ func _ready() -> void:
 	#print(sight_line_offset)
 
 func _physics_process(_delta: float) -> void:
-	label.text = str(state)
+	#label.text = str(state)
 	
 	if not is_patrol:
 		player_detection_area.rotation = deg_to_rad(sight_rotation)
 	
 	if state == State.ACTIVE:
 		move_and_slide()
+		var facing_angle = rad_to_deg(player_detection_area.global_position.angle_to_point(marker.global_position))
+		#label.text = str(facing_angle)
+		if not is_patrol:
+			if facing_angle <= -45 and facing_angle >= -135: # Up
+				sprite.play("idle_up")
+			elif (facing_angle < -135 and facing_angle > -180) or (facing_angle < 135 and facing_angle > 180): # Left
+				sprite.play("idle_left")
+			elif facing_angle >= 45 and facing_angle <= 135: # Down
+				sprite.play("idle_down")
+			elif (facing_angle < 45 and facing_angle > 0) or (facing_angle > -45 and facing_angle < 0): # Right
+				sprite.play("idle_right")
+		if not is_patrol:
+			sprite.play()
 
 func inactive():
 	if state == State.INACTIVE:
