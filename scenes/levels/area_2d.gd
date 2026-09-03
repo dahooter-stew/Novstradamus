@@ -1,11 +1,16 @@
 extends Area2D
 
+@onready var marker: Marker2D = $Marker2D
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	body_entered.connect(_on_body_entered)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_body_entered(body):
+	collision_shape.set_deferred("disabled", true)
+	if body is Player:
+		var guard_instance = preload("res://scenes/guard.tscn").instantiate()
+		guard_instance.global_position = marker.global_position
+		guard_instance.sight_rotation = -180
+		#guard_instance.velocity.x = -100
+		get_parent().add_child(guard_instance)

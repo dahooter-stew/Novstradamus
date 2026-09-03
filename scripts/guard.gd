@@ -33,6 +33,9 @@ func _physics_process(_delta: float) -> void:
 	
 	if not is_patrol:
 		player_detection_area.rotation = deg_to_rad(sight_rotation)
+	
+	if state == State.ACTIVE:
+		move_and_slide()
 
 func inactive():
 	if state == State.INACTIVE:

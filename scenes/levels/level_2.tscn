@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://tt5wq46yrici" path="res://scenes/password_door.tscn" id="2_fiq81"]
 [ext_resource type="PackedScene" uid="uid://d13trbrdclm8t" path="res://scenes/player.tscn" id="2_g2h2n"]
 [ext_resource type="PackedScene" uid="uid://beobhg8bx7rkc" path="res://scenes/guard.tscn" id="3_ra442"]
+[ext_resource type="Script" uid="uid://b6jr0gnpvoyr6" path="res://scenes/levels/area_2d.gd" id="4_l37oo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ysnk7"]
 size = Vector2(20, 126)
@@ -24,7 +25,7 @@ tile_map_data = PackedByteArray("AAAaAOr/AAACAAQAAAAbAOr/AAADAAQAAAAcAOr/AAACAAQ
 position = Vector2(919, 9)
 
 [node name="Player" parent="." index="2" unique_id=1824872444 instance=ExtResource("2_g2h2n")]
-position = Vector2(42, 23)
+position = Vector2(526, 110)
 speed = 50
 
 [node name="Guard" parent="." index="3" unique_id=1339874387 instance=ExtResource("3_ra442")]
@@ -40,11 +41,15 @@ position = Vector2(240, 44)
 sight_rotation = -140.0
 
 [node name="Area2D" type="Area2D" parent="." index="6" unique_id=315053035]
-position = Vector2(570, 59)
+position = Vector2(646, 59)
+script = ExtResource("4_l37oo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0" unique_id=1936559642]
 position = Vector2(0, 45)
 shape = SubResource("RectangleShape2D_ysnk7")
+
+[node name="Marker2D" type="Marker2D" parent="Area2D" index="1" unique_id=43229722]
+position = Vector2(216, 48)
 
 [node name="PasswordDoor" parent="." index="7" unique_id=2012343126 instance=ExtResource("2_fiq81")]
 position = Vector2(495, 96)
@@ -53,4 +58,4 @@ position = Vector2(495, 96)
 position = Vector2(591, -96)
 
 [node name="PasswordDoor3" parent="." index="9" unique_id=440944954 instance=ExtResource("2_fiq81")]
-position = Vector2(895, -22)
+position = Vector2(768, -96)
